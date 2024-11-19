@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "CommandInsertFieldSchema.json",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "enum": [ "InsertField" ],
+      "description": "Inserts a simple field in the specified range."
+    },
+    "FieldText": {
+      "type": "string",
+      "description": "The field text to insert. This cannot handle fields within fields so keep it simple. Do not include the {braces}"
+    },
+    "CommandRange": {
+      "type": "string",
+      "enum": [ "Selection", "Paragraphs", "FirstParagraph", "LastParagraph" ],
+      "description": "Defines the range where the command is applied"
+    },
+    "SubRange": {
+      "type": "string",
+      "enum": [ "All", "Start", "End"],
+      "description": "Refines the range where the command is applied."
+    }
+  },
+  "required": [ "Name", "FieldText", "CommandRange", "SubRange" ]
+}

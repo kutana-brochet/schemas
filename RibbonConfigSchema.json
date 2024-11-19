@@ -1,0 +1,241 @@
+{
+  "$id": "RibbonConfigSchema.json",
+  "title": "Ribbon Controls Configuration",
+  "description": "Schema to define a set of controls (e.g., tabs, groups, buttons) for a customizable ribbon UI.",
+  "type": "object",
+  "properties": {
+    "Controls": {
+      "title": "Controls",
+      "description": "An array of controls representing tabs and their groups in the ribbon.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ControlTypeName": {
+            "title": "Control Type Name",
+            "description": "Type of the control. Typically 'tab', 'group', 'button', etc.",
+            "type": "string",
+            "example": [
+              "tab"
+            ]
+          },
+          "IdQ": {
+            "title": "Qualified ID",
+            "description": "Qualified ID that uniquely identifies the control.",
+            "type": "string",
+            "example": "nsHost:tabBrochet"
+          },
+          "Visible": {
+            "title": "Visible",
+            "description": "Determines whether the control is visible.",
+            "type": "boolean",
+            "example": true
+          },
+          "Label": {
+            "title": "Label",
+            "description": "The text label displayed for this control.",
+            "type": "string",
+            "example": "Brochet"
+          },
+          "Groups": {
+            "title": "Groups",
+            "description": "An array of groups within the tab.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ControlTypeName": {
+                  "title": "Group Control Type",
+                  "description": "Control type for the group, usually 'group'.",
+                  "type": "string",
+                  "example": "group"
+                },
+                "Id": {
+                  "title": "Group ID",
+                  "description": "The unique ID for the group.",
+                  "type": "string",
+                  "example": "GrpFilesTest"
+                },
+                "Label": {
+                  "title": "Group Label",
+                  "description": "The label for the group displayed on the ribbon.",
+                  "type": "string",
+                  "example": "New Document"
+                },
+                "InsertAfterQ": {
+                  "title": "Insert After",
+                  "description": "Indicates where the group should be inserted in relation to other controls.",
+                  "type": "string",
+                  "example": "nsHost:Position1"
+                },
+                "Controls": {
+                  "title": "Controls in Group",
+                  "description": "Array of controls that belong to the group.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ControlTypeName": {
+                        "title": "Control Type",
+                        "description": "Type of control such as DynamicMenu, button, etc.",
+                        "type": "string",
+                        "example": "DynamicMenu"
+                      },
+                      "ID": {
+                        "title": "Control ID",
+                        "description": "ID of the control.",
+                        "type": "string",
+                        "example": "MenuNewDoc"
+                      },
+                      "Enabled": {
+                        "title": "Enabled",
+                        "description": "Indicates if the control is enabled or disabled.",
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "Label": {
+                        "title": "Label",
+                        "description": "Label of the control displayed to the user.",
+                        "type": "string",
+                        "example": "New Document"
+                      },
+                      "ImageMso": {
+                        "title": "Image MSO",
+                        "description": "The icon image to be displayed for the control.",
+                        "type": "string",
+                        "example": "FileNew"
+                      },
+                      "size": {
+                        "title": "Size",
+                        "description": "Size of the control, such as large or small.",
+                        "type": "string",
+                        "example": "large"
+                      },
+                      "Tag": {
+                        "title": "Tag",
+                        "description": "Tag used for custom identification or extra metadata.",
+                        "type": "string",
+                        "example": "menuID0=MenuNewDoc"
+                      },
+                      "GetContent": {
+                        "title": "Get Content",
+                        "description": "Object specifying the function that retrieves the dynamic content for the control.",
+                        "type": "object",
+                        "properties": {
+                          "FunctionName": {
+                            "title": "Function Name",
+                            "description": "Name of the function that provides the dynamic content.",
+                            "type": "string",
+                            "example": "GetContent"
+                          },
+                          "ParameterIdentifier": {
+                            "title": "Parameter Identifier",
+                            "description": "Identifier for passing parameters to the function.",
+                            "type": "string",
+                            "example": "menuID"
+                          },
+                          "PluginName": {
+                            "title": "Plugin Name",
+                            "description": "Name of the plugin responsible for providing the content.",
+                            "type": "string",
+                            "example": "BrochetFilePlugin"
+                          }
+                        }
+                      },
+                      "IdMso": {
+                        "title": "ID MSO",
+                        "description": "Built-in ID for standard Office controls.",
+                        "type": "string",
+                        "example": "FileOpen"
+                      },
+                      "OnAction": {
+                        "title": "On Action",
+                        "description": "Action configuration that defines the function to be triggered when the control is clicked.",
+                        "type": "object",
+                        "properties": {
+                          "FunctionName": {
+                            "title": "Function Name",
+                            "description": "Name of the function to execute on click.",
+                            "type": "string",
+                            "example": "UpdateFieldCodes"
+                          },
+                          "ParameterIdentifier": {
+                            "title": "Parameter Identifier",
+                            "description": "Identifier used to pass parameters to the function.",
+                            "type": "string",
+                            "example": "UpdateFields"
+                          },
+                          "PluginName": {
+                            "title": "Plugin Name",
+                            "description": "Plugin responsible for the action.",
+                            "type": "string",
+                            "example": "BrochetFilePlugin"
+                          }
+                        }
+                      },
+                      "GetEnabled": {
+                        "title": "Get Enabled",
+                        "description": "Function that determines whether the control is enabled or disabled.",
+                        "type": "object",
+                        "properties": {
+                          "FunctionName": {
+                            "title": "Function Name",
+                            "description": "Name of the function that determines the enabled state.",
+                            "type": "string",
+                            "example": "GetEnabled"
+                          },
+                          "ParameterIdentifier": {
+                            "title": "Parameter Identifier",
+                            "description": "Optional parameter for the function.",
+                            "type": "string",
+                            "example": ""
+                          },
+                          "PluginName": {
+                            "title": "Plugin Name",
+                            "description": "Plugin responsible for determining the enabled state.",
+                            "type": "string",
+                            "example": "BrochetFilePlugin"
+                          }
+                        }
+                      },
+                      "ShowLabel": {
+                        "title": "Show Label",
+                        "description": "Specifies whether the label should be visible or hidden.",
+                        "type": "boolean",
+                        "example": false
+                      },
+                      "ScreenTip": {
+                        "title": "Screen Tip",
+                        "description": "Short tooltip displayed on hover.",
+                        "type": "string",
+                        "example": "Update all fields in the document"
+                      },
+                      "SuperTip": {
+                        "title": "Super Tip",
+                        "description": "Detailed description shown on hover.",
+                        "type": "string",
+                        "example": "Use to update all fields in the document, for example Table of Contents, cross-references, and footer information including the page number."
+                      }
+                    },
+                    "required": [
+                      "ControlTypeName"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "ControlTypeName"
+              ]
+            }
+          }
+        },
+        "required": [
+          "ControlTypeName"
+        ]
+      }
+    }
+  },
+  "required": [
+    "Controls"
+  ]
+}

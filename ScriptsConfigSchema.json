@@ -1,0 +1,46 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "Name": {
+        "type": "string",
+        "description": "Name of the script, This must be unique as is it referenced in the OnAction tag of the button."
+      },
+      "Comment": {
+        "type": "string",
+        "description": "Description of what the script does, this is for internal use only."
+      },
+      "Commands": {
+        "type": "array",
+        "description": "An array of commands performed by the script",
+        "items": {
+          "oneOf": [
+            {
+              "$ref": "./CommandInsertTextSchema.json"
+            },
+            {
+              "$ref": "./CommandInsertFieldSchema.json"
+            },
+            {
+              "$ref": "./CommandApplyStyleSchema.json"
+            },
+            {
+              "$ref": "./CommandApplyFontFormattingSchema.json"
+            },
+            {
+              "$ref": "./CommandApplyParagraphFormattingSchema.json"
+            },
+            {
+              "$ref": "./CommandDeleteCharactersSchema.json"
+            }
+          ]
+        }
+      }
+    },
+    "required": [
+      "Name",
+      "Commands"
+    ]
+  }
+}

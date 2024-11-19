@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "CommandApplyStyleSchema.json",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "enum": [ "ApplyStyle" ],
+      "description": "Applies a paragraph style to the specified range."
+    },
+    "StyleName": {
+      "type": "string",
+      "description": "The name of the style to apply"
+    },
+    "CommandRange": {
+      "type": "string",
+      "enum": [ "Selection", "Paragraphs", "FirstParagraph", "LastParagraph" ],
+      "description": "Defines the range where the Style is applied"
+    },
+    "SubRange": {
+      "type": "string",
+      "enum": [ "All" ],
+      "description": "This must be set to 'All' as it is only valid at paragraph level."
+    }
+  },
+  "required": [ "Name", "StyleName", "CommandRange", "SubRange" ]
+}

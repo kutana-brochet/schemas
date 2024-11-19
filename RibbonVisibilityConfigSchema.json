@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "ControlName": {
+        "type": "string",
+        "description": "The name of the control whose visibility is being configured"
+      },
+      "EnablerDefinitions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "EnablerName": {
+              "type": "string",
+              "description": "The name of the enabler used to control visibility"
+            },
+            "EnabledDisabledList": {
+              "type": "object",
+              "properties": {
+                "Enabled": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "description": "Regex patterns defining which templates enable the control"
+                  }
+                }
+              },
+              "required": [
+                "Enabled"
+              ]
+            }
+          },
+          "required": [
+            "EnablerName",
+            "EnabledDisabledList"
+          ]
+        }
+      }
+    },
+    "required": [
+      "ControlName",
+      "EnablerDefinitions"
+    ]
+  }
+}

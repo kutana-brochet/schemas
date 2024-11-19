@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "CommandInsertTextSchema.json",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "enum": [ "InsertText" ],
+      "description": "Inserts plain text in the specified range."
+    },
+    "Text": {
+      "type": "string",
+      "description": "The text to insert"
+    },
+    "PreventDuplicates": {
+      "type": "boolean",
+      "description": "Prevents duplicate text from being re-inserted."
+    },
+    "CommandRange": {
+      "type": "string",
+      "enum": [ "Selection", "Paragraphs", "FirstParagraph", "LastParagraph" ],
+      "description": "Defines the range where the command is applied"
+    },
+    "SubRange": {
+      "type": "string",
+      "enum": [ "Start", "End" ],
+      "description": "Refines the range where the command is applied."
+    }
+  },
+  "required": [ "Name", "Text", "CommandRange", "SubRange" ]
+}

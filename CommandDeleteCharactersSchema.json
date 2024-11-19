@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "CommandDeleteCharactersSchema.json",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "enum": [ "DeleteCharacters" ],
+      "description": "Command name must be 'DeleteCharacters'"
+    },
+    "Characters": {
+      "type": "string",
+      "description": "A string of characters that will be removed.",
+      "maxLength": 100
+    },
+    "CommandRange": {
+      "type": "string",
+      "enum": [ "Selection", "Paragraphs", "FirstParagraph", "LastParagraph" ],
+      "description": "Defines the range where the command is applied"
+    },
+    "SubRange": {
+      "type": "string",
+      "enum": [ "All", "Start", "End", "FirstWord", "LastWord" ],
+      "description": "Refines the range where the command is applied."
+    }
+  },
+  "required": [ "Name", "Characters", "CommandRange" ]
+}

@@ -1,0 +1,68 @@
+{
+  "$id": "StyleButtonsConfigSchema.json",
+  "title": "Brochet PluginStyleButtons Schema",
+  "description": "Schema representing the structure of the 'BrochetStyleButtonsPlugin''.",
+  "type": "object",
+  "properties": {
+    "Word": {
+      "$ref": "#/definitions/Application"
+    },
+    "PowerPoint": {
+      "$ref": "#/definitions/Application"
+    },
+    "Excel": {
+      "$ref": "#/definitions/Application"
+    },
+    "Outlook": {
+      "$ref": "#/definitions/Application"
+    }
+  },
+  "oneOf": [
+    {
+      "required": [
+        "Word"
+      ]
+    },
+    {
+      "required": [
+        "PowerPoint"
+      ]
+    },
+    {
+      "required": [
+        "Excel"
+      ]
+    },
+    {
+      "required": [
+        "Outlook"
+      ]
+    }
+  ],
+  "definitions": {
+    "Application": {
+      "description": "The Office application.",
+      "type": "object",
+      "properties": {
+        "BrochetStyleButtons": {
+          "description": "Object representing the plugin configuration for the Brochet StyleButtonsPlugin.",
+          "type": "object",
+          "properties": {
+            "Scripts": {
+              "$ref": "./ScriptsConfigSchema.json"
+            },
+            "RibbonIcons": {
+              "$ref": "./RibbonIconsConfigSchema.json"
+            },
+            "RibbonConfig": {
+              "$ref": "./RibbonConfigSchema.json"
+            },
+            "RibbonVisibility": {
+              "$ref": "./RibbonVisibilityConfigSchema.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}
