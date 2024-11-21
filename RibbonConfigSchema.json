@@ -1,7 +1,7 @@
 {
   "$id": "RibbonConfigSchema.json",
   "title": "Ribbon Controls Configuration",
-  "description": "Schema to define a set of controls (e.g., tabs, groups, buttons) for a customizable ribbon UI.",
+  "description": "Schema to define a set of controls (e.g. tabs, groups, buttons) for a customizable ribbon UI.",
   "type": "object",
   "properties": {
     "Controls": {
