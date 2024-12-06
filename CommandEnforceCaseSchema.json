@@ -10,7 +10,7 @@
     },
     "WordModifiers": {
       "type": "array",
-      "description": "A list of case sensitive words that are",
+      "description": "A list of case sensitive words that are applied to the matching word in the range.",
       "items": {
         "type": "string"
       },
