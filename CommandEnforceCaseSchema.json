@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "CommandEnforceCaseSchema.json",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "enum": [ "EnforceCase" ],
+      "description": "Checks the specified range for the WordModifiers. If the word is found then it replaces that word with the case sensitive version. \n For example Imanage would become iManage."
+    },
+    "WordModifiers": {
+      "type": "array",
+      "description": "A list of case sensitive words that are",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "IgnoreFirstWord": {
+      "type": "boolean",
+      "description": "Ignores the first word in a sentence. This is useful if you want 'an' to appear in lower case but not at the start of the sentence."
+    },
+    "CommandRange": {
+      "type": "string",
+      "enum": [ "Selection", "Paragraphs", "FirstParagraph", "LastParagraph" ],
+      "description": "Defines the range where the command is applied"
+    },
+    "SubRange": {
+      "type": "string",
+      "enum": [ "All", "Start", "End"],
+      "description": "Refines the range where the command is applied."
+    }
+  },
+  "required": [ "Name", "IgnoreFirstWord", "WordModifiers", "CommandRange", "SubRange" ]
+}
