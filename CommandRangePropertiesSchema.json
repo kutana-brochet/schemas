@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "CommandRangePropertiesSchema.json",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "enum": [ "RangeProperties" ],
+      "description": "Formats the specified range with properties such as Case, Bold etc."
+    },
+    "Case": {
+      "type": "number",
+      "description": "Specifies the case of the text in the range.\nThis can be\n-1 Toggles between upper, lower, and sentence case.\n0 Lower case.\n1 Upper case.\n2 Title word case.\n4 Sentence case."
+    },
+    "CommandRange": {
+      "type": "string",
+      "enum": [ "Selection", "Paragraphs", "FirstParagraph", "LastParagraph" ],
+      "description": "Defines the range where the command is applied"
+    },
+    "SubRange": {
+      "type": "string",
+      "enum": [ "All", "Start", "End"],
+      "description": "Refines the range where the command is applied."
+    }
+  },
+  "required": [ "Name", "IgnoreFirstWord", "WordModifiers", "CommandRange", "SubRange" ]
+}
