@@ -23,5 +23,5 @@
       "description": "Refines the range where the command is applied."
     }
   },
-  "required": [ "Name", "IgnoreFirstWord", "WordModifiers", "CommandRange", "SubRange" ]
+  "required": [ "Name", "Case", "CommandRange", "SubRange" ]
 }
