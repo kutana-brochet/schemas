@@ -35,7 +35,7 @@
               "$ref": "./CommandDeleteCharactersSchema.json"
             },
             {
-              "$ref": "./CommandEnforceSchema.json"
+              "$ref": "./CommandEnforceCaseSchema.json"
             },
             {
               "$ref": "./CommandRangePropertiesSchema.json"
