@@ -56,7 +56,7 @@
               },
               {
                 "type": "string",
-                "description": "Named color value, e.g., 'Blue'."
+                "description": "Named color value, e.g., 'Blue'.",
                 "enum": [
                   "ActiveBorder",
                   "ActiveCaption",
@@ -225,7 +225,7 @@
                   "WhiteSmoke",
                   "Yellow",
                   "YellowGreen"
-                ],
+                ]
               },
               {
                 "type": "object",
