@@ -36,10 +36,21 @@
           "0",
           "1",
           "2",
+          "3",
           "4",
-          "8"
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
         ],
-        "description": "The font style for the icon text. Choose single formatting such as Bold or combine them by adding the numbers./nRegular/t0/nBold/t1/Italic/t2/nUnderline/t4/nStrikeout/t8/nForexample Bold Italic would be 3."
+        "description": "The font style for the icon text. Choose single formatting such as Bold or combine them by adding the numbers.\nRegular\t0\nBold\t1\Italic\t2\nUnderline\t4\nStrikeout\t8\nForexample Bold Italic would be 3."
       },
       "FontColorDefinition": {
         "type": "object",
