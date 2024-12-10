@@ -31,9 +31,15 @@
           "Regular",
           "Bold",
           "Italic",
-          "BoldItalic"
+          "Underlined",
+          "Strikeout",
+          "0",
+          "1",
+          "2",
+          "4",
+          "8"
         ],
-        "description": "The font style for the icon text [Future changes are required here to combine these values so you can have bold and italic]"
+        "description": "The font style for the icon text. Choose single formatting such as Bold or combine them by adding the numbers./nRegular/t0/nBold/t1/Italic/t2/nUnderline/t4/nStrikeout/t8/nForexample Bold Italic would be 3."
       },
       "FontColorDefinition": {
         "type": "object",
