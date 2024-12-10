@@ -50,7 +50,7 @@
           "14",
           "15"
         ],
-        "description": "The font style for the icon text. Choose single formatting such as Bold or combine them by adding the numbers.\nRegular\t0\nBold\t1\nItalic\t2\nUnderline\t4\nStrikeout\t8\nForexample Bold Italic would be 3."
+        "description": "The font style for the icon text. Choose single formatting such as Bold or combine them by adding the numbers.\n0 Regular\n1 Bold\n2 Italic\n4 Underline\n8 Strikeout\nForexample Bold and Italic would be 3."
       },
       "FontColorDefinition": {
         "type": "object",
