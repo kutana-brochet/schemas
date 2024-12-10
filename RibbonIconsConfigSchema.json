@@ -35,9 +35,71 @@
         ],
         "description": "The font style for the icon text [Future changes are required here to combine these values so you can have bold and italic]"
       },
+      "FontColorDefinition": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "hex",
+              "name",
+              "rgb"
+            ],
+            "description": "Specifies the format of the font color."
+          },
+          "value": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "description": "Hexadecimal color value, e.g., #FF8040."
+              },
+              {
+                "type": "string",
+                "description": "Named color value, e.g., 'Blue'."
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "r": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255,
+                    "description": "Red component of the RGB color."
+                  },
+                  "g": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255,
+                    "description": "Green component of the RGB color."
+                  },
+                  "b": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255,
+                    "description": "Blue component of the RGB color."
+                  }
+                },
+                "required": [
+                  "r",
+                  "g",
+                  "b"
+                ],
+                "additionalProperties": false,
+                "description": "RGB color definition."
+              }
+            ]
+          }
+        },
+        "required": [
+          "format",
+          "value"
+        ],
+        "additionalProperties": false
+      },
       "FontColour": {
         "type": "string",
-        "description": "The font color for the icon text. Use common names like 'Red', 'Black' etc. Search for 'KnownColor Enum' for a full list. This will be changed in the future to allow RGB"
+        "description": "[To be DEPRECATED - Use FontColorDefinition]/nThe font color for the icon text. Use common names like 'Red', 'Black' etc. Search for 'KnownColor Enum' for a full list."
       },
       "TextRenderingHint": {
         "type": "string",
@@ -49,7 +111,7 @@
           "SingleBitPerPixelGridFit",
           "SystemDefault"
         ],
-        "description": "This defines how the text is rendered. AntiAlias generally provide a good image."
+        "description": "This defines how the text is rendered. AntiAlias generally provides a good image."
       },
       "XOffset": {
         "type": "integer",
@@ -70,9 +132,33 @@
       "Size",
       "FontName",
       "FontSize",
-      "FontColour",
+      "FontStyle",
+      "TextRenderingHint",
       "XOffset",
       "YOffset"
+    ],
+    "additionalProperties": false,
+    "oneOf": [
+      {
+        "required": [
+          "FontColorDefinition"
+        ],
+        "not": {
+          "required": [
+            "FontColour"
+          ]
+        }
+      },
+      {
+        "required": [
+          "FontColour"
+        ],
+        "not": {
+          "required": [
+            "FontColorDefinition"
+          ]
+        }
+      }
     ]
   }
 }
