@@ -1,0 +1,244 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "WordSettings": {
+      "type": "object",
+      "description": "Settings specific to Word documents.",
+      "properties": {
+        "ConditionedSettings": {
+          "type": "array",
+          "description": "List of settings applied under specific conditions.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Conditions": {
+                "type": "object",
+                "description": "Conditions under which the settings apply.",
+                "properties": {
+                  "EventTypes": {
+                    "type": "object",
+                    "description": "Event types to include.",
+                    "properties": {
+                      "Include": {
+                        "type": "array",
+                        "description": "List of event types to include.",
+                        "items": { "type": "string" }
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "DocumentTemplates": {
+                    "type": "object",
+                    "description": "Document templates to include.",
+                    "properties": {
+                      "Include": {
+                        "type": "array",
+                        "description": "List of document templates to include.",
+                        "items": { "type": "string" }
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "Properties": {
+                    "type": "object",
+                    "description": "Additional properties for filtering.",
+                    "properties": {
+                      "Include": {
+                        "type": "array",
+                        "description": "List of properties to include.",
+                        "items": { "type": "string" }
+                      },
+                      "Exclude": {
+                        "type": "array",
+                        "description": "List of properties to exclude.",
+                        "items": { "type": "string" }
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "StartingProfile": {
+                "type": "object",
+                "description": "Initial profile settings.",
+                "properties": {
+                  "class": {
+                    "type": "string",
+                    "description": "Class of the document."
+                  },
+                  "subclass": {
+                    "type": "string",
+                    "description": "Subclass of the document."
+                  },
+                  "class_description": {
+                    "type": "string",
+                    "description": "Description of the class."
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the document."
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Title of the document."
+                  }
+                },
+                "additionalProperties": false
+              },
+              "VBACallback": {
+                "type": "string",
+                "description": "VBA callback function to execute."
+              },
+              "PropertyUpdaters": {
+                "type": "array",
+                "description": "List of property updaters.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "Type": {
+                      "type": "string",
+                      "description": "Type of updater."
+                    },
+                    "PropertiesMapping": {
+                      "type": "object",
+                      "description": "Mapping of properties to update.",
+                      "additionalProperties": {
+                        "type": "string",
+                        "description": "Mapping value."
+                      }
+                    }
+                  },
+                  "required": [ "Type", "PropertiesMapping" ],
+                  "additionalProperties": false
+                }
+              },
+              "PropertySavers": {
+                "type": "array",
+                "description": "List of property savers.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "Type": {
+                      "type": "string",
+                      "description": "Type of saver."
+                    },
+                    "PropertiesMapping": {
+                      "type": "object",
+                      "description": "Mapping of properties to save.",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {
+                          "Value": {
+                            "type": "string",
+                            "description": "Value to save."
+                          }
+                        },
+                        "required": [ "Value" ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [ "Type", "PropertiesMapping" ],
+                  "additionalProperties": false
+                }
+              },
+              "UpdateFields": {
+                "type": "string",
+                "description": "Indicates whether fields should be updated."
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [ "ConditionedSettings" ],
+      "additionalProperties": false
+    },
+    "ExcelSettings": {
+      "type": "object",
+      "description": "Settings specific to Excel documents.",
+      "properties": {
+        "ConditionedSettings": {
+          "type": "array",
+          "description": "List of settings applied under specific conditions.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Conditions": {
+                "type": "object",
+                "description": "Conditions under which the settings apply.",
+                "properties": {
+                  "EventTypes": {
+                    "type": "object",
+                    "description": "Event types to include.",
+                    "properties": {
+                      "Include": {
+                        "type": "array",
+                        "description": "List of event types to include.",
+                        "items": { "type": "string" }
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "StartingProfile": {
+                "type": "object",
+                "description": "Initial profile settings.",
+                "properties": {
+                  "class": {
+                    "type": "string",
+                    "description": "Class of the workbook."
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Title of the workbook."
+                  }
+                },
+                "additionalProperties": false
+              },
+              "PropertySavers": {
+                "type": "array",
+                "description": "List of property savers.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "Type": {
+                      "type": "string",
+                      "description": "Type of saver."
+                    },
+                    "PropertiesMapping": {
+                      "type": "object",
+                      "description": "Mapping of properties to save.",
+                      "additionalProperties": {
+                        "type": "object",
+                        "properties": {
+                          "Value": {
+                            "type": "string",
+                            "description": "Value to save."
+                          }
+                        },
+                        "required": [ "Value" ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [ "Type", "PropertiesMapping" ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [ "ConditionedSettings" ],
+      "additionalProperties": false
+    }
+  },
+  "required": [ "WordSettings", "ExcelSettings" ],
+  "additionalProperties": false
+}
