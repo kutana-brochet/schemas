@@ -34,7 +34,7 @@
         },
         "uniqueItems": true
       },
-      "FontColorDefinition": {
+      "FontColor": {
         "type": "object",
         "properties": {
           "format": {
@@ -267,7 +267,7 @@
       },
       "FontColour": {
         "type": "string",
-        "description": "[To be DEPRECATED - Use FontColorDefinition]/nThe font color for the icon text. Use common names like 'Red', 'Black' etc. Search for 'KnownColor Enum' for a full list."
+        "description": "[To be DEPRECATED - Use FontColor]/nThe font color for the icon text. Use common names like 'Red', 'Black' etc. Search for 'KnownColor Enum' for a full list."
       },
       "TextRenderingHint": {
         "type": "string",
@@ -309,7 +309,7 @@
     "oneOf": [
       {
         "required": [
-          "FontColorDefinition"
+          "FontColor"
         ],
         "not": {
           "required": [
@@ -323,7 +323,7 @@
         ],
         "not": {
           "required": [
-            "FontColorDefinition"
+            "FontColor"
           ]
         }
       }
