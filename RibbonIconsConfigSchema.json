@@ -25,32 +25,14 @@
         "type": "integer",
         "description": "The font size used for the icon text. A large single letter is a good fontsize for a 32x32 size bitmap."
       },
-      "FontStyle": {
-        "type": "string",
-        "enum": [
-          "Regular",
-          "Bold",
-          "Italic",
-          "Underlined",
-          "Strikeout",
-          "0",
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9",
-          "10",
-          "11",
-          "12",
-          "13",
-          "14",
-          "15"
-        ],
-        "description": "The font style for the icon text. Choose single formatting such as Bold or combine them by adding the numbers.\n0 Regular\n1 Bold\n2 Italic\n4 Underline\n8 Strikeout\nForexample Bold and Italic would be 3."
+      "FontStyles": {
+        "type": "array",
+        "description": "The font style for the icon text.",
+        "items": {
+          "type": "string",
+          "enum": ["Regular", "Bold", "Italic", "Underline", "Strikeout"]
+        },
+        "uniqueItems": true
       },
       "FontColorDefinition": {
         "type": "object",
