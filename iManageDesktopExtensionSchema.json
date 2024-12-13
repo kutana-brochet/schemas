@@ -1,219 +1,265 @@
 {
-  "$id": "iManageDesktopExtensionSchema.json",
-  "title": "Brochet iManageDesktopExtension Schema",
-  "description": "Schema representing the structure of the 'iManageDesktopExtension'.",
-  "type": "object",
-  "properties": {
-    "WordSettings": {
-      "$ref": "#/definitions/Application"
-    },
-    "PowerPointSettings": {
-      "$ref": "#/definitions/Application"
-    },
-    "ExcelSettings": {
-      "$ref": "#/definitions/Application"
-    },
-    "OutlookSettings": {
-      "$ref": "#/definitions/Application"
-    }
-  },
-
-  "definitions": {
-    "Application": {
-      "type": "object",
-      "description": "The Office Application.",
-      "properties": {
-        "ConditionedSettings": {
-          "type": "array",
-          "description": "List of settings applied under specific conditions.",
-          "items": {
-            "type": "object",
-            "properties": {
-              "Conditions": {
-                "type": "object",
-                "description": "Conditions under which the settings apply.\nLogic: The Add-in will check the logic of all Conditions collection.\nAll Conditions which pass the logic will be run. This allows multiple Conditions to be met and run per iManage event.\nThe order of the Conditions collection in the JSON will dictate the order that they will be processed (run).",
-                "properties": {
-                  "EventTypes": {
-                    "type": "object",
-                    "description": "Event types to include.",
-                    "properties": {
-                      "Include": {
-                        "type": "array",
-                        "description": "List of event types to include.\nNewDocument and Reprofile are K+B specific events.\nThe rest are iManage events.",
-                        "items": {
-                          "type": "string",
-                          "enum": [
-                            "NewDocument",
-                            "Reprofile",
-                            "DocumentBeforeSave",
-                            "DocumentAfterSave",
-                            "DocumentSaveAs",
-                            "DocumentBeforeClose",
-                            "DocumentClose",
-                            "DocumentCloseFinal",
-                            "DocumentBeforePrint",
-                            "DocumentOpen",
-                            "NewVersion",
-                            "UpdateProfile",
-                            "CreateProfile",
-                            "UpdateProperties",
-                            "Compare"
-                          ]
-                        }
-                      }
-                    },
-                    "additionalProperties": false
-                  },
-                  "DocumentTemplates": {
-                    "type": "object",
-                    "description": "Document templates that are to be included or excluded, listed by name.",
-                    "properties": {
-                      "RegularExpressions":{
-                        "type" : "boolean",
-                        "description":"Use regular expressions instead of template names."
-                      },
-                      "Include": {
-                        "type": "array",
-                        "description": "List of document templates to include.\nThe Word templates are listed in an 'Include' list and only refer to the Word template name not including the template extension eg dotx or dotm.",
-                        "items": { "type": "string" }
-                      },
-                      "Exclude": {
-                        "type": "array",
-                        "description": "List of document templates to exclude.\nThe Word templates are listed in an 'Exclude' list and only refer to the Word template name not including the template extension eg dotx or dotm.",
-                        "items": { "type": "string" }
-                      }
-                    },
-                    "additionalProperties": false
-                  },
-                  "Properties": {
-                    "type": "object",
-                    "description": "Additional properties for filtering.",
-                    "properties": {
-                      "Include": {
-                        "type": "array",
-                        "description": "List of properties to include.",
-                        "items": { "type": "string" }
-                      },
-                      "Exclude": {
-                        "type": "array",
-                        "description": "List of properties to exclude.",
-                        "items": { "type": "string" }
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                },
-                "additionalProperties": false
-              },
-              "StartingProfile": {
-                "type": "object",
-                "description": "Initial profile settings.\nThese Starting Profile settings ONLY apply to the NewDocument process.\nThey do not apply to a document being saved into MS Word using the standard iManage SaveAs command.\n\nThe starting Doc Type (class) can also be set in iManage using imWorkOptions.xml to set the options.",
-                "properties": {
-                  "class": {
-                    "type": "string",
-                    "description": "The iManage Class type entered into the iManage dialog box.\nNB The Class must exist in iManage (this is a new bug introduced in iManage. Previously if the Class type did not exist then the default Class DOC would be applied)"
-                  },
-                  "subclass": {
-                    "type": "string",
-                    "description": "Subclass of the document."
-                  },
-                  "class_description": {
-                    "type": "string",
-                    "description": "Description of the class."
-                  },
-                  "type": {
-                    "type": "string",
-                    "markdownDescription": "The type of Word document to be saved into iManage.\n\n**Example**:\n\n\"StartingProfile\" : {\n\n       \"title\": \"\",\n       \"class\": \"LET\",\n       \"type\": \"WORDX\"\n     },"
-                  },
-                  "title": {
-                    "type": "string",
-                    "description": "The default text to be inserted into the Title field of the iManage dialog box:\nIf set to blank, the field will remain empty.\nIf not specified, the field will automatically display the text from the first paragraph of the document."
-                  }
-                },
-                "additionalProperties": false
-              },
-              "VBACallback": {
-                "type": "string",
-                "description": "VBA callback function to execute.\nThe function needs to be public."
-              },
-              "VBACallbackOnCancel": {
-                "type": "string",
-                "description": "VBA callback function to execute when the operation cancelled.\nThe function needs to be public."
-              },
-              "PropertyUpdaters": {
-                "type": "array",
-                "description": "PropertyUpdaters upload information to iManage.",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "Type": {
-                      "type": "string",
-                      "description": "Location of the information to upload.",
-                      "enum":["CustomDocumentProperties", "DocumentVariables"]
-                    },
-                    "PropertiesMapping": {
-                      "type": "object",
-                      "description": "Mapping of properties to update.",
-                      "additionalProperties": {
-                        "type": "string",
-                        "description": "Destination variable in iManage. NOT SURE THIS IS CORRECT"
-                      }
-                    }
-                  },
-                  "required": [ "Type", "PropertiesMapping" ],
-                  "additionalProperties": false
-                }
-              },
-              "PropertySavers": {
-                "type": "array",
-                "description": "PropertySavers download information from iManage.",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "Type": {
-                      "type": "string",
-                      "description": "Word Variable type for the downloaded information.",
-                      "enum":["CustomDocumentProperties", "DocumentVariables"]
-                    },
-                    "PropertiesMapping": {
-                      "type": "object",
-                      "description": "Mapping of properties to save.",
-                      "additionalProperties": {
-                        "type": "object",
-                        "description": "Name of the Word variable",
-                        "properties": {
-                          "Value": {
-                            "type": "string",
-                            "description": "The iManage information that is used to populate the document variable. All iManage field are surrounded by << and >>.\nThe value can be made of multiple iManage fields with text between."
-                          },
-                          "Default": {
-                            "type": "string",
-                            "description": "This is the value that will be returned if nothing is received from iManage."
-                          }
-                        },
-                        "required": [ "Value" ],
-                        "additionalProperties": false
-                      }
-                    }
-                  },
-                  "required": [ "Type", "PropertiesMapping" ],
-                  "additionalProperties": false
-                }
-              },
-              "UpdateFields": {
-                "type": "boolean",
-                "description": "Indicates whether fields should be updated."
-              },
-              "FieldStoriesToUpdate": {
-                "type": "string",
-                "description": "Indicates which fields to update, the default is All.\n\nFor example:\n\n`\"FieldStoriesToUpdate\": \"AllFooters, ToC, ToF\"`\n\nThe options are:\n\n- None\n- MainStory\n- Footnotes\n- Endnotes\n- Comments\n- TextFrame\n- HeadersEven\n- HeadersMain\n- FootersEven\n- FootersMain\n- HeadersFirstPage\n- FootersFirstPage\n- FootnoteSeparatorStory\n- FootnoteContinuationSeparator\n- FootnoteContinuationNotice\n- EndnoteSeparatorStory\n- EndnoteContinuationSeparator\n- EndnoteContinuationNotice\n- ToC\n- ToF\n- AllFooters\n- AllHeaders\n- All",
-                "markdownDescription": "## Indicates which fields to update, the default is **All**.\n\nFor example:\n\n`\"FieldStoriesToUpdate\": \"AllFooters, ToC, ToF\"`\n\nThe options are:\n\n- None\n- MainStory\n- Footnotes\n- Endnotes\n- Comments\n- TextFrame\n- HeadersEven\n- HeadersMain\n- FootersEven\n- FootersMain\n- HeadersFirstPage\n- FootersFirstPage\n- FootnoteSeparatorStory\n- FootnoteContinuationSeparator\n- FootnoteContinuationNotice\n- EndnoteSeparatorStory\n- EndnoteContinuationSeparator\n- EndnoteContinuationNotice\n- ToC\n- ToF\n- AllFooters\n- AllHeaders\n- All"
-              }
-            },
-            "additionalProperties": false
-          }
+    "$id": "iManageDesktopExtensionSchema.json",
+    "title": "Brochet iManageDesktopExtension Schema",
+    "description": "Schema representing the structure of the 'iManageDesktopExtension'.",
+    "type": "object",
+    "properties": {
+        "WordSettings": {
+            "$ref": "#/definitions/Application"
+        },
+        "PowerPointSettings": {
+            "$ref": "#/definitions/Application"
+        },
+        "ExcelSettings": {
+            "$ref": "#/definitions/Application"
+        },
+        "OutlookSettings": {
+            "$ref": "#/definitions/Application"
         }
-      }
+    },
+    "definitions": {
+        "Application": {
+            "type": "object",
+            "description": "The Office Application.",
+            "properties": {
+                "ConditionedSettings": {
+                    "type": "array",
+                    "description": "List of settings applied under specific conditions.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "Conditions": {
+                                "type": "object",
+                                "description": "Conditions under which the settings apply.\nLogic: The Add-in will check the logic of all Conditions collection.\nAll Conditions which pass the logic will be run. This allows multiple Conditions to be met and run per iManage event.\nThe order of the Conditions collection in the JSON will dictate the order that they will be processed (run).",
+                                "properties": {
+                                    "EventTypes": {
+                                        "type": "object",
+                                        "description": "Event types to include.",
+                                        "properties": {
+                                            "Include": {
+                                                "type": "array",
+                                                "description": "List of event types to include.\nNewDocument and Reprofile are K+B specific events.\nThe rest are iManage events.",
+                                                "items": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "NewDocument",
+                                                        "Reprofile",
+                                                        "DocumentBeforeSave",
+                                                        "DocumentAfterSave",
+                                                        "DocumentSaveAs",
+                                                        "DocumentBeforeClose",
+                                                        "DocumentClose",
+                                                        "DocumentCloseFinal",
+                                                        "DocumentBeforePrint",
+                                                        "DocumentOpen",
+                                                        "NewVersion",
+                                                        "UpdateProfile",
+                                                        "CreateProfile",
+                                                        "UpdateProperties",
+                                                        "Compare"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    "DocumentTemplates": {
+                                        "type": "object",
+                                        "description": "Document templates that are to be included or excluded, listed by name.",
+                                        "properties": {
+                                            "RegularExpressions": {
+                                                "type": "boolean",
+                                                "description": "Use regular expressions instead of template names."
+                                            },
+                                            "Include": {
+                                                "type": "array",
+                                                "description": "List of document templates to include.\nThe Word templates are listed in an 'Include' list and only refer to the Word template name not including the template extension eg dotx or dotm.",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "Exclude": {
+                                                "type": "array",
+                                                "description": "List of document templates to exclude.\nThe Word templates are listed in an 'Exclude' list and only refer to the Word template name not including the template extension eg dotx or dotm.",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    "Properties": {
+                                        "type": "object",
+                                        "description": "Additional properties for filtering.",
+                                        "properties": {
+                                            "Include": {
+                                                "type": "array",
+                                                "description": "List of properties to include.",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "Exclude": {
+                                                "type": "array",
+                                                "description": "List of properties to exclude.",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    "Variables": {
+                                        "type": "object",
+                                        "description": "Additional variables for filtering.",
+                                        "properties": {
+                                            "Include": {
+                                                "type": "array",
+                                                "description": "The Document Property MUST be equal to the value",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "Exclude": {
+                                                "type": "array",
+                                                "description": "The Document variable must NOT be equal to the value",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "StartingProfile": {
+                                "type": "object",
+                                "description": "Initial profile settings.\nThese Starting Profile settings ONLY apply to the NewDocument process.\nThey do not apply to a document being saved into MS Word using the standard iManage SaveAs command.\n\nThe starting Doc Type (class) can also be set in iManage using imWorkOptions.xml to set the options.",
+                                "properties": {
+                                    "class": {
+                                        "type": "string",
+                                        "description": "The iManage Class type entered into the iManage dialog box.\nNB The Class must exist in iManage (this is a new bug introduced in iManage. Previously if the Class type did not exist then the default Class DOC would be applied)"
+                                    },
+                                    "subclass": {
+                                        "type": "string",
+                                        "description": "Subclass of the document."
+                                    },
+                                    "class_description": {
+                                        "type": "string",
+                                        "description": "Description of the class."
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "markdownDescription": "The type of Word document to be saved into iManage.\n\n**Example**:\n\n\"StartingProfile\" : {\n\n       \"title\": \"\",\n       \"class\": \"LET\",\n       \"type\": \"WORDX\"\n     },"
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "description": "The default text to be inserted into the Title field of the iManage dialog box:\nIf set to blank, the field will remain empty.\nIf not specified, the field will automatically display the text from the first paragraph of the document."
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "VBACallback": {
+                                "type": "string",
+                                "description": "VBA callback function to execute.\nThe function needs to be public."
+                            },
+                            "VBACallbackOnCancel": {
+                                "type": "string",
+                                "description": "VBA callback function to execute when the operation cancelled.\nThe function needs to be public."
+                            },
+                            "PropertyUpdaters": {
+                                "type": "array",
+                                "description": "PropertyUpdaters upload information to iManage.",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Type": {
+                                            "type": "string",
+                                            "description": "Location of the information to upload.",
+                                            "enum": [
+                                                "CustomDocumentProperties",
+                                                "DocumentVariables"
+                                            ]
+                                        },
+                                        "PropertiesMapping": {
+                                            "type": "object",
+                                            "description": "Mapping of properties to update.",
+                                            "additionalProperties": {
+                                                "type": "string",
+                                                "description": "Destination variable in iManage. NOT SURE THIS IS CORRECT"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "Type",
+                                        "PropertiesMapping"
+                                    ],
+                                    "additionalProperties": false
+                                }
+                            },
+                            "PropertySavers": {
+                                "type": "array",
+                                "description": "PropertySavers download information from iManage.",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Type": {
+                                            "type": "string",
+                                            "description": "Word Variable type for the downloaded information.",
+                                            "enum": [
+                                                "CustomDocumentProperties",
+                                                "DocumentVariables"
+                                            ]
+                                        },
+                                        "PropertiesMapping": {
+                                            "type": "object",
+                                            "description": "Mapping of properties to save.",
+                                            "additionalProperties": {
+                                                "type": "object",
+                                                "description": "Name of the Word variable",
+                                                "properties": {
+                                                    "Value": {
+                                                        "type": "string",
+                                                        "description": "The iManage information that is used to populate the document variable. All iManage field are surrounded by << and >>.\nThe value can be made of multiple iManage fields with text between."
+                                                    },
+                                                    "Default": {
+                                                        "type": "string",
+                                                        "description": "This is the value that will be returned if nothing is received from iManage."
+                                                    }
+                                                },
+                                                "required": [
+                                                    "Value"
+                                                ],
+                                                "additionalProperties": false
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "Type",
+                                        "PropertiesMapping"
+                                    ],
+                                    "additionalProperties": false
+                                }
+                            },
+                            "UpdateFields": {
+                                "type": "boolean",
+                                "description": "Indicates whether fields should be updated."
+                            },
+                            "FieldStoriesToUpdate": {
+                                "type": "string",
+                                "description": "Indicates which fields to update, the default is All.\n\nFor example:\n\n`\"FieldStoriesToUpdate\": \"AllFooters, ToC, ToF\"`\n\nThe options are:\n\n- None\n- MainStory\n- Footnotes\n- Endnotes\n- Comments\n- TextFrame\n- HeadersEven\n- HeadersMain\n- FootersEven\n- FootersMain\n- HeadersFirstPage\n- FootersFirstPage\n- FootnoteSeparatorStory\n- FootnoteContinuationSeparator\n- FootnoteContinuationNotice\n- EndnoteSeparatorStory\n- EndnoteContinuationSeparator\n- EndnoteContinuationNotice\n- ToC\n- ToF\n- AllFooters\n- AllHeaders\n- All",
+                                "markdownDescription": "## Indicates which fields to update, the default is **All**.\n\nFor example:\n\n`\"FieldStoriesToUpdate\": \"AllFooters, ToC, ToF\"`\n\nThe options are:\n\n- None\n- MainStory\n- Footnotes\n- Endnotes\n- Comments\n- TextFrame\n- HeadersEven\n- HeadersMain\n- FootersEven\n- FootersMain\n- HeadersFirstPage\n- FootersFirstPage\n- FootnoteSeparatorStory\n- FootnoteContinuationSeparator\n- FootnoteContinuationNotice\n- EndnoteSeparatorStory\n- EndnoteContinuationSeparator\n- EndnoteContinuationNotice\n- ToC\n- ToF\n- AllFooters\n- AllHeaders\n- All"
+                            },
+                            "CloseOnCancel": {
+                                "type": "boolean",
+                                "Description": "Determines the action if the iManage New Document dialog is cancelled.\nIf true then the document will be closed.\n\n This is only applicable when pre-profiling new documents."
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                }
+            }
+        }
     }
-  }
 }
