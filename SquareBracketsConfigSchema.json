@@ -52,7 +52,7 @@
               "$ref": "./BracketStyleSchema.json"
             },
             "ContentControlConfig": {
-                "$ref": "./ContentControlConfig.json"
+                "$ref": "./ContentControlConfigSchema.json"
               },
             "RibbonConfig": {
               "$ref": "./RibbonConfigSchema.json"
