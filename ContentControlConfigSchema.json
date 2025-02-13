@@ -1,28 +1,23 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
+  "description": "Content controls are specifically uses with InFill controls for a specific client.",
   "properties": {
-    "ContentControlConfig": {
-      "type": "object",
-      "description": "Content controls are specifically uses with InFill controls for a specific client."
-      "properties": {
-        "LockContentControl": {
-          "type": "boolean",
-          "description": "Locks content control if true."
-        },
-        "RemoveContentControlOnEdit": {
-          "type": "boolean",
-          "description": "Removes content control when edited if true. This is not recommended but I have left it here just in case."
-        },
-        "RemoveHighlighting": {
-          "type": "boolean",
-          "description": "Removes highlighting if true."
-        },
-        "AddHighlighting": {
-          "type": "boolean",
-          "description": "Adds highlighting if true."
-        }
-      }
+    "LockContentControl": {
+      "type": "boolean",
+      "description": "Locks content control if true."
+    },
+    "RemoveContentControlOnEdit": {
+      "type": "boolean",
+      "description": "Removes content control when edited if true. This is not recommended but I have left it here just in case."
+    },
+    "RemoveHighlighting": {
+      "type": "boolean",
+      "description": "Removes highlighting if true."
+    },
+    "AddHighlighting": {
+      "type": "boolean",
+      "description": "Adds highlighting if true."
     }
   }
 }
