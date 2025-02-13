@@ -7,25 +7,15 @@
       "properties": {
         "OpeningBracket": {
           "type": "string",
-          "enum": [
-            "[",
-            "(",
-            "{"
-          ],
-          "description": "Defines the opening bracket style."
+          "description": "Defines the opening bracket style, this is often a [."
         },
         "ClosingBracket": {
           "type": "string",
-          "enum": [
-            "]",
-            ")",
-            "}"
-          ],
-          "description": "Defines the closing bracket style."
+          "description": "Defines the closing bracket style, this is often a ]"
         },
         "TextMarker": {
           "type": "string",
-          "description": "Defines the text marker."
+          "description": "This is used as a placeholder for text. For Example [O] you should specify a blob character such as \\u25CF"
         },
         "SearchSelectionOnly": {
           "type": "boolean",
@@ -39,9 +29,7 @@
       "required": [
         "OpeningBracket",
         "ClosingBracket",
-        "TextMarker",
-        "SearchSelectionOnly",
-        "ShowMessages"
+        "TextMarker"
       ]
     }
   },
