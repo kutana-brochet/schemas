@@ -44,23 +44,17 @@
       "description": "The Office application.",
       "type": "object",
       "properties": {
-        "BrochetStyleButtons": {
-          "description": "Object representing the plugin configuration for the Brochet SquareBracketsPlugin.",
-          "type": "object",
-          "properties": {
-            "BracketStyle": {
-              "$ref": "./BracketStyleSchema.json"
-            },
-            "ContentControlConfig": {
-                "$ref": "./ContentControlConfigSchema.json"
-              },
-            "RibbonConfig": {
-              "$ref": "./RibbonConfigSchema.json"
-            },
-            "RibbonVisibility": {
-              "$ref": "./RibbonVisibilityConfigSchema.json"
-            }
-          }
+        "BracketStyle": {
+          "$ref": "./BracketStyleSchema.json"
+        },
+        "ContentControlConfig": {
+          "$ref": "./ContentControlConfigSchema.json"
+        },
+        "RibbonConfig": {
+          "$ref": "./RibbonConfigSchema.json"
+        },
+        "RibbonVisibility": {
+          "$ref": "./RibbonVisibilityConfigSchema.json"
         }
       }
     }
