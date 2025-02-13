@@ -4,6 +4,7 @@
   "properties": {
     "ContentControlConfig": {
       "type": "object",
+      "description": "Content controls are specifically uses with InFill controls for a specific client."
       "properties": {
         "LockContentControl": {
           "type": "boolean",
@@ -11,7 +12,7 @@
         },
         "RemoveContentControlOnEdit": {
           "type": "boolean",
-          "description": "Removes content control when edited if true."
+          "description": "Removes content control when edited if true. This is not recommended but I have left it here just in case."
         },
         "RemoveHighlighting": {
           "type": "boolean",
@@ -23,8 +24,5 @@
         }
       }
     }
-  },
-  "required": [
-    "ContentControlConfig"
-  ]
+  }
 }
