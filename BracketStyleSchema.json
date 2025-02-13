@@ -2,38 +2,30 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "BracketStyle": {
-      "type": "object",
-      "properties": {
-        "OpeningBracket": {
-          "type": "string",
-          "description": "Defines the opening bracket style, this is often a [."
-        },
-        "ClosingBracket": {
-          "type": "string",
-          "description": "Defines the closing bracket style, this is often a ]"
-        },
-        "TextMarker": {
-          "type": "string",
-          "description": "This is used as a placeholder for text. For Example [O] you should specify a blob character such as \\u25CF"
-        },
-        "SearchSelectionOnly": {
-          "type": "boolean",
-          "description": "Restricts search to selection only if true."
-        },
-        "ShowMessages": {
-          "type": "boolean",
-          "description": "Shows messages if true."
-        }
-      },
-      "required": [
-        "OpeningBracket",
-        "ClosingBracket",
-        "TextMarker"
-      ]
+    "OpeningBracket": {
+      "type": "string",
+      "description": "Defines the opening bracket style, this is often a [."
+    },
+    "ClosingBracket": {
+      "type": "string",
+      "description": "Defines the closing bracket style, this is often a ]"
+    },
+    "TextMarker": {
+      "type": "string",
+      "description": "This is used as a placeholder for text. For Example [O] you should specify a blob character such as \\u25CF"
+    },
+    "SearchSelectionOnly": {
+      "type": "boolean",
+      "description": "Restricts search to selection only if true."
+    },
+    "ShowMessages": {
+      "type": "boolean",
+      "description": "Shows messages if true."
     }
   },
   "required": [
-    "BracketStyle"
+    "OpeningBracket",
+    "ClosingBracket",
+    "TextMarker"
   ]
 }
