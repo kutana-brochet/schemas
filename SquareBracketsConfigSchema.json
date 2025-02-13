@@ -46,7 +46,7 @@
       "properties": {
         "BrochetSquareBrackets": {
           "type": "object",
-          "description": "Configration for BrachetSquareBrackets.",
+          "description": "Configration for BrochetSquareBrackets.",
           "properties": {
             "BracketStyle": {
               "$ref": "./BracketStyleSchema.json"
