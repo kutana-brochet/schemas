@@ -7,9 +7,13 @@
       "type": "boolean",
       "description": "Locks content control if true."
     },
-    "RemoveContentControlOnEdit": {
+    "RemoveTextContentControlOnEdit": {
       "type": "boolean",
-      "description": "Removes content control when edited if true. This is not recommended but I have left it here just in case."
+      "description": "Removes Text content control when edited if true. This is not recommended but I have left it here just in case."
+    },
+    "RemoveMarkerContentControlOnEdit": {
+      "type": "boolean",
+      "description": "Removes Marker content control when edited if true. ."
     },
     "RemoveHighlighting": {
       "type": "boolean",
