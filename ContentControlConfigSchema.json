@@ -22,6 +22,14 @@
     "AddHighlighting": {
       "type": "boolean",
       "description": "Adds highlighting if true."
+    },
+    "Title": {
+      "type": "string",
+      "description": "Sets the title of the Content Control."
+    },
+    "Tag": {
+      "type": "string",
+      "description": "Set the tag of the Content Control."
     }
   }
 }
