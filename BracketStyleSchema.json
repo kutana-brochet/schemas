@@ -12,15 +12,11 @@
     },
     "TextMarker": {
       "type": "string",
-      "description": "This is used as a placeholder for text. For Example [O] you should specify a blob character such as \\u25CF"
-    },
-    "SearchSelectionOnly": {
-      "type": "boolean",
-      "description": "Restricts search to selection only if true."
+      "description": "This is used as a placeholder for text. For Example [O] you should specify a blob character such as \\u25CF. Set this to 'Legacy' if you want to use the original Wingdings Blob"
     },
     "ShowMessages": {
       "type": "boolean",
-      "description": "Shows messages if true."
+      "description": "Displays a message when the search has reached the end or the beginning of the document."
     }
   },
   "required": [
