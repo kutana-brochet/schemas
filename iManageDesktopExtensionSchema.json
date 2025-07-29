@@ -4,25 +4,23 @@
     "description": "Schema representing the structure of the 'iManageDesktopExtension'.",
     "type": "object",
     "properties": {
-        "type": "object",
-        "properties": {
-            "Settings": {
-                "type": "object",
-                "properties": {
-                    "EnabledServers": {
-                        "type": "array",
-                        "description": "List of enabled server URLs.",
-                        "items": [
-                            {
-                                "type": "string"
-                            }
-                        ]
-                    }
-                },
-                "required": [
-                    "EnabledServers"
-                ]
-            }
+        "Settings": {
+            "type": "object",
+            "description": "Settings for the iManage Desktop Extension.",
+            "properties": {
+                "EnabledServers": {
+                    "type": "array",
+                    "description": "List of enabled server URLs.",
+                    "items": [
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "EnabledServers"
+            ]
         },
         "WordSettings": {
             "$ref": "#/definitions/Application"
