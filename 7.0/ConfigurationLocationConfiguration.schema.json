@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "Shared": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "User": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

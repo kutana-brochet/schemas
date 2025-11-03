@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "SearchForTemplateName": {
+      "type": "string"
+    },
+    "IncludeFilter": {
+      "type": "string"
+    },
+    "ExcludeFilter": {
+      "type": "string"
+    },
+    "TemplatePropertyName": {
+      "type": "string"
+    },
+    "AutoAttachDefaultTemplateOnOpen": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

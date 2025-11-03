@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "properties": {
+    "FindOptions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "Title": {
+            "type": "string"
+          },
+          "Tag": {
+            "type": "string"
+          },
+          "LockContents": {
+            "type": "boolean"
+          },
+          "ShowingPlaceholderText": {
+            "type": "boolean"
+          },
+          "Range": {
+            "type": "object",
+            "properties": {
+              "Start": {
+                "type": "number"
+              },
+              "End": {
+                "type": "number"
+              },
+              "Text": {
+                "type": "string",
+                "default": ""
+              }
+            },
+            "required": [
+              "Start",
+              "End"
+            ],
+            "additionalProperties": false
+          },
+          "ControlOption": {
+            "enum": [
+              "None",
+              "Locked",
+              "RemoveOnEdit"
+            ],
+            "type": "string"
+          },
+          "IsDeletionLocked": {
+            "type": "boolean"
+          },
+          "DeleteOnEdit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "AddOptions": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/properties/FindOptions/additionalProperties"
+      }
+    }
+  },
+  "additionalProperties": false
+}

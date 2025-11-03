@@ -1,0 +1,124 @@
+{
+  "type": "object",
+  "properties": {
+    "ExternalDataProviders": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "$type"
+        ],
+        "anyOf": [
+          {
+            "properties": {
+              "$type": {
+                "const": "Outlook"
+              },
+              "OutlookAddressbook": {
+                "type": "string"
+              },
+              "ConnectionSettings": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "SQLQuery": {
+                "type": "string"
+              },
+              "ConnectionType": {
+                "enum": [
+                  "XLSX",
+                  "JSON",
+                  "Outlook"
+                ],
+                "type": "string"
+              },
+              "Timeout": {
+                "type": "integer"
+              },
+              "FieldAliasOrder": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "SheetList": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ShowHideSheetList": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "RemoveEmptyRows": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "OutlookAddressbook"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "properties": {
+              "$type": {
+                "const": "JSON"
+              },
+              "Filename": {
+                "type": "string"
+              },
+              "ConnectionType": {
+                "enum": [
+                  "XLSX",
+                  "JSON",
+                  "Outlook"
+                ],
+                "type": "string"
+              },
+              "Timeout": {
+                "type": "integer"
+              },
+              "FieldAliasOrder": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "SheetList": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ShowHideSheetList": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "RemoveEmptyRows": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "Filename"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

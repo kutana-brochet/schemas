@@ -1,0 +1,570 @@
+{
+  "type": "object",
+  "properties": {
+    "Scripts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "Comment": {
+            "type": "string"
+          },
+          "Commands": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "$type"
+              ],
+              "anyOf": [
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "ApplyFontFormatting"
+                    },
+                    "AllCaps": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Toggle"
+                      ],
+                      "type": "string"
+                    },
+                    "Bold": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Toggle"
+                      ],
+                      "type": "string"
+                    },
+                    "Colour": {
+                      "type": "string"
+                    },
+                    "ColourIndex": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "DoubleStrikeThrough": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Toggle"
+                      ],
+                      "type": "string"
+                    },
+                    "Hidden": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Toggle"
+                      ],
+                      "type": "string"
+                    },
+                    "Italic": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Toggle"
+                      ],
+                      "type": "string"
+                    },
+                    "Position": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "SmallCaps": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Toggle"
+                      ],
+                      "type": "string"
+                    },
+                    "StrikeThrough": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Toggle"
+                      ],
+                      "type": "string"
+                    },
+                    "Subscript": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Toggle"
+                      ],
+                      "type": "string"
+                    },
+                    "Superscript": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Toggle"
+                      ],
+                      "type": "string"
+                    },
+                    "Underline": {
+                      "enum": [
+                        "None",
+                        "Single",
+                        "UnderlineWords",
+                        "Double"
+                      ],
+                      "type": "string"
+                    },
+                    "SubRange": {
+                      "enum": [
+                        "All",
+                        "Start",
+                        "End",
+                        "FirstWord",
+                        "LastWord"
+                      ],
+                      "type": "string"
+                    },
+                    "CommandRange": {
+                      "description": "The range to apply the Command",
+                      "enum": [
+                        "Selection",
+                        "Paragraphs",
+                        "FirstParagraph",
+                        "LastParagraph"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "SubRange"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "DeleteCharacters"
+                    },
+                    "Characters": {
+                      "type": "string"
+                    },
+                    "SubRange": {
+                      "enum": [
+                        "All",
+                        "Start",
+                        "End",
+                        "FirstWord",
+                        "LastWord"
+                      ],
+                      "type": "string"
+                    },
+                    "CommandRange": {
+                      "description": "The range to apply the Command",
+                      "enum": [
+                        "Selection",
+                        "Paragraphs",
+                        "FirstParagraph",
+                        "LastParagraph"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Characters",
+                    "SubRange"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "ApplyParagraphFormatting"
+                    },
+                    "Alignment": {
+                      "enum": [
+                        "Left",
+                        "Center",
+                        "Right",
+                        "Justified"
+                      ],
+                      "type": "string"
+                    },
+                    "BaseLineAlignment": {
+                      "enum": [
+                        "Top",
+                        "Center",
+                        "Baseline",
+                        "FarEast50"
+                      ],
+                      "type": "string"
+                    },
+                    "CharacterUnitFirstLineIndent": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "CharacterUnitLeftIndent": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "CharacterUnitRightIndent": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "FirstLineIndent": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "KeepTogether": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Undefined"
+                      ],
+                      "type": "string"
+                    },
+                    "KeepWithNext": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Undefined"
+                      ],
+                      "type": "string"
+                    },
+                    "LeftIndent": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "LineSpacing": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "LineSpacingRule": {
+                      "enum": [
+                        "Single",
+                        "OnePointFive",
+                        "Double",
+                        "AtLeast",
+                        "Exactly",
+                        "Multiple"
+                      ],
+                      "type": "string"
+                    },
+                    "LineUnitAfter": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "LineUnitBefore": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "MirrorIndents": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Undefined"
+                      ],
+                      "type": "string"
+                    },
+                    "NoLineNumber": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Undefined"
+                      ],
+                      "type": "string"
+                    },
+                    "OutlineLevel": {
+                      "enum": [
+                        "Level1",
+                        "Level2",
+                        "Level3",
+                        "Level4",
+                        "Level5",
+                        "Level6",
+                        "Level7",
+                        "Level8",
+                        "Level9",
+                        "BodyText"
+                      ],
+                      "type": "string"
+                    },
+                    "PageBreakBefore": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Undefined"
+                      ],
+                      "type": "string"
+                    },
+                    "RightIndent": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "SpaceAfter": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "SpaceBefore": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "WidowControl": {
+                      "enum": [
+                        "False",
+                        "True",
+                        "Undefined"
+                      ],
+                      "type": "string"
+                    },
+                    "CommandRange": {
+                      "description": "The range to apply the Command",
+                      "enum": [
+                        "Selection",
+                        "Paragraphs",
+                        "FirstParagraph",
+                        "LastParagraph"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "ApplyStyle"
+                    },
+                    "StyleName": {
+                      "type": "string"
+                    },
+                    "CommandRange": {
+                      "description": "The range to apply the Command",
+                      "enum": [
+                        "Selection",
+                        "Paragraphs",
+                        "FirstParagraph",
+                        "LastParagraph"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "StyleName"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "InsertText"
+                    },
+                    "Text": {
+                      "type": "string"
+                    },
+                    "PreventDuplicates": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "SubRange": {
+                      "enum": [
+                        "All",
+                        "Start",
+                        "End",
+                        "FirstWord",
+                        "LastWord"
+                      ],
+                      "type": "string"
+                    },
+                    "CommandRange": {
+                      "description": "The range to apply the Command",
+                      "enum": [
+                        "Selection",
+                        "Paragraphs",
+                        "FirstParagraph",
+                        "LastParagraph"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Text",
+                    "SubRange"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "InsertField"
+                    },
+                    "FieldText": {
+                      "type": "string"
+                    },
+                    "SubRange": {
+                      "enum": [
+                        "All",
+                        "Start",
+                        "End",
+                        "FirstWord",
+                        "LastWord"
+                      ],
+                      "type": "string"
+                    },
+                    "CommandRange": {
+                      "description": "The range to apply the Command",
+                      "enum": [
+                        "Selection",
+                        "Paragraphs",
+                        "FirstParagraph",
+                        "LastParagraph"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "FieldText",
+                    "SubRange"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "EnforceCase"
+                    },
+                    "WordModifiers": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "IgnoreFirstWord": {
+                      "type": "boolean"
+                    },
+                    "SubRange": {
+                      "enum": [
+                        "All",
+                        "Start",
+                        "End",
+                        "FirstWord",
+                        "LastWord"
+                      ],
+                      "type": "string"
+                    },
+                    "CommandRange": {
+                      "description": "The range to apply the Command",
+                      "enum": [
+                        "Selection",
+                        "Paragraphs",
+                        "FirstParagraph",
+                        "LastParagraph"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "WordModifiers",
+                    "SubRange"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "ApplySelectionFormatting"
+                    },
+                    "CharacterCase": {
+                      "enum": [
+                        "NextCase",
+                        "LowerCase",
+                        "UpperCase",
+                        "TitleWord",
+                        "TitleSentence",
+                        "ToggleCase",
+                        "HalfWidth",
+                        "FullWidth"
+                      ],
+                      "type": "string"
+                    },
+                    "SubRange": {
+                      "enum": [
+                        "All",
+                        "Start",
+                        "End",
+                        "FirstWord",
+                        "LastWord"
+                      ],
+                      "type": "string"
+                    },
+                    "CommandRange": {
+                      "description": "The range to apply the Command",
+                      "enum": [
+                        "Selection",
+                        "Paragraphs",
+                        "FirstParagraph",
+                        "LastParagraph"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "SubRange"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "Mappings": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "Script": {
+            "type": "string"
+          },
+          "EnabledWhen": {
+            "type": "string"
+          },
+          "VisibleWhen": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

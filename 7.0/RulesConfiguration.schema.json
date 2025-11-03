@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "Workflows": {
+      "$ref": "https://raw.githubusercontent.com/microsoft/RulesEngine/refs/heads/main/schema/workflow-list-schema.json"
+    }
+  },
+  "additionalProperties": false
+}
