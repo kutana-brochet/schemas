@@ -1,29 +1,29 @@
 {
   "type": "object",
   "properties": {
-    "provider": {
+    "Provider": {
       "enum": [
         "None",
         "iManage"
       ],
       "type": "string"
     },
-    "preProfileTemplates": {
+    "PreProfileTemplates": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "filter": {
+          "Filter": {
             "type": "string"
           },
-          "closeOnCancel": {
+          "CloseOnCancel": {
             "type": "boolean"
           }
         },
         "additionalProperties": false
       }
     },
-    "createOptions": {
+    "CreateOptions": {
       "type": "object",
       "additionalProperties": {
         "type": "string"

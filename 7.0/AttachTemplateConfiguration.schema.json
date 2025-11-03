@@ -1,19 +1,19 @@
 {
   "type": "object",
   "properties": {
-    "searchForTemplateName": {
+    "SearchForTemplateName": {
       "type": "string"
     },
-    "includeFilter": {
+    "IncludeFilter": {
       "type": "string"
     },
-    "excludeFilter": {
+    "ExcludeFilter": {
       "type": "string"
     },
-    "templatePropertyName": {
+    "TemplatePropertyName": {
       "type": "string"
     },
-    "autoAttachDefaultTemplateOnOpen": {
+    "AutoAttachDefaultTemplateOnOpen": {
       "type": "boolean"
     }
   },

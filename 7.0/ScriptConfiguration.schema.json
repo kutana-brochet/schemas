@@ -1,15 +1,15 @@
 {
   "type": "object",
   "properties": {
-    "scripts": {
+    "Scripts": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "comment": {
+          "Comment": {
             "type": "string"
           },
-          "commands": {
+          "Commands": {
             "type": "array",
             "items": {
               "type": "object",
@@ -22,7 +22,7 @@
                     "$type": {
                       "const": "ApplyFontFormatting"
                     },
-                    "allCaps": {
+                    "AllCaps": {
                       "enum": [
                         "False",
                         "True",
@@ -30,7 +30,7 @@
                       ],
                       "type": "string"
                     },
-                    "bold": {
+                    "Bold": {
                       "enum": [
                         "False",
                         "True",
@@ -38,16 +38,16 @@
                       ],
                       "type": "string"
                     },
-                    "colour": {
+                    "Colour": {
                       "type": "string"
                     },
-                    "colourIndex": {
+                    "ColourIndex": {
                       "type": [
                         "integer",
                         "null"
                       ]
                     },
-                    "doubleStrikeThrough": {
+                    "DoubleStrikeThrough": {
                       "enum": [
                         "False",
                         "True",
@@ -55,7 +55,7 @@
                       ],
                       "type": "string"
                     },
-                    "hidden": {
+                    "Hidden": {
                       "enum": [
                         "False",
                         "True",
@@ -63,7 +63,7 @@
                       ],
                       "type": "string"
                     },
-                    "italic": {
+                    "Italic": {
                       "enum": [
                         "False",
                         "True",
@@ -71,13 +71,13 @@
                       ],
                       "type": "string"
                     },
-                    "position": {
+                    "Position": {
                       "type": [
                         "integer",
                         "null"
                       ]
                     },
-                    "smallCaps": {
+                    "SmallCaps": {
                       "enum": [
                         "False",
                         "True",
@@ -85,7 +85,7 @@
                       ],
                       "type": "string"
                     },
-                    "strikeThrough": {
+                    "StrikeThrough": {
                       "enum": [
                         "False",
                         "True",
@@ -93,7 +93,7 @@
                       ],
                       "type": "string"
                     },
-                    "subscript": {
+                    "Subscript": {
                       "enum": [
                         "False",
                         "True",
@@ -101,7 +101,7 @@
                       ],
                       "type": "string"
                     },
-                    "superscript": {
+                    "Superscript": {
                       "enum": [
                         "False",
                         "True",
@@ -109,7 +109,7 @@
                       ],
                       "type": "string"
                     },
-                    "underline": {
+                    "Underline": {
                       "enum": [
                         "None",
                         "Single",
@@ -118,7 +118,7 @@
                       ],
                       "type": "string"
                     },
-                    "subRange": {
+                    "SubRange": {
                       "enum": [
                         "All",
                         "Start",
@@ -128,7 +128,7 @@
                       ],
                       "type": "string"
                     },
-                    "commandRange": {
+                    "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
                         "Selection",
@@ -140,7 +140,7 @@
                     }
                   },
                   "required": [
-                    "subRange"
+                    "SubRange"
                   ],
                   "additionalProperties": false
                 },
@@ -149,10 +149,10 @@
                     "$type": {
                       "const": "DeleteCharacters"
                     },
-                    "characters": {
+                    "Characters": {
                       "type": "string"
                     },
-                    "subRange": {
+                    "SubRange": {
                       "enum": [
                         "All",
                         "Start",
@@ -162,7 +162,7 @@
                       ],
                       "type": "string"
                     },
-                    "commandRange": {
+                    "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
                         "Selection",
@@ -174,8 +174,8 @@
                     }
                   },
                   "required": [
-                    "characters",
-                    "subRange"
+                    "Characters",
+                    "SubRange"
                   ],
                   "additionalProperties": false
                 },
@@ -184,7 +184,7 @@
                     "$type": {
                       "const": "ApplyParagraphFormatting"
                     },
-                    "alignment": {
+                    "Alignment": {
                       "enum": [
                         "Left",
                         "Center",
@@ -193,7 +193,7 @@
                       ],
                       "type": "string"
                     },
-                    "baseLineAlignment": {
+                    "BaseLineAlignment": {
                       "enum": [
                         "Top",
                         "Center",
@@ -202,31 +202,31 @@
                       ],
                       "type": "string"
                     },
-                    "characterUnitFirstLineIndent": {
+                    "CharacterUnitFirstLineIndent": {
                       "type": [
                         "number",
                         "null"
                       ]
                     },
-                    "characterUnitLeftIndent": {
+                    "CharacterUnitLeftIndent": {
                       "type": [
                         "number",
                         "null"
                       ]
                     },
-                    "characterUnitRightIndent": {
+                    "CharacterUnitRightIndent": {
                       "type": [
                         "number",
                         "null"
                       ]
                     },
-                    "firstLineIndent": {
+                    "FirstLineIndent": {
                       "type": [
                         "number",
                         "null"
                       ]
                     },
-                    "keepTogether": {
+                    "KeepTogether": {
                       "enum": [
                         "False",
                         "True",
@@ -234,7 +234,7 @@
                       ],
                       "type": "string"
                     },
-                    "keepWithNext": {
+                    "KeepWithNext": {
                       "enum": [
                         "False",
                         "True",
@@ -242,19 +242,19 @@
                       ],
                       "type": "string"
                     },
-                    "leftIndent": {
+                    "LeftIndent": {
                       "type": [
                         "number",
                         "null"
                       ]
                     },
-                    "lineSpacing": {
+                    "LineSpacing": {
                       "type": [
                         "number",
                         "null"
                       ]
                     },
-                    "lineSpacingRule": {
+                    "LineSpacingRule": {
                       "enum": [
                         "Single",
                         "OnePointFive",
@@ -265,19 +265,19 @@
                       ],
                       "type": "string"
                     },
-                    "lineUnitAfter": {
+                    "LineUnitAfter": {
                       "type": [
                         "number",
                         "null"
                       ]
                     },
-                    "lineUnitBefore": {
+                    "LineUnitBefore": {
                       "type": [
                         "number",
                         "null"
                       ]
                     },
-                    "mirrorIndents": {
+                    "MirrorIndents": {
                       "enum": [
                         "False",
                         "True",
@@ -285,7 +285,7 @@
                       ],
                       "type": "string"
                     },
-                    "noLineNumber": {
+                    "NoLineNumber": {
                       "enum": [
                         "False",
                         "True",
@@ -293,7 +293,7 @@
                       ],
                       "type": "string"
                     },
-                    "outlineLevel": {
+                    "OutlineLevel": {
                       "enum": [
                         "Level1",
                         "Level2",
@@ -308,7 +308,7 @@
                       ],
                       "type": "string"
                     },
-                    "pageBreakBefore": {
+                    "PageBreakBefore": {
                       "enum": [
                         "False",
                         "True",
@@ -316,25 +316,25 @@
                       ],
                       "type": "string"
                     },
-                    "rightIndent": {
+                    "RightIndent": {
                       "type": [
                         "number",
                         "null"
                       ]
                     },
-                    "spaceAfter": {
+                    "SpaceAfter": {
                       "type": [
                         "number",
                         "null"
                       ]
                     },
-                    "spaceBefore": {
+                    "SpaceBefore": {
                       "type": [
                         "number",
                         "null"
                       ]
                     },
-                    "widowControl": {
+                    "WidowControl": {
                       "enum": [
                         "False",
                         "True",
@@ -342,7 +342,7 @@
                       ],
                       "type": "string"
                     },
-                    "commandRange": {
+                    "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
                         "Selection",
@@ -360,10 +360,10 @@
                     "$type": {
                       "const": "ApplyStyle"
                     },
-                    "styleName": {
+                    "StyleName": {
                       "type": "string"
                     },
-                    "commandRange": {
+                    "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
                         "Selection",
@@ -375,7 +375,7 @@
                     }
                   },
                   "required": [
-                    "styleName"
+                    "StyleName"
                   ],
                   "additionalProperties": false
                 },
@@ -384,16 +384,16 @@
                     "$type": {
                       "const": "InsertText"
                     },
-                    "text": {
+                    "Text": {
                       "type": "string"
                     },
-                    "preventDuplicates": {
+                    "PreventDuplicates": {
                       "type": [
                         "boolean",
                         "null"
                       ]
                     },
-                    "subRange": {
+                    "SubRange": {
                       "enum": [
                         "All",
                         "Start",
@@ -403,7 +403,7 @@
                       ],
                       "type": "string"
                     },
-                    "commandRange": {
+                    "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
                         "Selection",
@@ -415,8 +415,8 @@
                     }
                   },
                   "required": [
-                    "text",
-                    "subRange"
+                    "Text",
+                    "SubRange"
                   ],
                   "additionalProperties": false
                 },
@@ -425,10 +425,10 @@
                     "$type": {
                       "const": "InsertField"
                     },
-                    "fieldText": {
+                    "FieldText": {
                       "type": "string"
                     },
-                    "subRange": {
+                    "SubRange": {
                       "enum": [
                         "All",
                         "Start",
@@ -438,7 +438,7 @@
                       ],
                       "type": "string"
                     },
-                    "commandRange": {
+                    "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
                         "Selection",
@@ -450,8 +450,8 @@
                     }
                   },
                   "required": [
-                    "fieldText",
-                    "subRange"
+                    "FieldText",
+                    "SubRange"
                   ],
                   "additionalProperties": false
                 },
@@ -460,16 +460,16 @@
                     "$type": {
                       "const": "EnforceCase"
                     },
-                    "wordModifiers": {
+                    "WordModifiers": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       }
                     },
-                    "ignoreFirstWord": {
+                    "IgnoreFirstWord": {
                       "type": "boolean"
                     },
-                    "subRange": {
+                    "SubRange": {
                       "enum": [
                         "All",
                         "Start",
@@ -479,7 +479,7 @@
                       ],
                       "type": "string"
                     },
-                    "commandRange": {
+                    "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
                         "Selection",
@@ -491,8 +491,8 @@
                     }
                   },
                   "required": [
-                    "wordModifiers",
-                    "subRange"
+                    "WordModifiers",
+                    "SubRange"
                   ],
                   "additionalProperties": false
                 },
@@ -501,7 +501,7 @@
                     "$type": {
                       "const": "ApplySelectionFormatting"
                     },
-                    "characterCase": {
+                    "CharacterCase": {
                       "enum": [
                         "NextCase",
                         "LowerCase",
@@ -514,7 +514,7 @@
                       ],
                       "type": "string"
                     },
-                    "subRange": {
+                    "SubRange": {
                       "enum": [
                         "All",
                         "Start",
@@ -524,7 +524,7 @@
                       ],
                       "type": "string"
                     },
-                    "commandRange": {
+                    "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
                         "Selection",
@@ -536,7 +536,7 @@
                     }
                   },
                   "required": [
-                    "subRange"
+                    "SubRange"
                   ],
                   "additionalProperties": false
                 }
@@ -547,18 +547,18 @@
         "additionalProperties": false
       }
     },
-    "mappings": {
+    "Mappings": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "script": {
+          "Script": {
             "type": "string"
           },
-          "enabledWhen": {
+          "EnabledWhen": {
             "type": "string"
           },
-          "visibleWhen": {
+          "VisibleWhen": {
             "type": "string"
           }
         },

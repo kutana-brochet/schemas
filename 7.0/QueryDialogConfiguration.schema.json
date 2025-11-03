@@ -1,21 +1,21 @@
 {
   "type": "object",
   "properties": {
-    "dialogs": {
+    "Dialogs": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "queryDialogName": {
+          "QueryDialogName": {
             "type": [
               "string",
               "null"
             ]
           },
-          "dialogCaption": {
+          "DialogCaption": {
             "type": "string"
           },
-          "hideColumns": {
+          "HideColumns": {
             "type": [
               "array",
               "null"
@@ -24,16 +24,16 @@
               "type": "string"
             }
           },
-          "allowDuplicates": {
+          "AllowDuplicates": {
             "type": "boolean"
           },
-          "buttonTag": {
+          "ButtonTag": {
             "type": [
               "string",
               "null"
             ]
           },
-          "columnOrder": {
+          "ColumnOrder": {
             "type": [
               "array",
               "null"
@@ -42,7 +42,7 @@
               "type": "integer"
             }
           },
-          "dropDownColumns": {
+          "DropDownColumns": {
             "type": [
               "array",
               "null"
@@ -51,31 +51,31 @@
               "type": "string"
             }
           },
-          "searchType": {
+          "SearchType": {
             "type": [
               "string",
               "null"
             ]
           },
-          "searchBoxCount": {
+          "SearchBoxCount": {
             "type": "integer"
           },
-          "showAutotextPanel": {
+          "ShowAutotextPanel": {
             "type": "boolean"
           },
-          "showSearchPanel": {
+          "ShowSearchPanel": {
             "type": "boolean"
           },
-          "imageRoot": {
+          "ImageRoot": {
             "type": "string"
           },
-          "singleSelectionOnly": {
+          "SingleSelectionOnly": {
             "type": "boolean"
           },
-          "searchText": {
+          "SearchText": {
             "type": "string"
           },
-          "searchBoxFields": {
+          "SearchBoxFields": {
             "type": [
               "object",
               "null"
@@ -84,51 +84,51 @@
               "type": "string"
             }
           },
-          "dialogWidth": {
+          "DialogWidth": {
             "type": "integer"
           },
-          "dialogHeight": {
+          "DialogHeight": {
             "type": "integer"
           },
-          "okButtonText": {
+          "OKButtonText": {
             "type": "string"
           },
-          "autoColumnWidthThreshold": {
+          "AutoColumnWidthThreshold": {
             "type": "integer"
           },
-          "autoColumnWidthDefault": {
+          "AutoColumnWidthDefault": {
             "type": "integer"
           },
-          "alwaysShowDialog": {
+          "AlwaysShowDialog": {
             "type": "boolean"
           },
-          "showPleaseWait": {
+          "ShowPleaseWait": {
             "type": "boolean"
           },
-          "queryPanel": {
+          "QueryPanel": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "autoTextName": {
+                "AutoTextName": {
                   "type": "string"
                 },
-                "autoTextDisplayName": {
+                "AutoTextDisplayName": {
                   "type": "string"
                 },
-                "autoTextComment": {
+                "AutoTextComment": {
                   "type": "string"
                 },
-                "autoTextBitmap": {
+                "AutoTextBitmap": {
                   "type": "string"
                 },
-                "recordsPerAutoText": {
+                "RecordsPerAutoText": {
                   "type": "integer"
                 },
-                "maxRecords": {
+                "MaxRecords": {
                   "type": "integer"
                 },
-                "fieldMappingID": {
+                "FieldMappingID": {
                   "type": "string"
                 }
               },

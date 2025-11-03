@@ -1,10 +1,10 @@
 {
   "type": "object",
   "properties": {
-    "activationToken": {
+    "ActivationToken": {
       "type": "string"
     },
-    "licenseId": {
+    "LicenseId": {
       "type": "string"
     }
   },

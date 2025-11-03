@@ -1,28 +1,28 @@
 {
   "type": "object",
   "properties": {
-    "contentControls": {
+    "ContentControls": {
       "$ref": "ContentControlConfiguration.schema.json"
     },
-    "documentManagement": {
+    "DocumentManagement": {
       "$ref": "DocumentManagementConfiguration.schema.json"
     },
-    "configurationLocations": {
+    "ConfigurationLocations": {
       "$ref": "ConfigurationLocationConfiguration.schema.json"
     },
-    "scriptConfiguration": {
+    "ScriptConfiguration": {
       "$ref": "ScriptConfiguration.schema.json"
     },
-    "attachTemplateConfiguration": {
+    "AttachTemplateConfiguration": {
       "$ref": "AttachTemplateConfiguration.schema.json"
     },
-    "licence": {
+    "Licence": {
       "$ref": "LicenceConfiguration.schema.json"
     },
-    "rules": {
+    "Rules": {
       "$ref": "RulesConfiguration.schema.json"
     },
-    "debug": {
+    "Debug": {
       "$ref": "DebugConfiguration.schema.json"
     }
   },

@@ -1,44 +1,44 @@
 {
   "type": "object",
   "properties": {
-    "findOptions": {
+    "FindOptions": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "title": {
+          "Title": {
             "type": "string"
           },
-          "tag": {
+          "Tag": {
             "type": "string"
           },
-          "lockContents": {
+          "LockContents": {
             "type": "boolean"
           },
-          "showingPlaceholderText": {
+          "ShowingPlaceholderText": {
             "type": "boolean"
           },
-          "range": {
+          "Range": {
             "type": "object",
             "properties": {
-              "start": {
+              "Start": {
                 "type": "number"
               },
-              "end": {
+              "End": {
                 "type": "number"
               },
-              "text": {
+              "Text": {
                 "type": "string",
                 "default": ""
               }
             },
             "required": [
-              "start",
-              "end"
+              "Start",
+              "End"
             ],
             "additionalProperties": false
           },
-          "controlOption": {
+          "ControlOption": {
             "enum": [
               "None",
               "Locked",
@@ -46,20 +46,20 @@
             ],
             "type": "string"
           },
-          "isDeletionLocked": {
+          "IsDeletionLocked": {
             "type": "boolean"
           },
-          "deleteOnEdit": {
+          "DeleteOnEdit": {
             "type": "boolean"
           }
         },
         "additionalProperties": false
       }
     },
-    "addOptions": {
+    "AddOptions": {
       "type": "object",
       "additionalProperties": {
-        "$ref": "#/properties/findOptions/additionalProperties"
+        "$ref": "#/properties/FindOptions/additionalProperties"
       }
     }
   },

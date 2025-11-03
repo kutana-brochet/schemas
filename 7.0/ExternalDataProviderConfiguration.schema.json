@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "externalDataProviders": {
+    "ExternalDataProviders": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
@@ -14,19 +14,19 @@
               "$type": {
                 "const": "Outlook"
               },
-              "outlookAddressbook": {
+              "OutlookAddressbook": {
                 "type": "string"
               },
-              "connectionSettings": {
+              "ConnectionSettings": {
                 "type": [
                   "string",
                   "null"
                 ]
               },
-              "sqlQuery": {
+              "SQLQuery": {
                 "type": "string"
               },
-              "connectionType": {
+              "ConnectionType": {
                 "enum": [
                   "XLSX",
                   "JSON",
@@ -34,16 +34,16 @@
                 ],
                 "type": "string"
               },
-              "timeout": {
+              "Timeout": {
                 "type": "integer"
               },
-              "fieldAliasOrder": {
+              "FieldAliasOrder": {
                 "type": [
                   "object",
                   "null"
                 ]
               },
-              "sheetList": {
+              "SheetList": {
                 "type": [
                   "array",
                   "null"
@@ -52,18 +52,18 @@
                   "type": "string"
                 }
               },
-              "showHideSheetList": {
+              "ShowHideSheetList": {
                 "type": [
                   "string",
                   "null"
                 ]
               },
-              "removeEmptyRows": {
+              "RemoveEmptyRows": {
                 "type": "boolean"
               }
             },
             "required": [
-              "outlookAddressbook"
+              "OutlookAddressbook"
             ],
             "additionalProperties": false
           },
@@ -72,10 +72,10 @@
               "$type": {
                 "const": "JSON"
               },
-              "filename": {
+              "Filename": {
                 "type": "string"
               },
-              "connectionType": {
+              "ConnectionType": {
                 "enum": [
                   "XLSX",
                   "JSON",
@@ -83,16 +83,16 @@
                 ],
                 "type": "string"
               },
-              "timeout": {
+              "Timeout": {
                 "type": "integer"
               },
-              "fieldAliasOrder": {
+              "FieldAliasOrder": {
                 "type": [
                   "object",
                   "null"
                 ]
               },
-              "sheetList": {
+              "SheetList": {
                 "type": [
                   "array",
                   "null"
@@ -101,18 +101,18 @@
                   "type": "string"
                 }
               },
-              "showHideSheetList": {
+              "ShowHideSheetList": {
                 "type": [
                   "string",
                   "null"
                 ]
               },
-              "removeEmptyRows": {
+              "RemoveEmptyRows": {
                 "type": "boolean"
               }
             },
             "required": [
-              "filename"
+              "Filename"
             ],
             "additionalProperties": false
           }

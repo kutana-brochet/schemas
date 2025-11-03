@@ -1,13 +1,13 @@
 {
   "type": "object",
   "properties": {
-    "shared": {
+    "Shared": {
       "type": [
         "string",
         "null"
       ]
     },
-    "user": {
+    "User": {
       "type": [
         "string",
         "null"
