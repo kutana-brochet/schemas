@@ -1,9 +1,12 @@
 {
   "type": "object",
   "properties": {
-    "Enabled": {
+    "enabled": {
       "type": "boolean"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.0/DebugConfiguration.schema.json",
+  "title": "DebugConfiguration"
 }

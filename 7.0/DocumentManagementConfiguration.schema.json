@@ -1,34 +1,37 @@
 {
   "type": "object",
   "properties": {
-    "Provider": {
+    "provider": {
       "enum": [
         "None",
         "iManage"
       ],
       "type": "string"
     },
-    "PreProfileTemplates": {
+    "preProfileTemplates": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "Filter": {
+          "filter": {
             "type": "string"
           },
-          "CloseOnCancel": {
+          "closeOnCancel": {
             "type": "boolean"
           }
         },
         "additionalProperties": false
       }
     },
-    "CreateOptions": {
+    "createOptions": {
       "type": "object",
       "additionalProperties": {
         "type": "string"
       }
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.0/DocumentManagementConfiguration.schema.json",
+  "title": "DocumentManagementConfiguration"
 }

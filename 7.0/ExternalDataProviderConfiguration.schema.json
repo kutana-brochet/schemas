@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "ExternalDataProviders": {
+    "externalDataProviders": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
@@ -14,19 +14,19 @@
               "$type": {
                 "const": "Outlook"
               },
-              "OutlookAddressbook": {
+              "outlookAddressbook": {
                 "type": "string"
               },
-              "ConnectionSettings": {
+              "connectionSettings": {
                 "type": [
                   "string",
                   "null"
                 ]
               },
-              "SQLQuery": {
+              "sqlQuery": {
                 "type": "string"
               },
-              "ConnectionType": {
+              "connectionType": {
                 "enum": [
                   "XLSX",
                   "JSON",
@@ -34,16 +34,16 @@
                 ],
                 "type": "string"
               },
-              "Timeout": {
+              "timeout": {
                 "type": "integer"
               },
-              "FieldAliasOrder": {
+              "fieldAliasOrder": {
                 "type": [
                   "object",
                   "null"
                 ]
               },
-              "SheetList": {
+              "sheetList": {
                 "type": [
                   "array",
                   "null"
@@ -52,18 +52,18 @@
                   "type": "string"
                 }
               },
-              "ShowHideSheetList": {
+              "showHideSheetList": {
                 "type": [
                   "string",
                   "null"
                 ]
               },
-              "RemoveEmptyRows": {
+              "removeEmptyRows": {
                 "type": "boolean"
               }
             },
             "required": [
-              "OutlookAddressbook"
+              "outlookAddressbook"
             ],
             "additionalProperties": false
           },
@@ -72,10 +72,10 @@
               "$type": {
                 "const": "JSON"
               },
-              "Filename": {
+              "filename": {
                 "type": "string"
               },
-              "ConnectionType": {
+              "connectionType": {
                 "enum": [
                   "XLSX",
                   "JSON",
@@ -83,16 +83,16 @@
                 ],
                 "type": "string"
               },
-              "Timeout": {
+              "timeout": {
                 "type": "integer"
               },
-              "FieldAliasOrder": {
+              "fieldAliasOrder": {
                 "type": [
                   "object",
                   "null"
                 ]
               },
-              "SheetList": {
+              "sheetList": {
                 "type": [
                   "array",
                   "null"
@@ -101,18 +101,18 @@
                   "type": "string"
                 }
               },
-              "ShowHideSheetList": {
+              "showHideSheetList": {
                 "type": [
                   "string",
                   "null"
                 ]
               },
-              "RemoveEmptyRows": {
+              "removeEmptyRows": {
                 "type": "boolean"
               }
             },
             "required": [
-              "Filename"
+              "filename"
             ],
             "additionalProperties": false
           }
@@ -120,5 +120,8 @@
       }
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.0/ExternalDataProviderConfiguration.schema.json",
+  "title": "ExternalDataProviderConfiguration"
 }

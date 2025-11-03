@@ -1,21 +1,24 @@
 {
   "type": "object",
   "properties": {
-    "SearchForTemplateName": {
+    "searchForTemplateName": {
       "type": "string"
     },
-    "IncludeFilter": {
+    "includeFilter": {
       "type": "string"
     },
-    "ExcludeFilter": {
+    "excludeFilter": {
       "type": "string"
     },
-    "TemplatePropertyName": {
+    "templatePropertyName": {
       "type": "string"
     },
-    "AutoAttachDefaultTemplateOnOpen": {
+    "autoAttachDefaultTemplateOnOpen": {
       "type": "boolean"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.0/AttachTemplateConfiguration.schema.json",
+  "title": "AttachTemplateConfiguration"
 }

@@ -1,44 +1,44 @@
 {
   "type": "object",
   "properties": {
-    "FindOptions": {
+    "findOptions": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
         "properties": {
-          "Title": {
+          "title": {
             "type": "string"
           },
-          "Tag": {
+          "tag": {
             "type": "string"
           },
-          "LockContents": {
+          "lockContents": {
             "type": "boolean"
           },
-          "ShowingPlaceholderText": {
+          "showingPlaceholderText": {
             "type": "boolean"
           },
-          "Range": {
+          "range": {
             "type": "object",
             "properties": {
-              "Start": {
+              "start": {
                 "type": "number"
               },
-              "End": {
+              "end": {
                 "type": "number"
               },
-              "Text": {
+              "text": {
                 "type": "string",
                 "default": ""
               }
             },
             "required": [
-              "Start",
-              "End"
+              "start",
+              "end"
             ],
             "additionalProperties": false
           },
-          "ControlOption": {
+          "controlOption": {
             "enum": [
               "None",
               "Locked",
@@ -46,22 +46,25 @@
             ],
             "type": "string"
           },
-          "IsDeletionLocked": {
+          "isDeletionLocked": {
             "type": "boolean"
           },
-          "DeleteOnEdit": {
+          "deleteOnEdit": {
             "type": "boolean"
           }
         },
         "additionalProperties": false
       }
     },
-    "AddOptions": {
+    "addOptions": {
       "type": "object",
       "additionalProperties": {
-        "$ref": "#/properties/FindOptions/additionalProperties"
+        "$ref": "#/properties/findOptions/additionalProperties"
       }
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.0/ContentControlConfiguration.schema.json",
+  "title": "ContentControlConfiguration"
 }

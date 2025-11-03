@@ -1,18 +1,21 @@
 {
   "type": "object",
   "properties": {
-    "Shared": {
+    "shared": {
       "type": [
         "string",
         "null"
       ]
     },
-    "User": {
+    "user": {
       "type": [
         "string",
         "null"
       ]
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.0/ConfigurationLocationConfiguration.schema.json",
+  "title": "ConfigurationLocationConfiguration"
 }
