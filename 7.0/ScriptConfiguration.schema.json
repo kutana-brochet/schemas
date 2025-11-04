@@ -119,6 +119,7 @@
                       "type": "string"
                     },
                     "SubRange": {
+                      "description": "The sub-range to apply the command",
                       "enum": [
                         "All",
                         "Start",
@@ -131,6 +132,7 @@
                     "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
+                        "EntireDocument",
                         "Selection",
                         "Paragraphs",
                         "FirstParagraph",
@@ -140,7 +142,7 @@
                     }
                   },
                   "required": [
-                    "SubRange"
+                    "CommandRange"
                   ],
                   "additionalProperties": false
                 },
@@ -153,6 +155,7 @@
                       "type": "string"
                     },
                     "SubRange": {
+                      "description": "The sub-range to apply the command",
                       "enum": [
                         "All",
                         "Start",
@@ -165,6 +168,7 @@
                     "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
+                        "EntireDocument",
                         "Selection",
                         "Paragraphs",
                         "FirstParagraph",
@@ -175,7 +179,7 @@
                   },
                   "required": [
                     "Characters",
-                    "SubRange"
+                    "CommandRange"
                   ],
                   "additionalProperties": false
                 },
@@ -345,6 +349,7 @@
                     "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
+                        "EntireDocument",
                         "Selection",
                         "Paragraphs",
                         "FirstParagraph",
@@ -353,6 +358,9 @@
                       "type": "string"
                     }
                   },
+                  "required": [
+                    "CommandRange"
+                  ],
                   "additionalProperties": false
                 },
                 {
@@ -366,6 +374,7 @@
                     "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
+                        "EntireDocument",
                         "Selection",
                         "Paragraphs",
                         "FirstParagraph",
@@ -375,7 +384,8 @@
                     }
                   },
                   "required": [
-                    "StyleName"
+                    "StyleName",
+                    "CommandRange"
                   ],
                   "additionalProperties": false
                 },
@@ -394,6 +404,7 @@
                       ]
                     },
                     "SubRange": {
+                      "description": "The sub-range to apply the command",
                       "enum": [
                         "All",
                         "Start",
@@ -406,6 +417,7 @@
                     "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
+                        "EntireDocument",
                         "Selection",
                         "Paragraphs",
                         "FirstParagraph",
@@ -416,7 +428,7 @@
                   },
                   "required": [
                     "Text",
-                    "SubRange"
+                    "CommandRange"
                   ],
                   "additionalProperties": false
                 },
@@ -429,6 +441,7 @@
                       "type": "string"
                     },
                     "SubRange": {
+                      "description": "The sub-range to apply the command",
                       "enum": [
                         "All",
                         "Start",
@@ -441,6 +454,7 @@
                     "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
+                        "EntireDocument",
                         "Selection",
                         "Paragraphs",
                         "FirstParagraph",
@@ -451,7 +465,7 @@
                   },
                   "required": [
                     "FieldText",
-                    "SubRange"
+                    "CommandRange"
                   ],
                   "additionalProperties": false
                 },
@@ -470,6 +484,7 @@
                       "type": "boolean"
                     },
                     "SubRange": {
+                      "description": "The sub-range to apply the command",
                       "enum": [
                         "All",
                         "Start",
@@ -482,6 +497,7 @@
                     "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
+                        "EntireDocument",
                         "Selection",
                         "Paragraphs",
                         "FirstParagraph",
@@ -492,7 +508,7 @@
                   },
                   "required": [
                     "WordModifiers",
-                    "SubRange"
+                    "CommandRange"
                   ],
                   "additionalProperties": false
                 },
@@ -515,6 +531,7 @@
                       "type": "string"
                     },
                     "SubRange": {
+                      "description": "The sub-range to apply the command",
                       "enum": [
                         "All",
                         "Start",
@@ -527,6 +544,7 @@
                     "CommandRange": {
                       "description": "The range to apply the Command",
                       "enum": [
+                        "EntireDocument",
                         "Selection",
                         "Paragraphs",
                         "FirstParagraph",
@@ -536,7 +554,94 @@
                     }
                   },
                   "required": [
-                    "SubRange"
+                    "CommandRange"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "SetCustomProperty"
+                    },
+                    "PropertyName": {
+                      "type": "string"
+                    },
+                    "PropertyValue": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "PropertyName",
+                    "PropertyValue"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "UnsetCustomProperty"
+                    },
+                    "PropertyName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "PropertyName"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "ClearParagraphFormatting"
+                    },
+                    "CommandRange": {
+                      "description": "The range to apply the Command",
+                      "enum": [
+                        "EntireDocument",
+                        "Selection",
+                        "Paragraphs",
+                        "FirstParagraph",
+                        "LastParagraph"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "CommandRange"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "ClearFontFormatting"
+                    },
+                    "SubRange": {
+                      "description": "The sub-range to apply the command",
+                      "enum": [
+                        "All",
+                        "Start",
+                        "End",
+                        "FirstWord",
+                        "LastWord"
+                      ],
+                      "type": "string"
+                    },
+                    "CommandRange": {
+                      "description": "The range to apply the Command",
+                      "enum": [
+                        "EntireDocument",
+                        "Selection",
+                        "Paragraphs",
+                        "FirstParagraph",
+                        "LastParagraph"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "CommandRange"
                   ],
                   "additionalProperties": false
                 }
