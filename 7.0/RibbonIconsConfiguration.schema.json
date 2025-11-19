@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "properties": {
+    "Icons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Size": {
+            "type": "integer"
+          },
+          "FontName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "FontSize": {
+            "type": "integer"
+          },
+          "FontStyles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "Regular",
+                "Bold",
+                "Italic",
+                "Underline",
+                "Strikeout"
+              ]
+            }
+          },
+          "FontColour": {
+            "type": "string"
+          },
+          "XOffset": {
+            "type": "integer"
+          },
+          "YOffset": {
+            "type": "integer"
+          },
+          "Contrast": {
+            "type": "integer"
+          },
+          "TextRenderingHint": {
+            "enum": [
+              "SystemDefault",
+              "SingleBitPerPixelGridFit",
+              "SingleBitPerPixel",
+              "AntiAliasGridFit",
+              "AntiAlias",
+              "ClearTypeGridFit"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "Name",
+          "Text",
+          "Size",
+          "FontName",
+          "FontSize",
+          "XOffset",
+          "YOffset"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.0/RibbonIconsConfiguration.schema.json",
+  "title": "RibbonIconsConfiguration"
+}

@@ -2,16 +2,10 @@
   "type": "object",
   "properties": {
     "Shared": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "User": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     }
   },
   "additionalProperties": false,

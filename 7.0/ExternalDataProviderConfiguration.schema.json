@@ -26,35 +26,21 @@
               "SQLQuery": {
                 "type": "string"
               },
+              "Timeout": {
+                "type": "integer"
+              },
               "ConnectionType": {
                 "enum": [
                   "XLSX",
                   "JSON",
-                  "Outlook"
+                  "Outlook",
+                  "OutlookAddressBookForm"
                 ],
                 "type": "string"
-              },
-              "Timeout": {
-                "type": "integer"
               },
               "FieldAliasOrder": {
                 "type": [
                   "object",
-                  "null"
-                ]
-              },
-              "SheetList": {
-                "type": [
-                  "array",
-                  "null"
-                ],
-                "items": {
-                  "type": "string"
-                }
-              },
-              "ShowHideSheetList": {
-                "type": [
-                  "string",
                   "null"
                 ]
               },
@@ -75,22 +61,8 @@
               "Filename": {
                 "type": "string"
               },
-              "ConnectionType": {
-                "enum": [
-                  "XLSX",
-                  "JSON",
-                  "Outlook"
-                ],
-                "type": "string"
-              },
               "Timeout": {
                 "type": "integer"
-              },
-              "FieldAliasOrder": {
-                "type": [
-                  "object",
-                  "null"
-                ]
               },
               "SheetList": {
                 "type": [
@@ -107,12 +79,71 @@
                   "null"
                 ]
               },
+              "ConnectionType": {
+                "enum": [
+                  "XLSX",
+                  "JSON",
+                  "Outlook",
+                  "OutlookAddressBookForm"
+                ],
+                "type": "string"
+              },
+              "FieldAliasOrder": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
               "RemoveEmptyRows": {
                 "type": "boolean"
               }
             },
             "required": [
               "Filename"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "properties": {
+              "$type": {
+                "const": "OutlookAddressBookForm"
+              },
+              "AddressbookName": {
+                "type": "string"
+              },
+              "ContactFieldAliasOrder": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "ExchangeFieldAliasOrder": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "ConnectionType": {
+                "enum": [
+                  "XLSX",
+                  "JSON",
+                  "Outlook",
+                  "OutlookAddressBookForm"
+                ],
+                "type": "string"
+              },
+              "FieldAliasOrder": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "RemoveEmptyRows": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "AddressbookName"
             ],
             "additionalProperties": false
           }

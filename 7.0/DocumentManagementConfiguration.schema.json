@@ -4,7 +4,8 @@
     "Provider": {
       "enum": [
         "None",
-        "iManage"
+        "iManage",
+        "NetDocuments"
       ],
       "type": "string"
     },
@@ -13,8 +14,17 @@
       "items": {
         "type": "object",
         "properties": {
+          "DocType": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "Filter": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "CloseOnCancel": {
             "type": "boolean"
@@ -28,6 +38,48 @@
       "additionalProperties": {
         "type": "string"
       }
+    },
+    "Properties": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "WithAdditionalData": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "PropertyMappings": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "CustomProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "DocumentVariables": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "DocumentProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false,

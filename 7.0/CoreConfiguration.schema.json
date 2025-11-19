@@ -2,7 +2,10 @@
   "type": "object",
   "properties": {
     "$schema": {
-      "type": "string"
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "ContentControls": {
       "$ref": "ContentControlConfiguration.schema.json"
@@ -22,11 +25,14 @@
     "Licence": {
       "$ref": "LicenceConfiguration.schema.json"
     },
-    "Rules": {
+    "RulesConfiguration": {
       "$ref": "RulesConfiguration.schema.json"
     },
     "Debug": {
       "$ref": "DebugConfiguration.schema.json"
+    },
+    "RibbonIcons": {
+      "$ref": "RibbonIconsConfiguration.schema.json"
     }
   },
   "additionalProperties": false,

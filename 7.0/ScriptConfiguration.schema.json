@@ -22,127 +22,246 @@
                     "$type": {
                       "const": "ApplyFontFormatting"
                     },
-                    "AllCaps": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Toggle"
+                    "Range": {
+                      "description": "The range to apply the command",
+                      "type": "object",
+                      "required": [
+                        "$type"
                       ],
-                      "type": "string"
-                    },
-                    "Bold": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Toggle"
-                      ],
-                      "type": "string"
-                    },
-                    "Colour": {
-                      "type": "string"
-                    },
-                    "ColourIndex": {
-                      "type": [
-                        "integer",
-                        "null"
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Document"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Selection"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Paragraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "FirstParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "LastParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        }
                       ]
                     },
-                    "DoubleStrikeThrough": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Toggle"
-                      ],
-                      "type": "string"
-                    },
-                    "Hidden": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Toggle"
-                      ],
-                      "type": "string"
-                    },
-                    "Italic": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Toggle"
-                      ],
-                      "type": "string"
-                    },
-                    "Position": {
-                      "type": [
-                        "integer",
-                        "null"
-                      ]
-                    },
-                    "SmallCaps": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Toggle"
-                      ],
-                      "type": "string"
-                    },
-                    "StrikeThrough": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Toggle"
-                      ],
-                      "type": "string"
-                    },
-                    "Subscript": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Toggle"
-                      ],
-                      "type": "string"
-                    },
-                    "Superscript": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Toggle"
-                      ],
-                      "type": "string"
-                    },
-                    "Underline": {
-                      "enum": [
-                        "None",
-                        "Single",
-                        "UnderlineWords",
-                        "Double"
-                      ],
-                      "type": "string"
-                    },
-                    "SubRange": {
-                      "description": "The sub-range to apply the command",
-                      "enum": [
-                        "All",
-                        "Start",
-                        "End",
-                        "FirstWord",
-                        "LastWord"
-                      ],
-                      "type": "string"
-                    },
-                    "CommandRange": {
-                      "description": "The range to apply the Command",
-                      "enum": [
-                        "EntireDocument",
-                        "Selection",
-                        "Paragraphs",
-                        "FirstParagraph",
-                        "LastParagraph"
-                      ],
-                      "type": "string"
+                    "Options": {
+                      "type": "object",
+                      "properties": {
+                        "AllCaps": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Toggle"
+                          ],
+                          "type": "string"
+                        },
+                        "Bold": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Toggle"
+                          ],
+                          "type": "string"
+                        },
+                        "Colour": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "ColourIndex": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "DoubleStrikeThrough": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Toggle"
+                          ],
+                          "type": "string"
+                        },
+                        "Hidden": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Toggle"
+                          ],
+                          "type": "string"
+                        },
+                        "Italic": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Toggle"
+                          ],
+                          "type": "string"
+                        },
+                        "Position": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "SmallCaps": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Toggle"
+                          ],
+                          "type": "string"
+                        },
+                        "StrikeThrough": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Toggle"
+                          ],
+                          "type": "string"
+                        },
+                        "Subscript": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Toggle"
+                          ],
+                          "type": "string"
+                        },
+                        "Superscript": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Toggle"
+                          ],
+                          "type": "string"
+                        },
+                        "Underline": {
+                          "enum": [
+                            "None",
+                            "Single",
+                            "Words",
+                            "Double",
+                            "Dotted",
+                            "Thick",
+                            "Dash",
+                            "DotDash",
+                            "DotDotDash",
+                            "Wavy",
+                            "DottedHeavy",
+                            "DashHeavy",
+                            "DotDashHeavy",
+                            "DotDotDashHeavy",
+                            "WavyHeavy",
+                            "DashLong",
+                            "WavyDouble",
+                            "DashLongHeavy"
+                          ],
+                          "type": "string"
+                        },
+                        "CharacterCase": {
+                          "enum": [
+                            "NextCase",
+                            "LowerCase",
+                            "UpperCase",
+                            "TitleWord",
+                            "TitleSentence",
+                            "ToggleCase",
+                            "HalfWidth",
+                            "FullWidth"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false
                     }
                   },
                   "required": [
-                    "CommandRange"
+                    "Range",
+                    "Options"
                   ],
                   "additionalProperties": false
                 },
@@ -151,35 +270,285 @@
                     "$type": {
                       "const": "DeleteCharacters"
                     },
-                    "Characters": {
-                      "type": "string"
-                    },
-                    "SubRange": {
-                      "description": "The sub-range to apply the command",
-                      "enum": [
-                        "All",
-                        "Start",
-                        "End",
-                        "FirstWord",
-                        "LastWord"
+                    "Range": {
+                      "description": "The range to apply the command",
+                      "type": "object",
+                      "required": [
+                        "$type"
                       ],
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Document"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "Start",
+                                "End",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Selection"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "Start",
+                                "End",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Paragraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "Start",
+                                "End",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "FirstParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "Start",
+                                "End",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "LastParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "Start",
+                                "End",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
                     },
-                    "CommandRange": {
-                      "description": "The range to apply the Command",
-                      "enum": [
-                        "EntireDocument",
-                        "Selection",
-                        "Paragraphs",
-                        "FirstParagraph",
-                        "LastParagraph"
+                    "Options": {
+                      "type": "object",
+                      "properties": {
+                        "Characters": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 1
+                          }
+                        }
+                      },
+                      "required": [
+                        "Characters"
                       ],
-                      "type": "string"
+                      "additionalProperties": false
                     }
                   },
                   "required": [
-                    "Characters",
-                    "CommandRange"
+                    "Range",
+                    "Options"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "properties": {
+                    "$type": {
+                      "const": "DeleteWords"
+                    },
+                    "Range": {
+                      "description": "The range to apply the command",
+                      "type": "object",
+                      "required": [
+                        "$type"
+                      ],
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Document"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "Start",
+                                "End",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Selection"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "Start",
+                                "End",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Paragraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "Start",
+                                "End",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "FirstParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "Start",
+                                "End",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "LastParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "Start",
+                                "End",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "Options": {
+                      "type": "object",
+                      "properties": {
+                        "Words": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "MatchCase": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "Words"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "Range",
+                    "Options"
                   ],
                   "additionalProperties": false
                 },
@@ -188,178 +557,223 @@
                     "$type": {
                       "const": "ApplyParagraphFormatting"
                     },
-                    "Alignment": {
-                      "enum": [
-                        "Left",
-                        "Center",
-                        "Right",
-                        "Justified"
+                    "Range": {
+                      "description": "The range to apply the command",
+                      "type": "object",
+                      "required": [
+                        "$type"
                       ],
-                      "type": "string"
-                    },
-                    "BaseLineAlignment": {
-                      "enum": [
-                        "Top",
-                        "Center",
-                        "Baseline",
-                        "FarEast50"
-                      ],
-                      "type": "string"
-                    },
-                    "CharacterUnitFirstLineIndent": {
-                      "type": [
-                        "number",
-                        "null"
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Document"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Selection"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Paragraph"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "FirstParagraph"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "LastParagraph"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
                       ]
                     },
-                    "CharacterUnitLeftIndent": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "CharacterUnitRightIndent": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "FirstLineIndent": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "KeepTogether": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Undefined"
-                      ],
-                      "type": "string"
-                    },
-                    "KeepWithNext": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Undefined"
-                      ],
-                      "type": "string"
-                    },
-                    "LeftIndent": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "LineSpacing": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "LineSpacingRule": {
-                      "enum": [
-                        "Single",
-                        "OnePointFive",
-                        "Double",
-                        "AtLeast",
-                        "Exactly",
-                        "Multiple"
-                      ],
-                      "type": "string"
-                    },
-                    "LineUnitAfter": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "LineUnitBefore": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "MirrorIndents": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Undefined"
-                      ],
-                      "type": "string"
-                    },
-                    "NoLineNumber": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Undefined"
-                      ],
-                      "type": "string"
-                    },
-                    "OutlineLevel": {
-                      "enum": [
-                        "Level1",
-                        "Level2",
-                        "Level3",
-                        "Level4",
-                        "Level5",
-                        "Level6",
-                        "Level7",
-                        "Level8",
-                        "Level9",
-                        "BodyText"
-                      ],
-                      "type": "string"
-                    },
-                    "PageBreakBefore": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Undefined"
-                      ],
-                      "type": "string"
-                    },
-                    "RightIndent": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "SpaceAfter": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "SpaceBefore": {
-                      "type": [
-                        "number",
-                        "null"
-                      ]
-                    },
-                    "WidowControl": {
-                      "enum": [
-                        "False",
-                        "True",
-                        "Undefined"
-                      ],
-                      "type": "string"
-                    },
-                    "CommandRange": {
-                      "description": "The range to apply the Command",
-                      "enum": [
-                        "EntireDocument",
-                        "Selection",
-                        "Paragraphs",
-                        "FirstParagraph",
-                        "LastParagraph"
-                      ],
-                      "type": "string"
+                    "Options": {
+                      "type": "object",
+                      "properties": {
+                        "Alignment": {
+                          "enum": [
+                            "Left",
+                            "Center",
+                            "Right",
+                            "Justified"
+                          ],
+                          "type": "string"
+                        },
+                        "BaseLineAlignment": {
+                          "enum": [
+                            "Top",
+                            "Center",
+                            "Baseline",
+                            "FarEast50"
+                          ],
+                          "type": "string"
+                        },
+                        "CharacterUnitFirstLineIndent": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "CharacterUnitLeftIndent": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "CharacterUnitRightIndent": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "FirstLineIndent": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "KeepTogether": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Undefined"
+                          ],
+                          "type": "string"
+                        },
+                        "KeepWithNext": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Undefined"
+                          ],
+                          "type": "string"
+                        },
+                        "LeftIndent": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "LineSpacing": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "LineSpacingRule": {
+                          "enum": [
+                            "Single",
+                            "OnePointFive",
+                            "Double",
+                            "AtLeast",
+                            "Exactly",
+                            "Multiple"
+                          ],
+                          "type": "string"
+                        },
+                        "LineUnitAfter": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "LineUnitBefore": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "MirrorIndents": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Undefined"
+                          ],
+                          "type": "string"
+                        },
+                        "NoLineNumber": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Undefined"
+                          ],
+                          "type": "string"
+                        },
+                        "OutlineLevel": {
+                          "enum": [
+                            "Level1",
+                            "Level2",
+                            "Level3",
+                            "Level4",
+                            "Level5",
+                            "Level6",
+                            "Level7",
+                            "Level8",
+                            "Level9",
+                            "BodyText"
+                          ],
+                          "type": "string"
+                        },
+                        "PageBreakBefore": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Undefined"
+                          ],
+                          "type": "string"
+                        },
+                        "RightIndent": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "SpaceAfter": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "SpaceBefore": {
+                          "type": [
+                            "number",
+                            "null"
+                          ]
+                        },
+                        "WidowControl": {
+                          "enum": [
+                            "False",
+                            "True",
+                            "Undefined"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false
                     }
                   },
                   "required": [
-                    "CommandRange"
+                    "Range",
+                    "Options"
                   ],
                   "additionalProperties": false
                 },
@@ -368,24 +782,126 @@
                     "$type": {
                       "const": "ApplyStyle"
                     },
-                    "StyleName": {
-                      "type": "string"
-                    },
-                    "CommandRange": {
-                      "description": "The range to apply the Command",
-                      "enum": [
-                        "EntireDocument",
-                        "Selection",
-                        "Paragraphs",
-                        "FirstParagraph",
-                        "LastParagraph"
+                    "Range": {
+                      "description": "The range to apply the command",
+                      "type": "object",
+                      "required": [
+                        "$type"
                       ],
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Document"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Selection"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Paragraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "FirstParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "LastParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "Options": {
+                      "type": "object",
+                      "properties": {
+                        "StyleName": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "additionalProperties": false
                     }
                   },
                   "required": [
-                    "StyleName",
-                    "CommandRange"
+                    "Range",
+                    "Options"
                   ],
                   "additionalProperties": false
                 },
@@ -394,41 +910,124 @@
                     "$type": {
                       "const": "InsertText"
                     },
-                    "Text": {
-                      "type": "string"
-                    },
-                    "PreventDuplicates": {
-                      "type": [
-                        "boolean",
-                        "null"
+                    "Range": {
+                      "description": "The range to apply the command",
+                      "type": "object",
+                      "required": [
+                        "$type"
+                      ],
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Document"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "Start",
+                                "End"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Selection"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "Start",
+                                "End"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Paragraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "Start",
+                                "End"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "FirstParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "Start",
+                                "End"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "LastParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "Start",
+                                "End"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        }
                       ]
                     },
-                    "SubRange": {
-                      "description": "The sub-range to apply the command",
-                      "enum": [
-                        "All",
-                        "Start",
-                        "End",
-                        "FirstWord",
-                        "LastWord"
+                    "Options": {
+                      "type": "object",
+                      "properties": {
+                        "Text": {
+                          "type": "string"
+                        },
+                        "PreventDuplicates": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "Text"
                       ],
-                      "type": "string"
-                    },
-                    "CommandRange": {
-                      "description": "The range to apply the Command",
-                      "enum": [
-                        "EntireDocument",
-                        "Selection",
-                        "Paragraphs",
-                        "FirstParagraph",
-                        "LastParagraph"
-                      ],
-                      "type": "string"
+                      "additionalProperties": false
                     }
                   },
                   "required": [
-                    "Text",
-                    "CommandRange"
+                    "Range",
+                    "Options"
                   ],
                   "additionalProperties": false
                 },
@@ -437,35 +1036,121 @@
                     "$type": {
                       "const": "InsertField"
                     },
-                    "FieldText": {
-                      "type": "string"
-                    },
-                    "SubRange": {
-                      "description": "The sub-range to apply the command",
-                      "enum": [
-                        "All",
-                        "Start",
-                        "End",
-                        "FirstWord",
-                        "LastWord"
+                    "Range": {
+                      "description": "The range to apply the command",
+                      "type": "object",
+                      "required": [
+                        "$type"
                       ],
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Document"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "Start",
+                                "End"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Selection"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "Start",
+                                "End"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Paragraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "Start",
+                                "End"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "FirstParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "Start",
+                                "End"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "LastParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "Start",
+                                "End"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
                     },
-                    "CommandRange": {
-                      "description": "The range to apply the Command",
-                      "enum": [
-                        "EntireDocument",
-                        "Selection",
-                        "Paragraphs",
-                        "FirstParagraph",
-                        "LastParagraph"
+                    "Options": {
+                      "type": "object",
+                      "properties": {
+                        "FieldText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "FieldText"
                       ],
-                      "type": "string"
+                      "additionalProperties": false
                     }
                   },
                   "required": [
-                    "FieldText",
-                    "CommandRange"
+                    "Range",
+                    "Options"
                   ],
                   "additionalProperties": false
                 },
@@ -474,87 +1159,129 @@
                     "$type": {
                       "const": "EnforceCase"
                     },
-                    "WordModifiers": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "IgnoreFirstWord": {
-                      "type": "boolean"
-                    },
-                    "SubRange": {
-                      "description": "The sub-range to apply the command",
-                      "enum": [
-                        "All",
-                        "Start",
-                        "End",
-                        "FirstWord",
-                        "LastWord"
+                    "Range": {
+                      "description": "The range to apply the command",
+                      "type": "object",
+                      "required": [
+                        "$type"
                       ],
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Document"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Selection"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Paragraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "FirstParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "LastParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
                     },
-                    "CommandRange": {
-                      "description": "The range to apply the Command",
-                      "enum": [
-                        "EntireDocument",
-                        "Selection",
-                        "Paragraphs",
-                        "FirstParagraph",
-                        "LastParagraph"
-                      ],
-                      "type": "string"
+                    "Options": {
+                      "type": "object",
+                      "properties": {
+                        "Words": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "IgnoreFirstWord": {
+                          "type": "boolean"
+                        }
+                      },
+                      "additionalProperties": false
                     }
                   },
                   "required": [
-                    "WordModifiers",
-                    "CommandRange"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "properties": {
-                    "$type": {
-                      "const": "ApplySelectionFormatting"
-                    },
-                    "CharacterCase": {
-                      "enum": [
-                        "NextCase",
-                        "LowerCase",
-                        "UpperCase",
-                        "TitleWord",
-                        "TitleSentence",
-                        "ToggleCase",
-                        "HalfWidth",
-                        "FullWidth"
-                      ],
-                      "type": "string"
-                    },
-                    "SubRange": {
-                      "description": "The sub-range to apply the command",
-                      "enum": [
-                        "All",
-                        "Start",
-                        "End",
-                        "FirstWord",
-                        "LastWord"
-                      ],
-                      "type": "string"
-                    },
-                    "CommandRange": {
-                      "description": "The range to apply the Command",
-                      "enum": [
-                        "EntireDocument",
-                        "Selection",
-                        "Paragraphs",
-                        "FirstParagraph",
-                        "LastParagraph"
-                      ],
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "CommandRange"
+                    "Range",
+                    "Options"
                   ],
                   "additionalProperties": false
                 },
@@ -563,30 +1290,48 @@
                     "$type": {
                       "const": "SetCustomProperty"
                     },
-                    "PropertyName": {
-                      "type": "string"
-                    },
-                    "PropertyValue": {
-                      "type": "string"
+                    "Options": {
+                      "type": "object",
+                      "properties": {
+                        "Name": {
+                          "type": "string"
+                        },
+                        "Value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "Name",
+                        "Value"
+                      ],
+                      "additionalProperties": false
                     }
                   },
                   "required": [
-                    "PropertyName",
-                    "PropertyValue"
+                    "Options"
                   ],
                   "additionalProperties": false
                 },
                 {
                   "properties": {
                     "$type": {
-                      "const": "UnsetCustomProperty"
+                      "const": "DeleteCustomProperty"
                     },
-                    "PropertyName": {
-                      "type": "string"
+                    "Options": {
+                      "type": "object",
+                      "properties": {
+                        "Name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "Name"
+                      ],
+                      "additionalProperties": false
                     }
                   },
                   "required": [
-                    "PropertyName"
+                    "Options"
                   ],
                   "additionalProperties": false
                 },
@@ -595,20 +1340,58 @@
                     "$type": {
                       "const": "ClearParagraphFormatting"
                     },
-                    "CommandRange": {
-                      "description": "The range to apply the Command",
-                      "enum": [
-                        "EntireDocument",
-                        "Selection",
-                        "Paragraphs",
-                        "FirstParagraph",
-                        "LastParagraph"
+                    "Range": {
+                      "description": "The range to apply the command",
+                      "type": "object",
+                      "required": [
+                        "$type"
                       ],
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Document"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Selection"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Paragraph"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "FirstParagraph"
+                            }
+                          },
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "LastParagraph"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      ]
                     }
                   },
                   "required": [
-                    "CommandRange"
+                    "Range"
                   ],
                   "additionalProperties": false
                 },
@@ -617,31 +1400,113 @@
                     "$type": {
                       "const": "ClearFontFormatting"
                     },
-                    "SubRange": {
-                      "description": "The sub-range to apply the command",
-                      "enum": [
-                        "All",
-                        "Start",
-                        "End",
-                        "FirstWord",
-                        "LastWord"
+                    "Range": {
+                      "description": "The range to apply the command",
+                      "type": "object",
+                      "required": [
+                        "$type"
                       ],
-                      "type": "string"
-                    },
-                    "CommandRange": {
-                      "description": "The range to apply the Command",
-                      "enum": [
-                        "EntireDocument",
-                        "Selection",
-                        "Paragraphs",
-                        "FirstParagraph",
-                        "LastParagraph"
-                      ],
-                      "type": "string"
+                      "anyOf": [
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Document"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Selection"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "Paragraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "FirstParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "properties": {
+                            "$type": {
+                              "const": "LastParagraph"
+                            },
+                            "SubRange": {
+                              "enum": [
+                                "All",
+                                "FirstWord",
+                                "LastWord"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "SubRange"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
                     }
                   },
                   "required": [
-                    "CommandRange"
+                    "Range"
                   ],
                   "additionalProperties": false
                 }
@@ -658,7 +1523,10 @@
         "type": "object",
         "properties": {
           "Script": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "EnabledWhen": {
             "type": "string"

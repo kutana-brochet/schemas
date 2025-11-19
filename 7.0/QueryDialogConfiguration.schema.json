@@ -106,21 +106,36 @@
             "type": "boolean"
           },
           "QueryPanel": {
-            "type": "array",
+            "type": [
+              "array",
+              "null"
+            ],
             "items": {
               "type": "object",
               "properties": {
                 "AutoTextName": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "AutoTextDisplayName": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "AutoTextComment": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "AutoTextBitmap": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 },
                 "RecordsPerAutoText": {
                   "type": "integer"
@@ -129,7 +144,10 @@
                   "type": "integer"
                 },
                 "FieldMappingID": {
-                  "type": "string"
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "additionalProperties": false
