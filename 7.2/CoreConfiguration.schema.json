@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ContentControls": {
+      "$ref": "ContentControlConfiguration.schema.json"
+    },
+    "DocumentManagement": {
+      "$ref": "DocumentManagementConfiguration.schema.json"
+    },
+    "ConfigurationLocations": {
+      "$ref": "ConfigurationLocationConfiguration.schema.json"
+    },
+    "ScriptConfiguration": {
+      "$ref": "ScriptConfiguration.schema.json"
+    },
+    "AttachTemplateConfiguration": {
+      "$ref": "AttachTemplateConfiguration.schema.json"
+    },
+    "Licence": {
+      "$ref": "LicenceConfiguration.schema.json"
+    },
+    "RulesConfiguration": {
+      "$ref": "RulesConfiguration.schema.json"
+    },
+    "Debug": {
+      "$ref": "DebugConfiguration.schema.json"
+    },
+    "RibbonIcons": {
+      "$ref": "RibbonIconsConfiguration.schema.json"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.2/CoreConfiguration.schema.json",
+  "title": "CoreConfiguration"
+}

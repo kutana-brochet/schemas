@@ -1,0 +1,165 @@
+{
+  "type": "object",
+  "properties": {
+    "Dialogs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "QueryDialogName": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "DialogCaption": {
+            "type": "string"
+          },
+          "HideColumns": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "AllowDuplicates": {
+            "type": "boolean"
+          },
+          "ButtonTag": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ColumnOrder": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "integer"
+            }
+          },
+          "DropDownColumns": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "SearchType": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "SearchBoxCount": {
+            "type": "integer"
+          },
+          "ShowAutotextPanel": {
+            "type": "boolean"
+          },
+          "ShowSearchPanel": {
+            "type": "boolean"
+          },
+          "ImageRoot": {
+            "type": "string"
+          },
+          "SingleSelectionOnly": {
+            "type": "boolean"
+          },
+          "SearchText": {
+            "type": "string"
+          },
+          "SearchBoxFields": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "DialogWidth": {
+            "type": "integer"
+          },
+          "DialogHeight": {
+            "type": "integer"
+          },
+          "OKButtonText": {
+            "type": "string"
+          },
+          "AutoColumnWidthThreshold": {
+            "type": "integer"
+          },
+          "AutoColumnWidthDefault": {
+            "type": "integer"
+          },
+          "AlwaysShowDialog": {
+            "type": "boolean"
+          },
+          "ShowPleaseWait": {
+            "type": "boolean"
+          },
+          "QueryPanel": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "AutoTextName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "AutoTextDisplayName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "AutoTextComment": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "AutoTextBitmap": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "RecordsPerAutoText": {
+                  "type": "integer"
+                },
+                "MaxRecords": {
+                  "type": "integer"
+                },
+                "FieldMappingID": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.2/QueryDialogConfiguration.schema.json",
+  "title": "QueryDialogConfiguration"
+}

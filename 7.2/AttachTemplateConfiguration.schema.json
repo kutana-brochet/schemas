@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "SearchForTemplateName": {
+      "type": "string"
+    },
+    "IncludeFilter": {
+      "type": "string"
+    },
+    "ExcludeFilter": {
+      "type": "string"
+    },
+    "TemplatePropertyName": {
+      "type": "string"
+    },
+    "AutoAttachDefaultTemplateOnOpen": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.2/AttachTemplateConfiguration.schema.json",
+  "title": "AttachTemplateConfiguration"
+}

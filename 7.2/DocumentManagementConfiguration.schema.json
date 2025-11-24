@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "properties": {
+    "Provider": {
+      "enum": [
+        "None",
+        "iManage",
+        "NetDocuments"
+      ],
+      "type": "string"
+    },
+    "PreProfileTemplates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "DocType": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "Filter": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "CloseOnCancel": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "CreateOptions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "Properties": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "WithAdditionalData": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "PropertyMappings": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "CustomProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "DocumentVariables": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "DocumentProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.2/DocumentManagementConfiguration.schema.json",
+  "title": "DocumentManagementConfiguration"
+}

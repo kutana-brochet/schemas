@@ -1,0 +1,158 @@
+{
+  "type": "object",
+  "properties": {
+    "ExternalDataProviders": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "$type"
+        ],
+        "anyOf": [
+          {
+            "properties": {
+              "$type": {
+                "const": "Outlook"
+              },
+              "OutlookAddressbook": {
+                "type": "string"
+              },
+              "ConnectionSettings": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "SQLQuery": {
+                "type": "string"
+              },
+              "Timeout": {
+                "type": "integer"
+              },
+              "ConnectionType": {
+                "enum": [
+                  "XLSX",
+                  "JSON",
+                  "Outlook",
+                  "OutlookAddressBookForm"
+                ],
+                "type": "string"
+              },
+              "FieldAliasOrder": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "RemoveEmptyRows": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "OutlookAddressbook"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "properties": {
+              "$type": {
+                "const": "JSON"
+              },
+              "Filename": {
+                "type": "string"
+              },
+              "Timeout": {
+                "type": "integer"
+              },
+              "SheetList": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              },
+              "ShowHideSheetList": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ConnectionType": {
+                "enum": [
+                  "XLSX",
+                  "JSON",
+                  "Outlook",
+                  "OutlookAddressBookForm"
+                ],
+                "type": "string"
+              },
+              "FieldAliasOrder": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "RemoveEmptyRows": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "Filename"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "properties": {
+              "$type": {
+                "const": "OutlookAddressBookForm"
+              },
+              "AddressbookName": {
+                "type": "string"
+              },
+              "ContactFieldAliasOrder": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "ExchangeFieldAliasOrder": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "ConnectionType": {
+                "enum": [
+                  "XLSX",
+                  "JSON",
+                  "Outlook",
+                  "OutlookAddressBookForm"
+                ],
+                "type": "string"
+              },
+              "FieldAliasOrder": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "RemoveEmptyRows": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "AddressbookName"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kutana-brochet.github.io/schemas/7.2/ExternalDataProviderConfiguration.schema.json",
+  "title": "ExternalDataProviderConfiguration"
+}
