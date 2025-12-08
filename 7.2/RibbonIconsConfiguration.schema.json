@@ -7,25 +7,16 @@
         "type": "object",
         "properties": {
           "Name": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "Text": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "Size": {
             "type": "integer"
           },
           "FontName": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "FontSize": {
             "type": "integer"
@@ -52,9 +43,6 @@
           "YOffset": {
             "type": "integer"
           },
-          "Contrast": {
-            "type": "integer"
-          },
           "TextRenderingHint": {
             "enum": [
               "SystemDefault",
@@ -65,6 +53,202 @@
               "ClearTypeGridFit"
             ],
             "type": "string"
+          },
+          "Bitmap": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "Tag": true,
+              "PhysicalDimension": {
+                "type": "object",
+                "properties": {
+                  "IsEmpty": {
+                    "type": "boolean"
+                  },
+                  "Width": {
+                    "type": "number"
+                  },
+                  "Height": {
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "Size": {
+                "type": "object",
+                "properties": {
+                  "IsEmpty": {
+                    "type": "boolean"
+                  },
+                  "Width": {
+                    "type": "integer"
+                  },
+                  "Height": {
+                    "type": "integer"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "Width": {
+                "type": "integer"
+              },
+              "Height": {
+                "type": "integer"
+              },
+              "HorizontalResolution": {
+                "type": "number"
+              },
+              "VerticalResolution": {
+                "type": "number"
+              },
+              "Flags": {
+                "type": "integer"
+              },
+              "RawFormat": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "Guid": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                },
+                "required": [
+                  "Guid"
+                ],
+                "additionalProperties": false
+              },
+              "PixelFormat": {
+                "enum": [
+                  "DontCare",
+                  "Undefined",
+                  "Max",
+                  "Indexed",
+                  "Gdi",
+                  "Format16bppRgb555",
+                  "Format16bppRgb565",
+                  "Format24bppRgb",
+                  "Format32bppRgb",
+                  "Format1bppIndexed",
+                  "Format4bppIndexed",
+                  "Format8bppIndexed",
+                  "Alpha",
+                  "Format16bppArgb1555",
+                  "PAlpha",
+                  "Format32bppPArgb",
+                  "Extended",
+                  "Format16bppGrayScale",
+                  "Format48bppRgb",
+                  "Format64bppPArgb",
+                  "Canonical",
+                  "Format32bppArgb",
+                  "Format64bppArgb"
+                ],
+                "type": "string"
+              },
+              "PropertyIdList": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "PropertyItems": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "Id": {
+                      "type": "integer"
+                    },
+                    "Len": {
+                      "type": "integer"
+                    },
+                    "Type": {
+                      "type": "integer"
+                    },
+                    "Value": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "Palette": {
+                "type": "object",
+                "properties": {
+                  "Flags": {
+                    "type": "integer"
+                  },
+                  "Entries": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "R": {
+                          "type": "integer"
+                        },
+                        "G": {
+                          "type": "integer"
+                        },
+                        "B": {
+                          "type": "integer"
+                        },
+                        "A": {
+                          "type": "integer"
+                        },
+                        "IsKnownColor": {
+                          "type": "boolean"
+                        },
+                        "IsEmpty": {
+                          "type": "boolean"
+                        },
+                        "IsNamedColor": {
+                          "type": "boolean"
+                        },
+                        "IsSystemColor": {
+                          "type": "boolean"
+                        },
+                        "Name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "additionalProperties": false
+              },
+              "FrameDimensionsList": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "additionalProperties": false
           }
         },
         "required": [

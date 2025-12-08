@@ -1132,6 +1132,9 @@
                           "type": "boolean"
                         }
                       },
+                      "required": [
+                        "Words"
+                      ],
                       "additionalProperties": false
                     }
                   },
