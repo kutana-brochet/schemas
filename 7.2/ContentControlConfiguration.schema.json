@@ -26,10 +26,6 @@
               },
               "End": {
                 "type": "number"
-              },
-              "Text": {
-                "type": "string",
-                "default": ""
               }
             },
             "required": [

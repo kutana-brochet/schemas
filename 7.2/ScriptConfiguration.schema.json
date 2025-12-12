@@ -13,9 +13,6 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": [
-                "$type"
-              ],
               "anyOf": [
                 {
                   "properties": {
@@ -260,6 +257,7 @@
                     }
                   },
                   "required": [
+                    "$type",
                     "Range",
                     "Options"
                   ],
@@ -403,6 +401,7 @@
                     }
                   },
                   "required": [
+                    "$type",
                     "Range",
                     "Options"
                   ],
@@ -628,6 +627,7 @@
                     }
                   },
                   "required": [
+                    "$type",
                     "Range",
                     "Options"
                   ],
@@ -756,6 +756,7 @@
                     }
                   },
                   "required": [
+                    "$type",
                     "Range",
                     "Options"
                   ],
@@ -882,6 +883,7 @@
                     }
                   },
                   "required": [
+                    "$type",
                     "Range",
                     "Options"
                   ],
@@ -1005,6 +1007,7 @@
                     }
                   },
                   "required": [
+                    "$type",
                     "Range",
                     "Options"
                   ],
@@ -1139,6 +1142,7 @@
                     }
                   },
                   "required": [
+                    "$type",
                     "Range",
                     "Options"
                   ],
@@ -1167,6 +1171,7 @@
                     }
                   },
                   "required": [
+                    "$type",
                     "Options"
                   ],
                   "additionalProperties": false
@@ -1190,6 +1195,7 @@
                     }
                   },
                   "required": [
+                    "$type",
                     "Options"
                   ],
                   "additionalProperties": false
@@ -1250,6 +1256,7 @@
                     }
                   },
                   "required": [
+                    "$type",
                     "Range"
                   ],
                   "additionalProperties": false
@@ -1365,8 +1372,12 @@
                     }
                   },
                   "required": [
+                    "$type",
                     "Range"
                   ],
+                  "additionalProperties": false
+                },
+                {
                   "additionalProperties": false
                 }
               ]
