@@ -22,10 +22,10 @@
             "type": "object",
             "properties": {
               "Start": {
-                "type": "number"
+                "type": "integer"
               },
               "End": {
-                "type": "number"
+                "type": "integer"
               }
             },
             "required": [
