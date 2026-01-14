@@ -2,6 +2,7 @@
   "type": "object",
   "properties": {
     "ExternalDataProviders": {
+      "description": "Named data sources (JSON files, Outlook, APIs) that supply values to documents",
       "type": "object",
       "additionalProperties": {
         "type": "object",
@@ -15,21 +16,26 @@
                 "const": "Outlook"
               },
               "OutlookAddressbook": {
+                "description": "Name of the Outlook address book to query",
                 "type": "string"
               },
               "ConnectionSettings": {
+                "description": "Connection string for the Outlook data source",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "SQLQuery": {
+                "description": "DASL query to filter Outlook contacts",
                 "type": "string"
               },
               "Timeout": {
+                "description": "Maximum time in milliseconds to wait for Outlook data (default: 15000)",
                 "type": "integer"
               },
               "ConnectionType": {
+                "description": "Data source type (JSON, Outlook, OutlookAddressBookForm)",
                 "enum": [
                   "XLSX",
                   "JSON",
@@ -39,12 +45,14 @@
                 "type": "string"
               },
               "FieldAliasOrder": {
+                "description": "Maps internal field names to user-friendly display names",
                 "type": [
                   "object",
                   "null"
                 ]
               },
               "RemoveEmptyRows": {
+                "description": "Filters out rows where all selected fields are empty",
                 "type": "boolean"
               }
             },
@@ -59,12 +67,15 @@
                 "const": "JSON"
               },
               "Filename": {
+                "description": "Path to the JSON or Excel file (supports environment variables)",
                 "type": "string"
               },
               "Timeout": {
+                "description": "Maximum time in milliseconds to wait for file load (default: 15000)",
                 "type": "integer"
               },
               "SheetList": {
+                "description": "Excel sheet names to show or hide (leave empty to show all)",
                 "type": [
                   "array",
                   "null"
@@ -74,12 +85,14 @@
                 }
               },
               "ShowHideSheetList": {
+                "description": "Whether SheetList defines sheets to \u0027Show\u0027 or \u0027Hide\u0027 (default: \u0027Show\u0027)",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "ConnectionType": {
+                "description": "Data source type (JSON, Outlook, OutlookAddressBookForm)",
                 "enum": [
                   "XLSX",
                   "JSON",
@@ -89,12 +102,14 @@
                 "type": "string"
               },
               "FieldAliasOrder": {
+                "description": "Maps internal field names to user-friendly display names",
                 "type": [
                   "object",
                   "null"
                 ]
               },
               "RemoveEmptyRows": {
+                "description": "Filters out rows where all selected fields are empty",
                 "type": "boolean"
               }
             },
@@ -109,21 +124,25 @@
                 "const": "OutlookAddressBookForm"
               },
               "AddressbookName": {
+                "description": "Outlook address book name to open in the selection form",
                 "type": "string"
               },
               "ContactFieldAliasOrder": {
+                "description": "Field aliases for local Outlook contacts",
                 "type": [
                   "object",
                   "null"
                 ]
               },
               "ExchangeFieldAliasOrder": {
+                "description": "Field aliases for Exchange/GAL contacts",
                 "type": [
                   "object",
                   "null"
                 ]
               },
               "ConnectionType": {
+                "description": "Data source type (JSON, Outlook, OutlookAddressBookForm)",
                 "enum": [
                   "XLSX",
                   "JSON",
@@ -133,12 +152,14 @@
                 "type": "string"
               },
               "FieldAliasOrder": {
+                "description": "Maps internal field names to user-friendly display names",
                 "type": [
                   "object",
                   "null"
                 ]
               },
               "RemoveEmptyRows": {
+                "description": "Filters out rows where all selected fields are empty",
                 "type": "boolean"
               }
             },

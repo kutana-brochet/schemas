@@ -2,6 +2,7 @@
   "type": "object",
   "properties": {
     "FindOptions": {
+      "description": "Named patterns for locating existing content controls in documents",
       "type": "object",
       "additionalProperties": {
         "type": "object",
@@ -53,6 +54,7 @@
       }
     },
     "AddOptions": {
+      "description": "Named definitions for creating new content controls",
       "type": "object",
       "additionalProperties": {
         "$ref": "#/properties/FindOptions/additionalProperties"

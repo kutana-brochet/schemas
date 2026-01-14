@@ -2,6 +2,7 @@
   "type": "object",
   "properties": {
     "AddressbookName": {
+      "description": "Outlook address book name to search for contacts (default: \u0027Contacts\u0027)",
       "type": "string"
     }
   },

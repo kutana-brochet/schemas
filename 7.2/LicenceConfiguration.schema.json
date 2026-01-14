@@ -2,9 +2,11 @@
   "type": "object",
   "properties": {
     "ActivationToken": {
+      "description": "Activation token provided during licence registration",
       "type": "string"
     },
     "LicenseId": {
+      "description": "Unique licence identifier (GUID format)",
       "type": "string"
     }
   },

@@ -2,6 +2,7 @@
   "type": "object",
   "properties": {
     "Enabled": {
+      "description": "Enables verbose logging and developer diagnostics",
       "type": "boolean"
     }
   },

@@ -2,18 +2,23 @@
   "type": "object",
   "properties": {
     "SearchForTemplateName": {
+      "description": "Template filename to search for when attaching (e.g., \u0027Normal.dotm\u0027)",
       "type": "string"
     },
     "IncludeFilter": {
+      "description": "Regex pattern to include templates (e.g., \u0027^.*\\.dot[mx]$\u0027 for .dotx/.dotm)",
       "type": "string"
     },
     "ExcludeFilter": {
+      "description": "Regex pattern to exclude templates from matching",
       "type": "string"
     },
     "TemplatePropertyName": {
+      "description": "Custom property name storing the template reference",
       "type": "string"
     },
     "AutoAttachDefaultTemplateOnOpen": {
+      "description": "Automatically attaches the default template when documents open",
       "type": "boolean"
     }
   },

@@ -2,20 +2,24 @@
   "type": "object",
   "properties": {
     "Dialogs": {
+      "description": "Named dialog definitions for prompting users to enter or select data",
       "type": "object",
       "additionalProperties": {
         "type": "object",
         "properties": {
           "QueryDialogName": {
+            "description": "Unique identifier for this dialog definition",
             "type": [
               "string",
               "null"
             ]
           },
           "DialogCaption": {
+            "description": "Title text shown in the dialog window (default: \u0027Query Tool\u0027)",
             "type": "string"
           },
           "HideColumns": {
+            "description": "Column names or indexes to hide from the results grid",
             "type": [
               "array",
               "null"
@@ -25,15 +29,18 @@
             }
           },
           "AllowDuplicates": {
+            "description": "Allows selecting the same record multiple times",
             "type": "boolean"
           },
           "ButtonTag": {
+            "description": "Text label for the ribbon button that opens this dialog (default: \u0027Select\u0027)",
             "type": [
               "string",
               "null"
             ]
           },
           "ColumnOrder": {
+            "description": "Column indexes defining the display order in the results grid",
             "type": [
               "array",
               "null"
@@ -43,6 +50,7 @@
             }
           },
           "DropDownColumns": {
+            "description": "Columns to render as dropdown filters with values from the data",
             "type": [
               "array",
               "null"
@@ -52,30 +60,38 @@
             }
           },
           "SearchType": {
+            "description": "Search mode: \u0027Standard\u0027 for field-specific search, \u0027Fuzzy\u0027 for all-fields search",
             "type": [
               "string",
               "null"
             ]
           },
           "SearchBoxCount": {
+            "description": "Number of search boxes shown in Standard search mode (default: 1)",
             "type": "integer"
           },
           "ShowAutotextPanel": {
+            "description": "Shows the AutoText selection panel in the dialog",
             "type": "boolean"
           },
           "ShowSearchPanel": {
+            "description": "Shows the search/filter panel in the dialog",
             "type": "boolean"
           },
           "ImageRoot": {
+            "description": "Base path for images referenced in the dialog",
             "type": "string"
           },
           "SingleSelectionOnly": {
+            "description": "Limits selection to one record and hides the multi-select grid",
             "type": "boolean"
           },
           "SearchText": {
+            "description": "Pre-populates the search box with this text when dialog opens",
             "type": "string"
           },
           "SearchBoxFields": {
+            "description": "Maps search box identifiers to field names they filter on",
             "type": [
               "object",
               "null"
@@ -85,27 +101,35 @@
             }
           },
           "DialogWidth": {
+            "description": "Dialog window width in pixels at 96 DPI (default: 800)",
             "type": "integer"
           },
           "DialogHeight": {
+            "description": "Dialog window height in pixels at 96 DPI (default: 600)",
             "type": "integer"
           },
           "OKButtonText": {
+            "description": "Text for the confirmation button (default: \u0027OK\u0027)",
             "type": "string"
           },
           "AutoColumnWidthThreshold": {
+            "description": "Maximum auto-sized column width in pixels before capping (default: 600)",
             "type": "integer"
           },
           "AutoColumnWidthDefault": {
+            "description": "Width applied to columns exceeding AutoColumnWidthThreshold (default: 400)",
             "type": "integer"
           },
           "AlwaysShowDialog": {
+            "description": "Shows dialog even when SearchText returns exactly one result",
             "type": "boolean"
           },
           "ShowPleaseWait": {
+            "description": "Shows \u0027Please Wait...\u0027 message during slow data loads (AD, Azure AD)",
             "type": "boolean"
           },
           "QueryPanel": {
+            "description": "Custom query panel definitions for advanced filtering",
             "type": [
               "array",
               "null"

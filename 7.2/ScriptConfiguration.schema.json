@@ -2,14 +2,17 @@
   "type": "object",
   "properties": {
     "Scripts": {
+      "description": "Named script definitions containing sequences of commands",
       "type": "object",
       "additionalProperties": {
         "type": "object",
         "properties": {
           "Comment": {
+            "description": "Human-readable note explaining what this script does",
             "type": "string"
           },
           "Commands": {
+            "description": "Ordered list of commands executed when this script runs",
             "type": "array",
             "items": {
               "type": "object",
@@ -127,6 +130,7 @@
                       "type": "object",
                       "properties": {
                         "AllCaps": {
+                          "description": "Formats text in ALL CAPITALS (True, False, Toggle)",
                           "enum": [
                             "False",
                             "True",
@@ -135,6 +139,7 @@
                           "type": "string"
                         },
                         "Bold": {
+                          "description": "Applies bold formatting (True, False, Toggle)",
                           "enum": [
                             "False",
                             "True",
@@ -143,18 +148,21 @@
                           "type": "string"
                         },
                         "Colour": {
+                          "description": "Font colour as hex RGB (e.g., \u0027#FF0000\u0027 for red) or named colour",
                           "type": [
                             "string",
                             "null"
                           ]
                         },
                         "ColourIndex": {
+                          "description": "Font colour as Word colour index (1-16, where 1=Black, 2=Blue, etc.)",
                           "type": [
                             "integer",
                             "null"
                           ]
                         },
                         "DoubleStrikeThrough": {
+                          "description": "Applies double strikethrough formatting (True, False, Toggle)",
                           "enum": [
                             "False",
                             "True",
@@ -163,6 +171,7 @@
                           "type": "string"
                         },
                         "Hidden": {
+                          "description": "Marks text as hidden (True, False, Toggle)",
                           "enum": [
                             "False",
                             "True",
@@ -171,6 +180,7 @@
                           "type": "string"
                         },
                         "Italic": {
+                          "description": "Applies italic formatting (True, False, Toggle)",
                           "enum": [
                             "False",
                             "True",
@@ -179,12 +189,14 @@
                           "type": "string"
                         },
                         "Position": {
+                          "description": "Vertical position offset in points (positive=raised, negative=lowered)",
                           "type": [
                             "integer",
                             "null"
                           ]
                         },
                         "SmallCaps": {
+                          "description": "Formats text in Small Caps (True, False, Toggle)",
                           "enum": [
                             "False",
                             "True",
@@ -193,6 +205,7 @@
                           "type": "string"
                         },
                         "StrikeThrough": {
+                          "description": "Applies strikethrough formatting (True, False, Toggle)",
                           "enum": [
                             "False",
                             "True",
@@ -201,6 +214,7 @@
                           "type": "string"
                         },
                         "Subscript": {
+                          "description": "Applies subscript formatting (True, False, Toggle)",
                           "enum": [
                             "False",
                             "True",
@@ -209,6 +223,7 @@
                           "type": "string"
                         },
                         "Superscript": {
+                          "description": "Applies superscript formatting (True, False, Toggle)",
                           "enum": [
                             "False",
                             "True",
@@ -217,6 +232,7 @@
                           "type": "string"
                         },
                         "Underline": {
+                          "description": "Underline style (None, Single, Double, Dotted, Wavy, etc.)",
                           "enum": [
                             "None",
                             "Single",
@@ -240,6 +256,7 @@
                           "type": "string"
                         },
                         "CharacterCase": {
+                          "description": "Changes text case (LowerCase, UpperCase, TitleWord, TitleSentence, ToggleCase, etc.)",
                           "enum": [
                             "NextCase",
                             "LowerCase",
@@ -386,6 +403,7 @@
                       "type": "object",
                       "properties": {
                         "Characters": {
+                          "description": "Characters to remove from the selection (e.g., [\u0027\\t\u0027, \u0027\\n\u0027] removes tabs and newlines)",
                           "type": "array",
                           "items": {
                             "type": "string",
@@ -465,6 +483,7 @@
                       "type": "object",
                       "properties": {
                         "Alignment": {
+                          "description": "Paragraph alignment (Left, Centre, Right, Justified)",
                           "enum": [
                             "Left",
                             "Center",
@@ -474,6 +493,7 @@
                           "type": "string"
                         },
                         "BaseLineAlignment": {
+                          "description": "Vertical alignment of text on a line (Top, Centre, Baseline, FarEast50)",
                           "enum": [
                             "Top",
                             "Center",
@@ -483,30 +503,35 @@
                           "type": "string"
                         },
                         "CharacterUnitFirstLineIndent": {
+                          "description": "First line indent in character units (for East Asian typography)",
                           "type": [
                             "number",
                             "null"
                           ]
                         },
                         "CharacterUnitLeftIndent": {
+                          "description": "Left indent in character units (for East Asian typography)",
                           "type": [
                             "number",
                             "null"
                           ]
                         },
                         "CharacterUnitRightIndent": {
+                          "description": "Right indent in character units (for East Asian typography)",
                           "type": [
                             "number",
                             "null"
                           ]
                         },
                         "FirstLineIndent": {
+                          "description": "First line indent in points (positive=indent, negative=hanging indent)",
                           "type": [
                             "number",
                             "null"
                           ]
                         },
                         "KeepTogether": {
+                          "description": "Keeps all lines of paragraph on same page (True, False, Undefined)",
                           "enum": [
                             "False",
                             "True",
@@ -515,6 +540,7 @@
                           "type": "string"
                         },
                         "KeepWithNext": {
+                          "description": "Keeps paragraph with following paragraph on same page (True, False, Undefined)",
                           "enum": [
                             "False",
                             "True",
@@ -523,18 +549,21 @@
                           "type": "string"
                         },
                         "LeftIndent": {
+                          "description": "Left indent in points",
                           "type": [
                             "number",
                             "null"
                           ]
                         },
                         "LineSpacing": {
+                          "description": "Line spacing value; interpretation depends on LineSpacingRule",
                           "type": [
                             "number",
                             "null"
                           ]
                         },
                         "LineSpacingRule": {
+                          "description": "How LineSpacing is interpreted (Single, AtLeast, Exactly, Multiple, etc.)",
                           "enum": [
                             "Single",
                             "OnePointFive",
@@ -546,18 +575,21 @@
                           "type": "string"
                         },
                         "LineUnitAfter": {
+                          "description": "Space after paragraph in line units (for East Asian typography)",
                           "type": [
                             "number",
                             "null"
                           ]
                         },
                         "LineUnitBefore": {
+                          "description": "Space before paragraph in line units (for East Asian typography)",
                           "type": [
                             "number",
                             "null"
                           ]
                         },
                         "MirrorIndents": {
+                          "description": "Swaps left/right indents on facing pages (True, False, Undefined)",
                           "enum": [
                             "False",
                             "True",
@@ -566,6 +598,7 @@
                           "type": "string"
                         },
                         "NoLineNumber": {
+                          "description": "Suppresses line numbers for this paragraph (True, False, Undefined)",
                           "enum": [
                             "False",
                             "True",
@@ -574,6 +607,7 @@
                           "type": "string"
                         },
                         "OutlineLevel": {
+                          "description": "Outline level for navigation and TOC (Level1-Level9, BodyText)",
                           "enum": [
                             "Level1",
                             "Level2",
@@ -589,6 +623,7 @@
                           "type": "string"
                         },
                         "PageBreakBefore": {
+                          "description": "Forces page break before this paragraph (True, False, Undefined)",
                           "enum": [
                             "False",
                             "True",
@@ -597,24 +632,28 @@
                           "type": "string"
                         },
                         "RightIndent": {
+                          "description": "Right indent in points",
                           "type": [
                             "number",
                             "null"
                           ]
                         },
                         "SpaceAfter": {
+                          "description": "Space after paragraph in points",
                           "type": [
                             "number",
                             "null"
                           ]
                         },
                         "SpaceBefore": {
+                          "description": "Space before paragraph in points",
                           "type": [
                             "number",
                             "null"
                           ]
                         },
                         "WidowControl": {
+                          "description": "Prevents single lines at top/bottom of pages (True, False, Undefined)",
                           "enum": [
                             "False",
                             "True",
@@ -746,6 +785,7 @@
                       "type": "object",
                       "properties": {
                         "StyleName": {
+                          "description": "Name of the Word style to apply (e.g., \u0027Heading 1\u0027, \u0027Normal\u0027, custom style name)",
                           "type": [
                             "string",
                             "null"
@@ -870,9 +910,11 @@
                       "type": "object",
                       "properties": {
                         "Text": {
+                          "description": "Text to insert at the current selection",
                           "type": "string"
                         },
                         "PreventDuplicates": {
+                          "description": "Skips insertion if identical text already exists at the selection",
                           "type": "boolean"
                         }
                       },
@@ -997,6 +1039,7 @@
                       "type": "object",
                       "properties": {
                         "FieldText": {
+                          "description": "Word field code to insert (e.g., \u0027DATE \\\\@ \u0022MMMM d, yyyy\u0022\u0027, \u0027DOCPROPERTY Title\u0027)",
                           "type": "string"
                         }
                       },
@@ -1126,12 +1169,14 @@
                       "type": "object",
                       "properties": {
                         "Words": {
+                          "description": "Words with exact casing to enforce (e.g., [\u0027iPhone\u0027, \u0027macOS\u0027, \u0027McDonald\u0027s\u0027])",
                           "type": "array",
                           "items": {
                             "type": "string"
                           }
                         },
                         "IgnoreFirstWord": {
+                          "description": "Skips the first word of each sentence when enforcing case",
                           "type": "boolean"
                         }
                       },
@@ -1157,9 +1202,11 @@
                       "type": "object",
                       "properties": {
                         "Name": {
+                          "description": "Name of the document custom property to set",
                           "type": "string"
                         },
                         "Value": {
+                          "description": "Value to assign to the custom property",
                           "type": "string"
                         }
                       },
@@ -1185,6 +1232,7 @@
                       "type": "object",
                       "properties": {
                         "Name": {
+                          "description": "Name of the document custom property to delete",
                           "type": "string"
                         }
                       },
@@ -1378,6 +1426,35 @@
                   "additionalProperties": false
                 },
                 {
+                  "properties": {
+                    "$type": {
+                      "const": "RunMacro"
+                    },
+                    "Options": {
+                      "type": "object",
+                      "properties": {
+                        "MacroName": {
+                          "description": "Name of macro to run (can include template.module.macro)",
+                          "type": "string"
+                        },
+                        "Parameters": {
+                          "description": "Optional parameters to pass to the macro (max 30, supports string/number/boolean/null)",
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "MacroName"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "$type",
+                    "Options"
+                  ],
+                  "additionalProperties": false
+                },
+                {
                   "additionalProperties": false
                 }
               ]
@@ -1388,20 +1465,24 @@
       }
     },
     "Mappings": {
+      "description": "Maps ribbon button IDs to script definitions with visibility and enabled rules",
       "type": "object",
       "additionalProperties": {
         "type": "object",
         "properties": {
           "Script": {
+            "description": "Name of the script to execute when this mapping triggers",
             "type": [
               "string",
               "null"
             ]
           },
           "EnabledWhen": {
+            "description": "Rules workflow determining when this button is enabled (default: \u0027Always\u0027)",
             "type": "string"
           },
           "VisibleWhen": {
+            "description": "Rules workflow determining when this button is visible (default: \u0027Always\u0027)",
             "type": "string"
           }
         },

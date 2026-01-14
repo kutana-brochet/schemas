@@ -2,26 +2,33 @@
   "type": "object",
   "properties": {
     "Icons": {
+      "description": "Custom icon definitions rendered from text characters using fonts",
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
           "Name": {
+            "description": "Unique identifier for referencing this icon in ribbon XML",
             "type": "string"
           },
           "Text": {
+            "description": "Characters to render as the icon (e.g., emoji, symbol, or letter)",
             "type": "string"
           },
           "Size": {
+            "description": "Icon dimensions in pixels (creates Size x Size bitmap)",
             "type": "integer"
           },
           "FontName": {
+            "description": "Font family name for rendering the text (e.g., \u0027Segoe UI Symbol\u0027)",
             "type": "string"
           },
           "FontSize": {
+            "description": "Font size in pixels for the rendered text",
             "type": "integer"
           },
           "FontStyles": {
+            "description": "Font styling (Regular, Bold, Italic, etc.)",
             "type": "array",
             "items": {
               "type": "string",
@@ -35,15 +42,19 @@
             }
           },
           "FontColour": {
+            "description": "Text colour as hex RGB (\u0027#FF0000\u0027) or named colour (default: \u0027Black\u0027)",
             "type": "string"
           },
           "XOffset": {
+            "description": "Horizontal offset in pixels for positioning the text",
             "type": "integer"
           },
           "YOffset": {
+            "description": "Vertical offset in pixels for positioning the text",
             "type": "integer"
           },
           "TextRenderingHint": {
+            "description": "Text rendering quality (AntiAlias, ClearType, etc.)",
             "enum": [
               "SystemDefault",
               "SingleBitPerPixelGridFit",

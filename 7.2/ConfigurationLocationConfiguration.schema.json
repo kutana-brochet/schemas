@@ -2,9 +2,11 @@
   "type": "object",
   "properties": {
     "Shared": {
+      "description": "Shared configuration path for all users (supports environment variables)",
       "type": "string"
     },
     "User": {
+      "description": "User-specific configuration path (supports environment variables)",
       "type": "string"
     }
   },

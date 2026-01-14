@@ -2,6 +2,7 @@
   "type": "object",
   "properties": {
     "Provider": {
+      "description": "Document management system to integrate with (None, iManage, NetDocuments, etc.)",
       "enum": [
         "None",
         "iManage",
@@ -10,23 +11,27 @@
       "type": "string"
     },
     "PreProfileTemplates": {
+      "description": "Templates requiring profile data before document creation",
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
           "DocType": {
+            "description": "DMS document type requiring pre-profile data entry",
             "type": [
               "string",
               "null"
             ]
           },
           "Filter": {
+            "description": "Regex pattern to match templates that require pre-profiling",
             "type": [
               "string",
               "null"
             ]
           },
           "CloseOnCancel": {
+            "description": "Closes the document without saving if user cancels the profile dialog",
             "type": "boolean"
           }
         },
@@ -34,20 +39,24 @@
       }
     },
     "CreateOptions": {
+      "description": "Key-value pairs passed when creating new documents in the DMS",
       "type": "object",
       "additionalProperties": {
         "type": "string"
       }
     },
     "Properties": {
+      "description": "DMS property definitions that can be queried and displayed",
       "type": "object",
       "additionalProperties": {
         "type": "object",
         "properties": {
           "Name": {
+            "description": "Display name for the property",
             "type": "string"
           },
           "WithAdditionalData": {
+            "description": "Includes related data like lookup descriptions with the property value",
             "type": "boolean"
           }
         },
@@ -55,24 +64,28 @@
       }
     },
     "PropertyMappings": {
+      "description": "Maps DMS properties to Word document properties",
       "type": [
         "object",
         "null"
       ],
       "properties": {
         "CustomProperties": {
+          "description": "Maps DMS properties to Word custom document properties",
           "type": "object",
           "additionalProperties": {
             "type": "string"
           }
         },
         "DocumentVariables": {
+          "description": "Maps DMS properties to Word document variables",
           "type": "object",
           "additionalProperties": {
             "type": "string"
           }
         },
         "DocumentProperties": {
+          "description": "Maps DMS properties to built-in Word document properties (Author, Title, etc.)",
           "type": "object",
           "additionalProperties": {
             "type": "string"
