@@ -34,7 +34,7 @@
     "QueryDialogConfiguration": {
       "$ref": "QueryDialogConfiguration.schema.json"
     },
-    "ExternalDataProvider": {
+    "ExternalDataProviderConfiguration": {
       "$ref": "ExternalDataProviderConfiguration.schema.json"
     }
   },
