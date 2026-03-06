@@ -33,6 +33,9 @@
     },
     "QueryDialogConfiguration": {
       "$ref": "QueryDialogConfiguration.schema.json"
+    },
+    "ExternalDataProvider": {
+      "$ref": "ExternalDataProviderConfiguration.schema.json"
     }
   },
   "additionalProperties": false,
