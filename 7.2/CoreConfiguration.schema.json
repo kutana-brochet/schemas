@@ -2,10 +2,7 @@
   "type": "object",
   "properties": {
     "$schema": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": ["string", "null"]
     },
     "ContentControls": {
       "$ref": "ContentControlConfiguration.schema.json"
@@ -33,6 +30,9 @@
     },
     "RibbonIcons": {
       "$ref": "RibbonIconsConfiguration.schema.json"
+    },
+    "QueryDialogConfiguration": {
+      "$ref": "QueryDialogConfiguration.schema.json"
     }
   },
   "additionalProperties": false,
