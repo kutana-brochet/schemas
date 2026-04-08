@@ -1,0 +1,2967 @@
+{
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "AttachTemplateOptions": {
+      "description": "Controls how templates are discovered and attached to documents",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "SearchForTemplateName": {
+          "description": "Template filename to search for when attaching (e.g., \u0027Normal.dotm\u0027)",
+          "type": "string"
+        },
+        "IncludeFilter": {
+          "description": "Regex pattern to include templates (e.g., \u0027^.*\\.dot[mx]$\u0027 for .dotx/.dotm)",
+          "type": "string"
+        },
+        "ExcludeFilter": {
+          "description": "Regex pattern to exclude templates from matching",
+          "type": "string"
+        },
+        "TemplatePropertyName": {
+          "description": "Custom property name storing the template reference",
+          "type": "string"
+        },
+        "AutoAttachDefaultTemplateOnOpen": {
+          "description": "Automatically attaches the default template when documents open",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ConfigurationLocationOptions": {
+      "description": "Paths where configuration files are loaded from",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Shared": {
+          "description": "Shared configuration path for all users (supports environment variables)",
+          "type": "string"
+        },
+        "User": {
+          "description": "User-specific configuration path (supports environment variables)",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ContentControlOptions": {
+      "description": "Settings for finding and creating content controls in documents",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "FindOptions": {
+          "description": "Named patterns for locating existing content controls in documents",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "Title": {
+                "type": "string"
+              },
+              "Tag": {
+                "type": "string"
+              },
+              "LockContents": {
+                "type": "boolean"
+              },
+              "ShowingPlaceholderText": {
+                "type": "boolean"
+              },
+              "ControlOption": {
+                "enum": [
+                  "None",
+                  "Locked",
+                  "RemoveOnEdit"
+                ],
+                "type": "string"
+              },
+              "IsDeletionLocked": {
+                "type": "boolean"
+              },
+              "DeleteOnEdit": {
+                "type": "boolean"
+              },
+              "Range": {
+                "type": "object",
+                "properties": {
+                  "Start": {
+                    "type": "integer"
+                  },
+                  "End": {
+                    "type": "integer"
+                  },
+                  "Length": {
+                    "type": "integer"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "Range"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "AddOptions": {
+          "description": "Named definitions for creating new content controls",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/properties/ContentControlOptions/properties/FindOptions/additionalProperties"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DebugOptions": {
+      "description": "Developer debugging options",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Enabled": {
+          "description": "Enables verbose logging and developer diagnostics",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentManagementOptions": {
+      "description": "Integration settings for document management systems",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Provider": {
+          "description": "Document management system to integrate with (None, iManage, NetDocuments, etc.)",
+          "enum": [
+            "None",
+            "iManage",
+            "NetDocuments"
+          ],
+          "type": "string"
+        },
+        "PreProfileTemplates": {
+          "description": "Templates requiring profile data before document creation",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "DocType": {
+                "description": "DMS document type requiring pre-profile data entry",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "Filter": {
+                "description": "Regex pattern to match templates that require pre-profiling",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "CloseOnCancel": {
+                "description": "Closes the document without saving if user cancels the profile dialog",
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "Properties": {
+          "description": "DMS property definitions that can be queried and displayed",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "description": "Display name for the property",
+                "type": "string"
+              },
+              "WithAdditionalData": {
+                "description": "Includes related data like lookup descriptions with the property value",
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "PropertyMappings": {
+          "description": "Maps DMS properties to Word document properties",
+          "type": "object",
+          "properties": {
+            "CustomProperties": {
+              "description": "Maps DMS properties to Word custom document properties",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "DocumentVariables": {
+              "description": "Maps DMS properties to Word document variables",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "DocumentProperties": {
+              "description": "Maps DMS properties to built-in Word document properties (Author, Title, etc.)",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ExternalDataProviderOptions": {
+      "description": "External Data Provider Configuration",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "ExternalDataProviders": {
+          "description": "Named data sources (JSON files, Outlook, APIs) that supply values to documents",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "$type"
+            ],
+            "anyOf": [
+              {
+                "properties": {
+                  "$type": {
+                    "const": "Outlook"
+                  },
+                  "OutlookAddressbook": {
+                    "description": "Name of the Outlook address book to query",
+                    "type": "string"
+                  },
+                  "ConnectionSettings": {
+                    "description": "Connection string for the Outlook data source",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "SQLQuery": {
+                    "description": "DASL query to filter Outlook contacts",
+                    "type": "string"
+                  },
+                  "Timeout": {
+                    "description": "Maximum time in milliseconds to wait for Outlook data (default: 15000)",
+                    "type": "integer"
+                  },
+                  "ConnectionType": {
+                    "description": "Data source type (JSON, Outlook, OutlookAddressBookForm, XLSX)",
+                    "enum": [
+                      "XLSX",
+                      "JSON",
+                      "Outlook",
+                      "OutlookAddressBookForm"
+                    ],
+                    "type": "string"
+                  },
+                  "FieldAliasOrder": {
+                    "description": "Maps internal field names to user-friendly display names",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "RemoveEmptyRows": {
+                    "description": "Filters out rows where all selected fields are empty",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "OutlookAddressbook"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "properties": {
+                  "$type": {
+                    "const": "JSON"
+                  },
+                  "Filename": {
+                    "description": "Path to the JSON or Excel file (supports environment variables)",
+                    "type": "string"
+                  },
+                  "Timeout": {
+                    "description": "Maximum time in milliseconds to wait for file load (default: 15000)",
+                    "type": "integer"
+                  },
+                  "SheetList": {
+                    "description": "Excel sheet names to show or hide (leave empty to show all)",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "ShowHideSheetList": {
+                    "description": "Whether SheetList defines sheets to \u0027Show\u0027 or \u0027Hide\u0027 (default: \u0027Show\u0027)",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "ConnectionType": {
+                    "description": "Data source type (JSON, Outlook, OutlookAddressBookForm, XLSX)",
+                    "enum": [
+                      "XLSX",
+                      "JSON",
+                      "Outlook",
+                      "OutlookAddressBookForm"
+                    ],
+                    "type": "string"
+                  },
+                  "FieldAliasOrder": {
+                    "description": "Maps internal field names to user-friendly display names",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "RemoveEmptyRows": {
+                    "description": "Filters out rows where all selected fields are empty",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "Filename"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "properties": {
+                  "$type": {
+                    "const": "OutlookAddressBookForm"
+                  },
+                  "AddressbookName": {
+                    "description": "Outlook address book name to open in the selection form",
+                    "type": "string"
+                  },
+                  "ContactFieldAliasOrder": {
+                    "description": "Field aliases for local Outlook contacts",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "ExchangeFieldAliasOrder": {
+                    "description": "Field aliases for Exchange/GAL contacts",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "ConnectionType": {
+                    "description": "Data source type (JSON, Outlook, OutlookAddressBookForm, XLSX)",
+                    "enum": [
+                      "XLSX",
+                      "JSON",
+                      "Outlook",
+                      "OutlookAddressBookForm"
+                    ],
+                    "type": "string"
+                  },
+                  "FieldAliasOrder": {
+                    "description": "Maps internal field names to user-friendly display names",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "RemoveEmptyRows": {
+                    "description": "Filters out rows where all selected fields are empty",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "AddressbookName"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "properties": {
+                  "$type": {
+                    "const": "XLSX"
+                  },
+                  "ConnectionSettings": {
+                    "description": "Connection string for the Excel OLE DB data source",
+                    "type": "string"
+                  },
+                  "Query": {
+                    "description": "SQL query to select data from the Excel workbook (e.g., Select * from [Sheet$])",
+                    "type": "string"
+                  },
+                  "Timeout": {
+                    "description": "Maximum time in milliseconds to wait for Excel data (default: 15000)",
+                    "type": "integer"
+                  },
+                  "ConnectionType": {
+                    "description": "Data source type (JSON, Outlook, OutlookAddressBookForm, XLSX)",
+                    "enum": [
+                      "XLSX",
+                      "JSON",
+                      "Outlook",
+                      "OutlookAddressBookForm"
+                    ],
+                    "type": "string"
+                  },
+                  "FieldAliasOrder": {
+                    "description": "Maps internal field names to user-friendly display names",
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "RemoveEmptyRows": {
+                    "description": "Filters out rows where all selected fields are empty",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "ConnectionSettings",
+                  "Query"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "FileProviderOptions": {
+      "description": "Configures file providers for document menus (New Document, Starter Document, Insert Snippet)",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "NewDocument": {
+          "description": "Template providers for the New Document menu",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "Source": {
+                "description": "File source configuration (path, extensions, depth)",
+                "type": "object",
+                "properties": {
+                  "Location": {
+                    "description": "Root path. Supports %Workgroup% and %User% placeholders.",
+                    "type": "string"
+                  },
+                  "MaxDepth": {
+                    "description": "Maximum subdirectory depth to search (0 = root only, default = 0)",
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "Extensions": {
+                    "description": "File extensions to include",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "Prefixes": {
+                    "description": "Only show templates with these prefixes",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "ExcludedContainers": {
+                    "description": "Container names to exclude from discovery",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalProperties": false
+              },
+              "Style": {
+                "description": "Menu display style configuration",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "Title": {
+                    "description": "Human-readable note explaining what this provider does",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "Type": {
+                    "description": "Display style type",
+                    "enum": [
+                      "Flat",
+                      "Group"
+                    ],
+                    "type": "string"
+                  },
+                  "RemoveLeadingNumbersFromTemplateNames": {
+                    "type": "boolean"
+                  },
+                  "RemoveLeadingNumbersFromContainerNames": {
+                    "type": "boolean"
+                  },
+                  "SeparateByContainer": {
+                    "type": "boolean"
+                  },
+                  "Staleness": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "Thresholds": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "AfterDays": {
+                              "description": "Number of days after which this threshold applies",
+                              "type": "integer"
+                            },
+                            "Icon": {
+                              "description": "Icon to display when threshold is exceeded. Prefix with \u0027mso\u0027 when using mso Images",
+                              "type": "string"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "StarterDocument": {
+          "description": "Template providers for the Starter Document menu",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/properties/FileProviderOptions/properties/NewDocument/additionalProperties"
+          }
+        },
+        "InsertSnippet": {
+          "description": "Template providers for the Insert Snippet menu",
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/properties/FileProviderOptions/properties/NewDocument/additionalProperties"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "LicenceOptions": {
+      "description": "Licence activation details for the add-in",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "ActivationToken": {
+          "description": "Activation token provided during licence registration",
+          "type": "string"
+        },
+        "LicenseId": {
+          "description": "Unique licence identifier (GUID format)",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "OutlookOptions": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "AddressbookName": {
+          "description": "Outlook address book name to search for contacts (default: \u0027Contacts\u0027)",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "QueryDialogOptions": {
+      "description": "Settings for query dialogs",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Dialogs": {
+          "description": "Named dialog definitions for prompting users to enter or select data",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "QueryDialogName": {
+                "description": "Unique identifier for this dialog definition",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "DialogCaption": {
+                "description": "Title text shown in the dialog window (default: \u0027Query Tool\u0027)",
+                "type": "string"
+              },
+              "HideColumns": {
+                "description": "Column names or indexes to hide from the results grid",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              },
+              "AllowDuplicates": {
+                "description": "Allows selecting the same record multiple times",
+                "type": "boolean"
+              },
+              "ButtonTag": {
+                "description": "Text label for the ribbon button that opens this dialog (default: \u0027Select\u0027)",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ColumnOrder": {
+                "description": "Column indexes defining the display order in the results grid",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "DropDownColumns": {
+                "description": "Columns to render as dropdown filters with values from the data",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "string"
+                }
+              },
+              "SearchType": {
+                "description": "Search mode: \u0027Standard\u0027 for field-specific search, \u0027Fuzzy\u0027 for all-fields search",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "SearchBoxCount": {
+                "description": "Number of search boxes shown in Standard search mode (default: 1)",
+                "type": "integer"
+              },
+              "ShowAutotextPanel": {
+                "description": "Shows the AutoText selection panel in the dialog",
+                "type": "boolean"
+              },
+              "ShowSearchPanel": {
+                "description": "Shows the search/filter panel in the dialog",
+                "type": "boolean"
+              },
+              "ImageRoot": {
+                "description": "Base path for images referenced in the dialog",
+                "type": "string"
+              },
+              "SingleSelectionOnly": {
+                "description": "Limits selection to one record and hides the multi-select grid",
+                "type": "boolean"
+              },
+              "SearchText": {
+                "description": "Pre-populates the search box with this text when dialog opens",
+                "type": "string"
+              },
+              "SearchBoxFields": {
+                "description": "Maps search box identifiers to field names they filter on",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              "DialogWidth": {
+                "description": "Dialog window width in pixels at 96 DPI (default: 800)",
+                "type": "integer"
+              },
+              "DialogHeight": {
+                "description": "Dialog window height in pixels at 96 DPI (default: 600)",
+                "type": "integer"
+              },
+              "OKButtonText": {
+                "description": "Text for the confirmation button (default: \u0027OK\u0027)",
+                "type": "string"
+              },
+              "AutoColumnWidthThreshold": {
+                "description": "Maximum auto-sized column width in pixels before capping (default: 600)",
+                "type": "integer"
+              },
+              "AutoColumnWidthDefault": {
+                "description": "Width applied to columns exceeding AutoColumnWidthThreshold (default: 400)",
+                "type": "integer"
+              },
+              "AlwaysShowDialog": {
+                "description": "Shows dialog even when SearchText returns exactly one result",
+                "type": "boolean"
+              },
+              "ShowPleaseWait": {
+                "description": "Shows \u0027Please Wait...\u0027 message during slow data loads (AD, Azure AD)",
+                "type": "boolean"
+              },
+              "QueryPanel": {
+                "description": "Custom query panel definitions for advanced filtering",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "AutoTextName": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "AutoTextDisplayName": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "AutoTextComment": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "AutoTextBitmap": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "RecordsPerAutoText": {
+                      "type": "integer"
+                    },
+                    "MaxRecords": {
+                      "type": "integer"
+                    },
+                    "FieldMappingID": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "RibbonIconsOptions": {
+      "description": "Custom icons for ribbon buttons loaded from external files",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Icons": {
+          "description": "Custom icon definitions rendered from text characters using fonts",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "description": "Unique identifier for referencing this icon in ribbon XML",
+                "type": "string"
+              },
+              "Text": {
+                "description": "Characters to render as the icon (e.g., emoji, symbol, or letter)",
+                "type": "string"
+              },
+              "Size": {
+                "description": "Icon dimensions in pixels (creates Size x Size bitmap)",
+                "type": "integer"
+              },
+              "FontName": {
+                "description": "Font family name for rendering the text (e.g., \u0027Segoe UI Symbol\u0027)",
+                "type": "string"
+              },
+              "FontSize": {
+                "description": "Font size in pixels for the rendered text",
+                "type": "integer"
+              },
+              "FontStyles": {
+                "description": "Font styling (Regular, Bold, Italic, etc.)",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "Regular",
+                    "Bold",
+                    "Italic",
+                    "Underline",
+                    "Strikeout"
+                  ]
+                },
+                "uniqueItems": true
+              },
+              "FontColour": {
+                "description": "Text colour as hex RGB (\u0027#FF0000\u0027) or named colour (default: \u0027Black\u0027)",
+                "type": "string"
+              },
+              "XOffset": {
+                "description": "Horizontal offset in pixels for positioning the text",
+                "type": "integer"
+              },
+              "YOffset": {
+                "description": "Vertical offset in pixels for positioning the text",
+                "type": "integer"
+              },
+              "TextRenderingHint": {
+                "description": "Text rendering quality (AntiAlias, ClearType, etc.)",
+                "enum": [
+                  "SystemDefault",
+                  "SingleBitPerPixelGridFit",
+                  "SingleBitPerPixel",
+                  "AntiAliasGridFit",
+                  "AntiAlias",
+                  "ClearTypeGridFit"
+                ],
+                "type": "string"
+              },
+              "Bitmap": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "Tag": true,
+                  "PhysicalDimension": {
+                    "type": "object",
+                    "properties": {
+                      "IsEmpty": {
+                        "type": "boolean"
+                      },
+                      "Width": {
+                        "type": "number"
+                      },
+                      "Height": {
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "Size": {
+                    "type": "object",
+                    "properties": {
+                      "IsEmpty": {
+                        "type": "boolean"
+                      },
+                      "Width": {
+                        "type": "integer"
+                      },
+                      "Height": {
+                        "type": "integer"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "Width": {
+                    "type": "integer"
+                  },
+                  "Height": {
+                    "type": "integer"
+                  },
+                  "HorizontalResolution": {
+                    "type": "number"
+                  },
+                  "VerticalResolution": {
+                    "type": "number"
+                  },
+                  "Flags": {
+                    "type": "integer"
+                  },
+                  "RawFormat": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "Guid": {
+                        "type": "string",
+                        "format": "uuid"
+                      }
+                    },
+                    "required": [
+                      "Guid"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "PixelFormat": {
+                    "enum": [
+                      "DontCare",
+                      "Undefined",
+                      "Max",
+                      "Indexed",
+                      "Gdi",
+                      "Format16bppRgb555",
+                      "Format16bppRgb565",
+                      "Format24bppRgb",
+                      "Format32bppRgb",
+                      "Format1bppIndexed",
+                      "Format4bppIndexed",
+                      "Format8bppIndexed",
+                      "Alpha",
+                      "Format16bppArgb1555",
+                      "PAlpha",
+                      "Format32bppPArgb",
+                      "Extended",
+                      "Format16bppGrayScale",
+                      "Format48bppRgb",
+                      "Format64bppPArgb",
+                      "Canonical",
+                      "Format32bppArgb",
+                      "Format64bppArgb"
+                    ],
+                    "type": "string"
+                  },
+                  "PropertyIdList": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "PropertyItems": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "Id": {
+                          "type": "integer"
+                        },
+                        "Len": {
+                          "type": "integer"
+                        },
+                        "Type": {
+                          "type": "integer"
+                        },
+                        "Value": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  },
+                  "Palette": {
+                    "type": "object",
+                    "properties": {
+                      "Flags": {
+                        "type": "integer"
+                      },
+                      "Entries": {
+                        "type": [
+                          "array",
+                          "null"
+                        ],
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "R": {
+                              "type": "integer"
+                            },
+                            "G": {
+                              "type": "integer"
+                            },
+                            "B": {
+                              "type": "integer"
+                            },
+                            "A": {
+                              "type": "integer"
+                            },
+                            "IsKnownColor": {
+                              "type": "boolean"
+                            },
+                            "IsEmpty": {
+                              "type": "boolean"
+                            },
+                            "IsNamedColor": {
+                              "type": "boolean"
+                            },
+                            "IsSystemColor": {
+                              "type": "boolean"
+                            },
+                            "Name": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "FrameDimensionsList": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "Name",
+              "Text",
+              "Size",
+              "FontName",
+              "FontSize",
+              "XOffset",
+              "YOffset"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "RulesOptions": {
+      "description": "Business rules engine workflows for conditional logic",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Workflows": {
+          "description": "Microsoft RulesEngine workflows defining conditional business logic",
+          "$ref": "https://raw.githubusercontent.com/microsoft/RulesEngine/refs/heads/main/schema/workflow-list-schema.json"
+        },
+        "RibbonItemRules": {
+          "description": "Maps ribbon item id/tag patterns to visibility and enabled workflows",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Pattern": {
+                "type": "string"
+              },
+              "EnabledWhen": {
+                "description": "Rules workflow determining when this item is enabled (default: \u0027Always\u0027)",
+                "type": "string"
+              },
+              "VisibleWhen": {
+                "description": "Rules workflow determining when this item is visible (default: \u0027Always\u0027)",
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ScriptOptions": {
+      "description": "Defines reusable scripts and their ribbon/shortcut mappings",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Scripts": {
+          "description": "Named script definitions containing sequences of commands",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "Comment": {
+                "description": "Human-readable note explaining what this script does",
+                "type": "string"
+              },
+              "Commands": {
+                "description": "Ordered list of commands executed when this script runs",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "anyOf": [
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "ApplyFontFormatting"
+                        },
+                        "Range": {
+                          "description": "The range to apply the command",
+                          "type": "object",
+                          "required": [
+                            "$type"
+                          ],
+                          "anyOf": [
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Document"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Selection"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Paragraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "FirstParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "LastParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "Name": {
+                              "description": "Font family name to apply (e.g., \u0027Wingdings\u0027)",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "Size": {
+                              "description": "Font size in points",
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "AllCaps": {
+                              "description": "Formats text in ALL CAPITALS (True, False, Toggle)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Toggle"
+                              ],
+                              "type": "string"
+                            },
+                            "Bold": {
+                              "description": "Applies bold formatting (True, False, Toggle)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Toggle"
+                              ],
+                              "type": "string"
+                            },
+                            "Colour": {
+                              "description": "Font colour as hex RGB (e.g., \u0027#FF0000\u0027 for red) or named colour",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "ColourIndex": {
+                              "description": "Font colour as Word colour index (1-16, where 1=Black, 2=Blue, etc.)",
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "DoubleStrikeThrough": {
+                              "description": "Applies double strikethrough formatting (True, False, Toggle)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Toggle"
+                              ],
+                              "type": "string"
+                            },
+                            "Hidden": {
+                              "description": "Marks text as hidden (True, False, Toggle)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Toggle"
+                              ],
+                              "type": "string"
+                            },
+                            "Italic": {
+                              "description": "Applies italic formatting (True, False, Toggle)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Toggle"
+                              ],
+                              "type": "string"
+                            },
+                            "Position": {
+                              "description": "Vertical position offset in points (positive=raised, negative=lowered)",
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "SmallCaps": {
+                              "description": "Formats text in Small Caps (True, False, Toggle)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Toggle"
+                              ],
+                              "type": "string"
+                            },
+                            "StrikeThrough": {
+                              "description": "Applies strikethrough formatting (True, False, Toggle)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Toggle"
+                              ],
+                              "type": "string"
+                            },
+                            "Subscript": {
+                              "description": "Applies subscript formatting (True, False, Toggle)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Toggle"
+                              ],
+                              "type": "string"
+                            },
+                            "Superscript": {
+                              "description": "Applies superscript formatting (True, False, Toggle)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Toggle"
+                              ],
+                              "type": "string"
+                            },
+                            "Underline": {
+                              "description": "Underline style (None, Single, Double, Dotted, Wavy, etc.)",
+                              "enum": [
+                                "None",
+                                "Single",
+                                "Words",
+                                "Double",
+                                "Dotted",
+                                "Thick",
+                                "Dash",
+                                "DotDash",
+                                "DotDotDash",
+                                "Wavy",
+                                "DottedHeavy",
+                                "DashHeavy",
+                                "DotDashHeavy",
+                                "DotDotDashHeavy",
+                                "WavyHeavy",
+                                "DashLong",
+                                "WavyDouble",
+                                "DashLongHeavy"
+                              ],
+                              "type": "string"
+                            },
+                            "CharacterCase": {
+                              "description": "Changes text case (LowerCase, UpperCase, TitleWord, TitleSentence, ToggleCase, etc.)",
+                              "enum": [
+                                "NextCase",
+                                "LowerCase",
+                                "UpperCase",
+                                "TitleWord",
+                                "TitleSentence",
+                                "ToggleCase",
+                                "HalfWidth",
+                                "FullWidth"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Range",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "ApplyParagraphFormatting"
+                        },
+                        "Range": {
+                          "description": "The range to apply the command",
+                          "type": "object",
+                          "required": [
+                            "$type"
+                          ],
+                          "anyOf": [
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Document"
+                                }
+                              },
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Selection"
+                                }
+                              },
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Paragraph"
+                                }
+                              },
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "FirstParagraph"
+                                }
+                              },
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "LastParagraph"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "Alignment": {
+                              "description": "Paragraph alignment (Left, Centre, Right, Justified)",
+                              "enum": [
+                                "Left",
+                                "Center",
+                                "Right",
+                                "Justified"
+                              ],
+                              "type": "string"
+                            },
+                            "BaseLineAlignment": {
+                              "description": "Vertical alignment of text on a line (Top, Centre, Baseline, FarEast50)",
+                              "enum": [
+                                "Top",
+                                "Center",
+                                "Baseline",
+                                "FarEast50"
+                              ],
+                              "type": "string"
+                            },
+                            "CharacterUnitFirstLineIndent": {
+                              "description": "First line indent in character units (for East Asian typography)",
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "CharacterUnitLeftIndent": {
+                              "description": "Left indent in character units (for East Asian typography)",
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "CharacterUnitRightIndent": {
+                              "description": "Right indent in character units (for East Asian typography)",
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "FirstLineIndent": {
+                              "description": "First line indent in points (positive=indent, negative=hanging indent)",
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "KeepTogether": {
+                              "description": "Keeps all lines of paragraph on same page (True, False, Undefined)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Undefined"
+                              ],
+                              "type": "string"
+                            },
+                            "KeepWithNext": {
+                              "description": "Keeps paragraph with following paragraph on same page (True, False, Undefined)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Undefined"
+                              ],
+                              "type": "string"
+                            },
+                            "LeftIndent": {
+                              "description": "Left indent in points",
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "LineSpacing": {
+                              "description": "Line spacing value; interpretation depends on LineSpacingRule",
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "LineSpacingRule": {
+                              "description": "How LineSpacing is interpreted (Single, AtLeast, Exactly, Multiple, etc.)",
+                              "enum": [
+                                "Single",
+                                "OnePointFive",
+                                "Double",
+                                "AtLeast",
+                                "Exactly",
+                                "Multiple"
+                              ],
+                              "type": "string"
+                            },
+                            "LineUnitAfter": {
+                              "description": "Space after paragraph in line units (for East Asian typography)",
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "LineUnitBefore": {
+                              "description": "Space before paragraph in line units (for East Asian typography)",
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "MirrorIndents": {
+                              "description": "Swaps left/right indents on facing pages (True, False, Undefined)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Undefined"
+                              ],
+                              "type": "string"
+                            },
+                            "NoLineNumber": {
+                              "description": "Suppresses line numbers for this paragraph (True, False, Undefined)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Undefined"
+                              ],
+                              "type": "string"
+                            },
+                            "OutlineLevel": {
+                              "description": "Outline level for navigation and TOC (Level1-Level9, BodyText)",
+                              "enum": [
+                                "Level1",
+                                "Level2",
+                                "Level3",
+                                "Level4",
+                                "Level5",
+                                "Level6",
+                                "Level7",
+                                "Level8",
+                                "Level9",
+                                "BodyText"
+                              ],
+                              "type": "string"
+                            },
+                            "PageBreakBefore": {
+                              "description": "Forces page break before this paragraph (True, False, Undefined)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Undefined"
+                              ],
+                              "type": "string"
+                            },
+                            "RightIndent": {
+                              "description": "Right indent in points",
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "SpaceAfter": {
+                              "description": "Space after paragraph in points",
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "SpaceBefore": {
+                              "description": "Space before paragraph in points",
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "WidowControl": {
+                              "description": "Prevents single lines at top/bottom of pages (True, False, Undefined)",
+                              "enum": [
+                                "False",
+                                "True",
+                                "Undefined"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Range",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "ApplyStyle"
+                        },
+                        "Range": {
+                          "description": "The range to apply the command",
+                          "type": "object",
+                          "required": [
+                            "$type"
+                          ],
+                          "anyOf": [
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Document"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Selection"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Paragraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "FirstParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "LastParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "StyleName": {
+                              "description": "Name of the Word style to apply (e.g., \u0027Heading 1\u0027, \u0027Normal\u0027, custom style name)",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Range",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "ClearFontFormatting"
+                        },
+                        "Range": {
+                          "description": "The range to apply the command",
+                          "type": "object",
+                          "required": [
+                            "$type"
+                          ],
+                          "anyOf": [
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Document"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Selection"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Paragraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "FirstParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "LastParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Range"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "ClearParagraphFormatting"
+                        },
+                        "Range": {
+                          "description": "The range to apply the command",
+                          "type": "object",
+                          "required": [
+                            "$type"
+                          ],
+                          "anyOf": [
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Document"
+                                }
+                              },
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Selection"
+                                }
+                              },
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Paragraph"
+                                }
+                              },
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "FirstParagraph"
+                                }
+                              },
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "LastParagraph"
+                                }
+                              },
+                              "additionalProperties": false
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Range"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "DeleteCharacters"
+                        },
+                        "Range": {
+                          "description": "The range to apply the command",
+                          "type": "object",
+                          "required": [
+                            "$type"
+                          ],
+                          "anyOf": [
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Document"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "Start",
+                                    "End",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Selection"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "Start",
+                                    "End",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Paragraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "Start",
+                                    "End",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "FirstParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "Start",
+                                    "End",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "LastParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "Start",
+                                    "End",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "Characters": {
+                              "description": "Characters to remove from the selection (e.g., [\u0027\\t\u0027, \u0027\\n\u0027] removes tabs and newlines)",
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 1
+                              }
+                            }
+                          },
+                          "required": [
+                            "Characters"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Range",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "DeleteCustomProperty"
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "Name": {
+                              "description": "Name of the document custom property to delete",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "Name"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "EnforceCase"
+                        },
+                        "Range": {
+                          "description": "The range to apply the command",
+                          "type": "object",
+                          "required": [
+                            "$type"
+                          ],
+                          "anyOf": [
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Document"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Selection"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Paragraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "FirstParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "LastParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "All",
+                                    "FirstWord",
+                                    "LastWord"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "Words": {
+                              "description": "Words with exact casing to enforce (e.g., [\u0027iPhone\u0027, \u0027macOS\u0027, \u0027McDonald\u0027s\u0027])",
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "IgnoreFirstWord": {
+                              "description": "Skips the first word of each sentence when enforcing case",
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "Words"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Range",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "InsertField"
+                        },
+                        "Range": {
+                          "description": "The range to apply the command",
+                          "type": "object",
+                          "required": [
+                            "$type"
+                          ],
+                          "anyOf": [
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Document"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "Start",
+                                    "End"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Selection"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "Start",
+                                    "End"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Paragraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "Start",
+                                    "End"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "FirstParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "Start",
+                                    "End"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "LastParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "Start",
+                                    "End"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "FieldText": {
+                              "description": "Word field code to insert (e.g., \u0027DATE \\\\@ \u0022MMMM d, yyyy\u0022\u0027, \u0027DOCPROPERTY Title\u0027)",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "FieldText"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Range",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "InsertText"
+                        },
+                        "Range": {
+                          "description": "The range to apply the command",
+                          "type": "object",
+                          "required": [
+                            "$type"
+                          ],
+                          "anyOf": [
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Document"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "Start",
+                                    "End"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Selection"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "Start",
+                                    "End"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "Paragraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "Start",
+                                    "End"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "FirstParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "Start",
+                                    "End"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "properties": {
+                                "$type": {
+                                  "const": "LastParagraph"
+                                },
+                                "SubRange": {
+                                  "enum": [
+                                    "Start",
+                                    "End"
+                                  ],
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "SubRange"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "Text": {
+                              "description": "Text to insert at the current selection",
+                              "type": "string"
+                            },
+                            "PreventDuplicates": {
+                              "description": "Skips insertion if identical text already exists at the selection",
+                              "type": "boolean"
+                            },
+                            "AfterInsertion": {
+                              "description": "Controls cursor placement after text is inserted",
+                              "enum": [
+                                "None",
+                                "MoveCursorToEnd",
+                                "MoveCursorToStart",
+                                "SelectInsertedText"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "Text"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Range",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "RunMacro"
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "MacroName": {
+                              "description": "Name of macro to run (can include template.module.macro)",
+                              "type": "string"
+                            },
+                            "Parameters": {
+                              "description": "Optional parameters to pass to the macro (max 30, supports string/number/boolean/null)",
+                              "type": "array"
+                            }
+                          },
+                          "required": [
+                            "MacroName"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "SelectElement"
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "Direction": {
+                              "description": "Direction to select the element",
+                              "enum": [
+                                "Forward",
+                                "Backward"
+                              ],
+                              "type": "string"
+                            },
+                            "Element": {
+                              "description": "Element to select",
+                              "enum": [
+                                "DelimiterPair",
+                                "ContentControl"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "Direction",
+                            "Element"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "SetCustomProperty"
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "Name": {
+                              "description": "Name of the document custom property to set",
+                              "type": "string"
+                            },
+                            "Value": {
+                              "description": "Value to assign to the custom property",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "Name",
+                            "Value"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "UpdateFieldCodes"
+                        },
+                        "Options": {
+                          "description": "Options for field code updates, including per-template settings",
+                          "type": "object",
+                          "properties": {
+                            "Template": {
+                              "description": "Per-template or glob-pattern options keyed by template selector (e.g., Legal.dotx, *.dotx, *.*)",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "Pattern": {
+                                    "type": "string"
+                                  },
+                                  "Options": {
+                                    "type": "object",
+                                    "properties": {
+                                      "StoryGroups": {
+                                        "description": "Story groups to update (e.g., Body, Headers, Footers, TOCs). If omitted, updates all",
+                                        "type": "array",
+                                        "items": {
+                                          "enum": [
+                                            "Body",
+                                            "Headers",
+                                            "Footers",
+                                            "Footnotes",
+                                            "Endnotes",
+                                            "Comments",
+                                            "TextBoxes",
+                                            "TOCs"
+                                          ],
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "$type"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "Mappings": {
+          "description": "Maps ribbon button IDs to script definitions with visibility and enabled rules",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "Script": {
+                "description": "Name of the script to execute when this mapping triggers",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "EnabledWhen": {
+                "description": "Rules workflow determining when this button is enabled (default: \u0027Always\u0027)",
+                "type": "string"
+              },
+              "VisibleWhen": {
+                "description": "Rules workflow determining when this button is visible (default: \u0027Always\u0027)",
+                "type": "string"
+              },
+              "OnEvents": {
+                "description": "List of application events that should automatically trigger this script",
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "DocumentCreatedFromStarterDocument",
+                    "DocumentCreatedFromTemplate",
+                    "CustomPropertyDeleted",
+                    "CustomPropertySet",
+                    "CustomPropertiesModified",
+                    "DefaultTemplateChanged",
+                    "TemplateAttached",
+                    "SnippetInserted"
+                  ],
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "SquareBracketsOptions": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Delimiter": {
+          "description": "Delimiter characters used to identify pairs (e.g., \u0027[\u0027 and \u0027]\u0027).",
+          "type": "object",
+          "properties": {
+            "OpenDelimiter": {
+              "type": "string"
+            },
+            "CloseDelimiter": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "Blob": {
+          "description": "Text or glyph to insert. For Wingdings, set to the character that maps to the desired symbol (e.g., \u0027l\u0027 for a filled circle).",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "Text": {
+              "description": "Insert blob string.",
+              "type": "string"
+            },
+            "Font": {
+              "description": "Font to apply when inserting the blob (e.g., \u0027Wingdings\u0027).",
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "description": "Font family name to apply (e.g., \u0027Wingdings\u0027)",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "Size": {
+                  "description": "Font size in points",
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "AllCaps": {
+                  "description": "Formats text in ALL CAPITALS (True, False, Toggle)",
+                  "enum": [
+                    "False",
+                    "True",
+                    "Toggle"
+                  ],
+                  "type": "string"
+                },
+                "Bold": {
+                  "description": "Applies bold formatting (True, False, Toggle)",
+                  "enum": [
+                    "False",
+                    "True",
+                    "Toggle"
+                  ],
+                  "type": "string"
+                },
+                "Colour": {
+                  "description": "Font colour as hex RGB (e.g., \u0027#FF0000\u0027 for red) or named colour",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "ColourIndex": {
+                  "description": "Font colour as Word colour index (1-16, where 1=Black, 2=Blue, etc.)",
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "DoubleStrikeThrough": {
+                  "description": "Applies double strikethrough formatting (True, False, Toggle)",
+                  "enum": [
+                    "False",
+                    "True",
+                    "Toggle"
+                  ],
+                  "type": "string"
+                },
+                "Hidden": {
+                  "description": "Marks text as hidden (True, False, Toggle)",
+                  "enum": [
+                    "False",
+                    "True",
+                    "Toggle"
+                  ],
+                  "type": "string"
+                },
+                "Italic": {
+                  "description": "Applies italic formatting (True, False, Toggle)",
+                  "enum": [
+                    "False",
+                    "True",
+                    "Toggle"
+                  ],
+                  "type": "string"
+                },
+                "Position": {
+                  "description": "Vertical position offset in points (positive=raised, negative=lowered)",
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "SmallCaps": {
+                  "description": "Formats text in Small Caps (True, False, Toggle)",
+                  "enum": [
+                    "False",
+                    "True",
+                    "Toggle"
+                  ],
+                  "type": "string"
+                },
+                "StrikeThrough": {
+                  "description": "Applies strikethrough formatting (True, False, Toggle)",
+                  "enum": [
+                    "False",
+                    "True",
+                    "Toggle"
+                  ],
+                  "type": "string"
+                },
+                "Subscript": {
+                  "description": "Applies subscript formatting (True, False, Toggle)",
+                  "enum": [
+                    "False",
+                    "True",
+                    "Toggle"
+                  ],
+                  "type": "string"
+                },
+                "Superscript": {
+                  "description": "Applies superscript formatting (True, False, Toggle)",
+                  "enum": [
+                    "False",
+                    "True",
+                    "Toggle"
+                  ],
+                  "type": "string"
+                },
+                "Underline": {
+                  "description": "Underline style (None, Single, Double, Dotted, Wavy, etc.)",
+                  "enum": [
+                    "None",
+                    "Single",
+                    "Words",
+                    "Double",
+                    "Dotted",
+                    "Thick",
+                    "Dash",
+                    "DotDash",
+                    "DotDotDash",
+                    "Wavy",
+                    "DottedHeavy",
+                    "DashHeavy",
+                    "DotDashHeavy",
+                    "DotDotDashHeavy",
+                    "WavyHeavy",
+                    "DashLong",
+                    "WavyDouble",
+                    "DashLongHeavy"
+                  ],
+                  "type": "string"
+                },
+                "CharacterCase": {
+                  "description": "Changes text case (LowerCase, UpperCase, TitleWord, TitleSentence, ToggleCase, etc.)",
+                  "enum": [
+                    "NextCase",
+                    "LowerCase",
+                    "UpperCase",
+                    "TitleWord",
+                    "TitleSentence",
+                    "ToggleCase",
+                    "HalfWidth",
+                    "FullWidth"
+                  ],
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kutana-brochet.github.io/schemas/7.4/CoreConfiguration.schema.json",
+  "title": "CoreConfiguration"
+}
