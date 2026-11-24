@@ -1217,6 +1217,9 @@
                 "type": "array",
                 "items": {
                   "type": "object",
+                  "required": [
+                    "$type"
+                  ],
                   "anyOf": [
                     {
                       "properties": {
@@ -1489,7 +1492,6 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Range",
                         "Options"
                       ],
@@ -1736,7 +1738,6 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Range",
                         "Options"
                       ],
@@ -1866,7 +1867,6 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Range",
                         "Options"
                       ],
@@ -1983,7 +1983,6 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Range"
                       ],
                       "additionalProperties": false
@@ -2044,7 +2043,6 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Range"
                       ],
                       "additionalProperties": false
@@ -2188,7 +2186,6 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Range",
                         "Options"
                       ],
@@ -2214,7 +2211,6 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Options"
                       ],
                       "additionalProperties": false
@@ -2350,8 +2346,44 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Range",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "HouseStylePaste"
+                        },
+                        "Options": {
+                          "type": "object",
+                          "properties": {
+                            "HouseStyle": {
+                              "description": "The house style to paste in; omit to use the attached template\u0027s",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "Report": {
+                              "description": "Off: no report. Offer: write it and ask to open it when items need review. WriteOnly: write it, never ask.",
+                              "enum": [
+                                "Off",
+                                "Offer",
+                                "WriteOnly"
+                              ],
+                              "type": "string"
+                            },
+                            "Comments": {
+                              "description": "Add a review comment to each pasted paragraph that needs review; on unless false",
+                              "type": "boolean"
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
                         "Options"
                       ],
                       "additionalProperties": false
@@ -2475,8 +2507,134 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Range",
+                        "Options"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "InsertSection"
+                        },
+                        "Options": {
+                          "description": "Options for inserting a new section",
+                          "type": "object",
+                          "properties": {
+                            "Orientation": {
+                              "description": "Orientation of the new section (Portrait or Landscape)",
+                              "type": "string",
+                              "enum": [
+                                "Portrait",
+                                "Landscape"
+                              ]
+                            },
+                            "Conditions": {
+                              "description": "Conditions tried in order; the first covering the current paper size applies",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "Sources": {
+                                    "description": "Paper sizes of the current section this condition applies to",
+                                    "type": "array"
+                                  },
+                                  "Target": {
+                                    "description": "Paper size of the new section",
+                                    "type": "string",
+                                    "enum": [
+                                      "10x14",
+                                      "11x17",
+                                      "Letter",
+                                      "LetterSmall",
+                                      "Legal",
+                                      "Executive",
+                                      "A3",
+                                      "A4",
+                                      "A4Small",
+                                      "A5",
+                                      "B4",
+                                      "B5",
+                                      "CSheet",
+                                      "DSheet",
+                                      "ESheet",
+                                      "FanfoldLegalGerman",
+                                      "FanfoldStdGerman",
+                                      "FanfoldUS",
+                                      "Folio",
+                                      "Ledger",
+                                      "Note",
+                                      "Quarto",
+                                      "Statement",
+                                      "Tabloid",
+                                      "Envelope9",
+                                      "Envelope10",
+                                      "Envelope11",
+                                      "Envelope12",
+                                      "Envelope14",
+                                      "EnvelopeB4",
+                                      "EnvelopeB5",
+                                      "EnvelopeB6",
+                                      "EnvelopeC3",
+                                      "EnvelopeC4",
+                                      "EnvelopeC5",
+                                      "EnvelopeC6",
+                                      "EnvelopeC65",
+                                      "EnvelopeDL",
+                                      "EnvelopeItaly",
+                                      "EnvelopeMonarch",
+                                      "EnvelopePersonal"
+                                    ]
+                                  },
+                                  "Margins": {
+                                    "description": "Margins of the new section; omit to keep the current section\u0027s margins",
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "properties": {
+                                      "Top": {
+                                        "description": "Top margin in centimetres",
+                                        "type": "number"
+                                      },
+                                      "Bottom": {
+                                        "description": "Bottom margin in centimetres",
+                                        "type": "number"
+                                      },
+                                      "Left": {
+                                        "description": "Left margin in centimetres",
+                                        "type": "number"
+                                      },
+                                      "Right": {
+                                        "description": "Right margin in centimetres",
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "Top",
+                                      "Bottom",
+                                      "Left",
+                                      "Right"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "Sources",
+                                  "Target"
+                                ],
+                                "additionalProperties": false
+                              }
+                            }
+                          },
+                          "required": [
+                            "Orientation",
+                            "Conditions"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
                         "Options"
                       ],
                       "additionalProperties": false
@@ -2614,7 +2772,6 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Range",
                         "Options"
                       ],
@@ -2644,7 +2801,6 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Options"
                       ],
                       "additionalProperties": false
@@ -2681,9 +2837,6 @@
                           "additionalProperties": false
                         }
                       },
-                      "required": [
-                        "$type"
-                      ],
                       "additionalProperties": false
                     },
                     {
@@ -2711,9 +2864,104 @@
                         }
                       },
                       "required": [
-                        "$type",
                         "Options"
                       ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "properties": {
+                        "$type": {
+                          "const": "ToggleSectionOrientation"
+                        },
+                        "Options": {
+                          "description": "Margins to apply when the section is turned, by paper size",
+                          "type": "object",
+                          "properties": {
+                            "Conditions": {
+                              "description": "Conditions tried in order; the first covering the section\u0027s paper size sets its margins",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "Sources": {
+                                    "description": "Paper sizes of the section this condition applies to",
+                                    "type": "array"
+                                  },
+                                  "Portrait": {
+                                    "description": "Margins when the section turns portrait; omit to keep its margins",
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "properties": {
+                                      "Top": {
+                                        "description": "Top margin in centimetres",
+                                        "type": "number"
+                                      },
+                                      "Bottom": {
+                                        "description": "Bottom margin in centimetres",
+                                        "type": "number"
+                                      },
+                                      "Left": {
+                                        "description": "Left margin in centimetres",
+                                        "type": "number"
+                                      },
+                                      "Right": {
+                                        "description": "Right margin in centimetres",
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "Top",
+                                      "Bottom",
+                                      "Left",
+                                      "Right"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "Landscape": {
+                                    "description": "Margins when the section turns landscape; omit to keep its margins",
+                                    "type": [
+                                      "object",
+                                      "null"
+                                    ],
+                                    "properties": {
+                                      "Top": {
+                                        "description": "Top margin in centimetres",
+                                        "type": "number"
+                                      },
+                                      "Bottom": {
+                                        "description": "Bottom margin in centimetres",
+                                        "type": "number"
+                                      },
+                                      "Left": {
+                                        "description": "Left margin in centimetres",
+                                        "type": "number"
+                                      },
+                                      "Right": {
+                                        "description": "Right margin in centimetres",
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "Top",
+                                      "Bottom",
+                                      "Left",
+                                      "Right"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "Sources"
+                                ],
+                                "additionalProperties": false
+                              }
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
                       "additionalProperties": false
                     },
                     {
@@ -2765,12 +3013,6 @@
                           "additionalProperties": false
                         }
                       },
-                      "required": [
-                        "$type"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
                       "additionalProperties": false
                     }
                   ]
@@ -2810,7 +3052,6 @@
                     "DocumentCreatedFromTemplate",
                     "CustomPropertyDeleted",
                     "CustomPropertySet",
-                    "CustomPropertiesModified",
                     "DefaultTemplateChanged",
                     "TemplateAttached",
                     "SnippetInserted"

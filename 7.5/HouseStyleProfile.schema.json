@@ -1,0 +1,522 @@
+{
+  "description": "A firm\u0027s house style: its role \u2192 style map, container-title layouts and definition convention.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "extends": {
+      "description": "The house style this one varies; it states only what differs.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "templates": {
+      "description": "The template names this house style serves, as globs (\u0022PM*.dotx\u0022).",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "styleMap": {
+      "description": "Role name \u2192 the firm\u0027s style; \u0022{level}\u0022 in a key spans a family, and in the style names each level\u0027s style.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      },
+      "propertyNames": {
+        "enum": [
+          "Cover Document Title",
+          "Cover Date",
+          "Cover Party Name",
+          "Cover Party Role",
+          "Cover Text",
+          "Cover Document Description",
+          "TOC Heading",
+          "TOC Sub Heading",
+          "TOC 1",
+          "TOC 2",
+          "TOC 3",
+          "TOC 4",
+          "TOC 5",
+          "TOC 6",
+          "TOC 7",
+          "TOC 8",
+          "TOC 9",
+          "Intro Heading",
+          "Parties Heading",
+          "Background Heading",
+          "Parties 1",
+          "Parties 2",
+          "Parties 3",
+          "Parties 4",
+          "Parties 5",
+          "Parties 6",
+          "Parties 7",
+          "Parties 8",
+          "Parties 9",
+          "Background 1",
+          "Background 2",
+          "Background 3",
+          "Background 4",
+          "Background 5",
+          "Background 6",
+          "Background 7",
+          "Background 8",
+          "Background 9",
+          "Level 1 Heading",
+          "Level 2 Heading",
+          "Level 3 Heading",
+          "Level 4 Heading",
+          "Level 5 Heading",
+          "Level 6 Heading",
+          "Level 7 Heading",
+          "Level 8 Heading",
+          "Level 9 Heading",
+          "Level 1 Number",
+          "Level 2 Number",
+          "Level 3 Number",
+          "Level 4 Number",
+          "Level 5 Number",
+          "Level 6 Number",
+          "Level 7 Number",
+          "Level 8 Number",
+          "Level 9 Number",
+          "Body Text",
+          "Body Text 1",
+          "Body Text 2",
+          "Body Text 3",
+          "Body Text 4",
+          "Body Text 5",
+          "Body Text 6",
+          "Body Text 7",
+          "Body Text 8",
+          "Body Text 9",
+          "Definition",
+          "Definition Term",
+          "Definition 1",
+          "Definition 2",
+          "Definition 3",
+          "Definition 4",
+          "Definition 5",
+          "Definition 6",
+          "Definition 7",
+          "Definition 8",
+          "Definition 9",
+          "List Item 1",
+          "List Item 2",
+          "List Item 3",
+          "List Item 4",
+          "List Item 5",
+          "List Item 6",
+          "List Item 7",
+          "List Item 8",
+          "List Item 9",
+          "Section",
+          "Notes",
+          "Schedule",
+          "Sub Schedule",
+          "Part",
+          "Schedule 1 Heading",
+          "Schedule 2 Heading",
+          "Schedule 3 Heading",
+          "Schedule 4 Heading",
+          "Schedule 1 Number",
+          "Schedule 2 Number",
+          "Schedule 3 Number",
+          "Schedule 4 Number",
+          "Schedule 5 Number",
+          "Schedule 6 Number",
+          "Schedule 7 Number",
+          "Appendix",
+          "Appendix Part",
+          "Appendix 1 Heading",
+          "Appendix 2 Heading",
+          "Appendix 3 Heading",
+          "Appendix 4 Heading",
+          "Appendix 1 Number",
+          "Appendix 2 Number",
+          "Appendix 3 Number",
+          "Appendix 4 Number",
+          "Appendix 5 Number",
+          "Appendix 6 Number",
+          "Annex",
+          "Annex Part",
+          "Annex 1 Heading",
+          "Annex 2 Heading",
+          "Annex 3 Heading",
+          "Annex 4 Heading",
+          "Annex 1 Number",
+          "Annex 2 Number",
+          "Annex 3 Number",
+          "Annex 4 Number",
+          "Annex 5 Number",
+          "Annex 6 Number",
+          "Execution",
+          "TOC {level}",
+          "Parties {level}",
+          "Background {level}",
+          "Level {level} Heading",
+          "Level {level} Number",
+          "Body Text {level}",
+          "Definition {level}",
+          "List Item {level}",
+          "Schedule {level} Heading",
+          "Schedule {level} Number",
+          "Appendix {level} Heading",
+          "Appendix {level} Number",
+          "Annex {level} Heading",
+          "Annex {level} Number"
+        ]
+      }
+    },
+    "sourceStyleRoles": {
+      "description": "Source style name \u2192 the role it is mapped to; a source name maps to no role unless stated here.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "containerTitles": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "fallback": {
+          "description": "The layout of every container not named in byContainer.",
+          "type": "object",
+          "required": [
+            "kind"
+          ],
+          "anyOf": [
+            {
+              "description": "The title follows the identifier on its line.",
+              "properties": {
+                "kind": {
+                  "const": "sameLine"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "description": "The title sits below the identifier, softReturns soft returns down.",
+              "properties": {
+                "kind": {
+                  "const": "titleBelow"
+                },
+                "softReturns": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "softReturns"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "byContainer": {
+          "description": "Each container laid out differently from the fallback.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "Schedule": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "anyOf": [
+                {
+                  "description": "The title follows the identifier on its line.",
+                  "properties": {
+                    "kind": {
+                      "const": "sameLine"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "description": "The title sits below the identifier, softReturns soft returns down.",
+                  "properties": {
+                    "kind": {
+                      "const": "titleBelow"
+                    },
+                    "softReturns": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "softReturns"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "Sub Schedule": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "anyOf": [
+                {
+                  "description": "The title follows the identifier on its line.",
+                  "properties": {
+                    "kind": {
+                      "const": "sameLine"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "description": "The title sits below the identifier, softReturns soft returns down.",
+                  "properties": {
+                    "kind": {
+                      "const": "titleBelow"
+                    },
+                    "softReturns": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "softReturns"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "Part": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "anyOf": [
+                {
+                  "description": "The title follows the identifier on its line.",
+                  "properties": {
+                    "kind": {
+                      "const": "sameLine"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "description": "The title sits below the identifier, softReturns soft returns down.",
+                  "properties": {
+                    "kind": {
+                      "const": "titleBelow"
+                    },
+                    "softReturns": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "softReturns"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "Appendix": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "anyOf": [
+                {
+                  "description": "The title follows the identifier on its line.",
+                  "properties": {
+                    "kind": {
+                      "const": "sameLine"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "description": "The title sits below the identifier, softReturns soft returns down.",
+                  "properties": {
+                    "kind": {
+                      "const": "titleBelow"
+                    },
+                    "softReturns": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "softReturns"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "Annex": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "anyOf": [
+                {
+                  "description": "The title follows the identifier on its line.",
+                  "properties": {
+                    "kind": {
+                      "const": "sameLine"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "description": "The title sits below the identifier, softReturns soft returns down.",
+                  "properties": {
+                    "kind": {
+                      "const": "titleBelow"
+                    },
+                    "softReturns": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "softReturns"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "definitions": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "quoting": {
+          "description": "Whether the term carries quotes.",
+          "enum": [
+            "unquoted"
+          ]
+        },
+        "emphasis": {
+          "description": "The emphasis set on the term.",
+          "enum": [
+            "bold"
+          ]
+        },
+        "separator": {
+          "description": "What stands between the term and its meaning, piece by piece; [] for nothing.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "One piece of a separator.",
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "anyOf": [
+              {
+                "properties": {
+                  "kind": {
+                    "const": "tab"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "properties": {
+                  "kind": {
+                    "const": "softReturn"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "description": "Characters written as they stand, as \u0022 \u0022 or \u0022 means \u0022.",
+                "properties": {
+                  "kind": {
+                    "const": "text"
+                  },
+                  "characters": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "characters"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "quoting",
+        "emphasis",
+        "separator"
+      ],
+      "additionalProperties": false
+    },
+    "sectionBreaks": {
+      "description": "What a paste does with a section break mid-body: \u0022aggressiveStrip\u0022 (the default) removes it, \u0022faithfulWarn\u0022 keeps it and warns.",
+      "enum": [
+        "aggressiveStrip",
+        "faithfulWarn",
+        null
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "if": {
+    "required": [
+      "extends"
+    ],
+    "properties": {
+      "extends": {
+        "type": "string"
+      }
+    }
+  },
+  "else": {
+    "required": [
+      "styleMap",
+      "containerTitles",
+      "definitions"
+    ],
+    "properties": {
+      "styleMap": {
+        "type": "object"
+      },
+      "containerTitles": {
+        "type": "object",
+        "required": [
+          "fallback"
+        ]
+      },
+      "definitions": {
+        "type": "object"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kutana-brochet.github.io/schemas/7.5/HouseStyleProfile.schema.json",
+  "title": "HouseStyleProfile"
+}
